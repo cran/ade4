@@ -15,12 +15,17 @@ discrimin.coa(df, fac, scannf = TRUE, nf = 2)
   \item{nf}{if scannf FALSE, an integer indicating the number of kept axes}
 }
 \value{
-a list of class 'discrimin'. See \code{\link{discrimin}}
+a list of class \code{discrimin}. See \code{\link{discrimin}}
 }
 \references{
-Perriere, G.,Lobry,  J. R.  and Thioulouse J. (1996) Correspondence discriminant analysis: a multivariate method for comparing classes of protein and nucleic acid sequences. \emph{CABIOS}, \bold{12}, 519--524.\cr
+Perriere, G.,Lobry,  J. R.  and Thioulouse J. (1996) Correspondence discriminant analysis: a multivariate method for comparing 
+classes of protein and nucleic acid sequences. \emph{CABIOS}, \bold{12}, 519--524.\cr
 
-Perriere, G. and Thioulouse, J. (2002) Use of Correspondence Discriminant Analysis to predict the subcellular location of bacterial proteins. \emph{Computer Methods and Programs in Biomedicine}, in press.
+Perriere, G. and Thioulouse, J. (2003) Use of Correspondence Discriminant Analysis to predict the subcellular location of bacterial proteins. 
+\emph{Computer Methods and Programs in Biomedicine}, \bold{70}, 2, 99--105.
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(perthi02)

@@ -46,7 +46,7 @@ void MSTgraph (double *distances, int *nlig, int *ngmax, double *voisi)
     for (i=1; i<=N; i++) DM[i][i] = borne;
     
     for (numg=1; numg<=numgmax; numg++) {       
-        // Algorithm 422, Kevin & Whitney Comm. ACM 15, 273, 1972
+        /* Algorithm 422, Kevin & Whitney Comm. ACM 15, 273, 1972 */
         CST = 0.;
         NITP = N -1;
         KP = N;
@@ -384,6 +384,7 @@ void testprocuste(  int *npermut1,
     c1 = *c11;
     c2 = *c21;
 
+/*
     if (c1<=c2) {
         taballoc(&tabperm, lig, c1);
         taballoc(&init1, lig, c1);
@@ -396,7 +397,12 @@ void testprocuste(  int *npermut1,
         res=c1;
         c1=c2;
         c2=res;
-    }   
+    }
+*/   
+    taballoc(&tabperm, lig, c1);
+    taballoc(&init1, lig, c1);
+    taballoc(&init2, lig, c2);
+
     taballoc(&cov, c1, c2);
     taballoc(&w, c1, c1);
     vecalloc(&valpro,c1);

@@ -14,8 +14,9 @@ ktab.list.dudi(obj, rownames = NULL, colnames = NULL, tabnames = NULL)
   \item{tabnames}{the names of the arrays of the K-tables (otherwise the names of the \code{obj}  if they exist, or else "Ana1", "Ana2", \dots)}
 }
 \value{
-returns a list of class 'ktab'. See \code{\link{ktab}}
+returns a list of class \code{ktab}. See \code{\link{ktab}}
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(euro123)
 pca1 <- dudi.pca(euro123$in78, scale = FALSE, scann = FALSE)
