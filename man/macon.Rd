@@ -1,6 +1,6 @@
 \name{macon}
 \alias{macon}
-\docType{data}
+\non_function{}
 \title{Wine Tasting}
 \usage{data(macon)}
 \description{

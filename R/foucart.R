@@ -48,15 +48,15 @@
     fouc <- dudi.coa(tabm, scannf = scannf, nf = nf)
     fouc$call <- match.call()
     class(fouc) <- c("foucart", "coa", "dudi")
-    cooli <- suprow(fouc, X[[1]])$lisup
+    cooli <- suprow(fouc, X[[1]])
     for (k in 2:nblo) {
-        cooli <- rbind(cooli, suprow(fouc, X[[k]])$lisup)
+        cooli <- rbind(cooli, suprow(fouc, X[[k]]))
     }
     row.names(cooli) <- auxinames$row
     fouc$Tli <- cooli
-    cooco <- supcol(fouc, X[[1]])$cosup
+    cooco <- supcol(fouc, X[[1]])
     for (k in 2:nblo) {
-        cooco <- rbind(cooco, supcol(fouc, X[[k]])$cosup)
+        cooco <- rbind(cooco, supcol(fouc, X[[k]]))
     }
     row.names(cooco) <- auxinames$col
     fouc$Tco <- cooco

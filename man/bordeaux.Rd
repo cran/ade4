@@ -1,6 +1,6 @@
 \name{bordeaux}
 \alias{bordeaux}
-\docType{data}
+\non_function{}
 \title{Wine Tasting}
 \description{
 The \code{bordeaux} data frame gives the opinions of 200 judges in a blind tasting of five different types of claret 
@@ -8,12 +8,17 @@ The \code{bordeaux} data frame gives the opinions of 200 judges in a blind tasti
 }
 \usage{data(bordeaux)}
 \format{
-  This data frame has 5 rows (the wines) and 4 columns (the judgements) divided in excellent,
-  good, mediocre and boring.
+  This data frame has 5 rows (the wines) and 4 columns (the judgements).
+    \describe{
+    \item{excellent}{a numeric vector}
+    \item{good}{a numeric vector}
+    \item{mediocre}{a numeric vector}
+    \item{boring}{a numeric vector}
   }
 }
 \source{
- van Rijckevorsel, J. (1987) \emph{The application of fuzzy coding and horseshoes in multiple correspondence analysis}.
+ van Rijckevorsel, J. (1987)\cr
+ The application of fuzzy coding and hoerseshoes in multiple correspondence analysis.\cr
  DSWO Press, Leiden (p. 32)
 }
 \examples{

@@ -1,6 +1,6 @@
 \name{worksurv}
 \alias{worksurv}
-\docType{data}
+\non_function{}
 \title{French Worker Survey (1970)}
 \description{
 The \code{worksurv} data frame gives 319 response items and 4 questions 
@@ -9,7 +9,7 @@ providing from a French Worker Survey.
 \usage{data(worksurv)}
 \format{
   This data frame contains the following columns:
-  \enumerate{
+  \describe{
     \item{pro}{Professional elections. In professional elections in your firm, would you rather vote for a list supported by?
    \code{CGT}
       \code{CFDT}
@@ -52,13 +52,13 @@ providing from a French Worker Survey.
 The data frame \code{worksurv} has the attribute 'counts' giving the number of responses for each item.
 }
 \source{
-Rouanet, H. and Le Roux, B. (1993) 
+Rouanet, H. and Le Roux, B. (1993)\cr
 \emph{Analyse des données multidimensionnelles}. Dunod, Paris.
 }
 \references{
-Le Roux, B. and Rouanet, H.  (1997) 
-Interpreting axes in multiple correspondence analysis: method of the contributions of points and deviation. 
-Pages 197-220 in B. J. and M. Greenacre, editors. 
+Le Roux, B. and Rouanet, H.  (1997)\cr
+Interpreting axes in multiple correspondence analysis: method of the contributions of points and deviation.\cr
+Pages 197-220 in B. J. and M. Greenacre, editors.\cr
 \emph{Visualization of categorical data}, Acamedic Press, London.
 }
 \examples{
@@ -68,5 +68,6 @@ acm1 <- dudi.acm(worksurv, row.w = attr(worksurv,"counts"),
 par(mfrow = c(2,2))
 apply(worksurv,2, function(x) s.class(acm1$li, factor(x),
     attr(worksurv, 'counts')))
+par(mfrow = c(1,1))
 }
 \keyword{datasets}

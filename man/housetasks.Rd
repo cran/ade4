@@ -1,6 +1,6 @@
 \name{housetasks}
 \alias{housetasks}
-\docType{data}
+\non_function{}
 \title{Contingency Table}
 \description{
 The \code{housetasks} data frame gives 13 housetasks and their repartition in the couple. 
@@ -11,8 +11,8 @@ The \code{housetasks} data frame gives 13 housetasks and their repartition in th
   Each column is a numeric vector. 
 }
 \source{
-Kroonenberg, P. M. and Lombardo, R. (1999)
-Nonsymmetric correspondence analysis: a tool for analysing contingency tables with a dependence structure.
+Kroonenberg, P. M. and Lombardo, R. (1999)\cr
+Nonsymmetric correspondence analysis: a tool for analysing contingency tables with a dependence structure.\cr
 \emph{Multivariate Behavioral Research}, \bold{34}, 367--396
 }
 \examples{

@@ -1,6 +1,6 @@
 \name{seconde}
 \alias{seconde}
-\docType{data}
+\non_function{}
 \title{Students and  Subjects}
 \description{
 The \code{seconde} data frame gives the marks of 22 students for 8 subjects. 
@@ -8,14 +8,15 @@ The \code{seconde} data frame gives the marks of 22 students for 8 subjects.
 \usage{data(seconde)}
 \format{
   This data frame (22,8) contains the following columns:
-- HGEO: History and Geography
-- FRAN: French literature
-- PHYS: Physics
-- MATH: Mathematics
-- BIOL: Biology
-- ECON: Economy
-- ANGL: English language
-- ESPA: Spanish language
+  \describe{
+    \item{HGEO}{for History and Geography}
+    \item{FRAN}{for French literature}
+    \item{PHYS}{for Physics}
+    \item{MATH}{for Mathematics}
+    \item{BIOL}{for Biology}
+    \item{ECON}{for Economy}
+    \item{ANGL}{for English language}
+    \item{ESPA}{for Spanish language}
   }
 }
 \source{

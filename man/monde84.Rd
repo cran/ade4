@@ -1,6 +1,6 @@
 \name{monde84}
 \alias{monde84}
-\docType{data}
+\non_function{}
 \title{Global State of the World in 1984}
 \usage{data(monde84)}
 \description{
@@ -9,7 +9,7 @@ for 48 countries in the world.
 }
 \format{
   This data frame contains the following columns:
-  \enumerate{
+  \describe{
     \item{pib}{: Gross Domestic Product}
     \item{croipop}{: Growth of the population}
     \item{morta}{: Infant Mortality}
@@ -18,8 +18,8 @@ for 48 countries in the world.
   }
 }
 \source{
-Geze, F. and Coll., eds. (1984)
-\emph{L'état du Monde 1984 : annuaire économique et géopolitique mondial}. La Découverte, Paris.
+G"ze, F. and Coll., eds. (1984)\cr
+L'état du Monde 1984 : annuaire économique et géopolitique mondial. La Découverte, Paris.
 }
 \examples{
 data(monde84)

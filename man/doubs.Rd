@@ -1,24 +1,24 @@
 \name{doubs}
 \alias{doubs}
-\docType{data}
+\non_function{}
 \title{Pair of Ecological Tables}
 \description{
 This data set gives environmental variables, fish species and spatial coordinates for 30 sites. 
 }
 \usage{data(doubs)}
 \format{
-    \code{doubs} is a list with 3 components.
-    \describe{
-        \item{mil}{is a data frame with 30 rows (sites) and 11 environmental variables.}
-        \item{poi}{is a data frame with 30 rows (sites) and 27 fish species.}
-        \item{xy}{is a data frame with 30 rows (sites)  and 2 spatial coordinates.}
-    }
+	\code{doubs} is a list with 3 components.
+	\enumerate{
+		\item{mil}{is a data frame with 30 rows (sites) and 11 environmental variables.}
+		\item{poi}{is a data frame with 30 rows (sites) and 27 fish species.}
+		\item{xy}{is a data frame with 30 rows (sites)  and 2 spatial coordinates.}
+	}
 }
 \source{
- Verneaux, J. (1973) 
- \emph{Cours d'eau de Franche-Comté (Massif du Jura). 
- Recherches écologiques sur le réseau hydrographique du Doubs. Essai de biotypologie}. 
- Thèse d'état, Besançon. 1--257
+ Verneaux, J. (1973)\cr
+ Cours d'eau de Franche-Comté (Massif du Jura).\cr
+ Recherches écologiques sur le réseau hydrographique du Doubs. Essai de biotypologie.\cr
+ Th"se d'état, Besançon. 1--257
 }
 \examples{
 data(doubs)

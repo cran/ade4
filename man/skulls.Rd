@@ -1,6 +1,6 @@
 \name{skulls}
 \alias{skulls}
-\docType{data}
+\non_function{}
 \title{Morphometric Evolution}
 \description{
 This data set gives four anthropometric measures of 30 egyptean 

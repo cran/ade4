@@ -1,6 +1,6 @@
 \name{clementines}
 \alias{clementines}
-\docType{data}
+\non_function{}
 \title{Fruit Production}
 \description{
 The \code{clementines} is a data set containing the fruit production of 20 clementine trees during 15 years.
@@ -10,9 +10,9 @@ The \code{clementines} is a data set containing the fruit production of 20 cleme
 A data frame with 15 rows and 20 columns
 }
 \source{
-Tisné-Agostini, D. (1988) \emph{Description par analyse en composantes principales de l'évolution de 
-a production du clémentinier en association avec 12 types de porte-greffe}.
-Rapport technique, DEA Analyse et modélisation des systèmes biologiques, Université Lyon 1. 
+Tisné-Agostini, D. (1988)\cr
+Description par analyse en composantes principales de l'évolution de la production du clémentinier en association avec 12 types de porte-greffe.\cr
+Rapport technique, DEA Analyse et modélisation des syst"mes biologiques, Université Lyon 1. 
 }
 \examples{
 data(clementines)
@@ -42,6 +42,5 @@ for (i in 1:20) {
     for(j in 1:15) segments (j,y[j],j,z[j])
 }
 par(op)
-par(mfrow = c(1,1))
 }
 \keyword{datasets}

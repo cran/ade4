@@ -17,7 +17,6 @@ area.plot : grey levels areas mapping
 poly2area takes an object of class 'polylist' (spdep package, that contains the
 older package 'spweights') and returns a data frame of type area.\cr
 area2poly takes an object of type 'area' and returns a list of class 'polylist'\cr
-area2link takes an object of type 'area' and returns a proximity matrix which terms are given by the length of the frontier between two polygons. \cr
 area.util.contour and area.util.xy are two utility functions.
 }
 \usage{
@@ -26,15 +25,12 @@ nclasslegend = 8, clegend = 0.75, sub = "", csub = 1,
 possub = "topleft", cpoint = 0, label = NULL, clabel = 0, ...)
 
 area2poly(area)
-poly2area(polys)
-area2link(area)
-area.util.contour(area)
-area.util.xy(area)
+poly2area (polys)
 }
 \arguments{
 \item{x}{a data frame with three variables}
 \item{center}{a matrix with the same row number as x and two columns, the coordinates
-of polygone centers. If NULL, it is computed with \code{area.util.xy}}
+of polugone centers. If NULL, it is computed with \code{area.util.xy}}
 \item{values}{if not NULL, a vector which values will be mapped to grey levels.
 The values must be in the same order as the values in \code{unique(x.area[,1])}}
 \item{graph}{if not NULL, \code{graph} is a neighbouring graph (object of class "neig") between polygons}
@@ -44,11 +40,11 @@ The values must be in the same order as the values in \code{unique(x.area[,1])}}
 \item{sub}{a string of characters to be inserted as sub-title}
 \item{csub}{a character size for the sub-titles, used with \code{par("cex")*csub}}
 \item{possub}{a string of characters indicating the sub-titles position 
-("topleft", "topright", "bottomleft", "bottomright")}
+("topleft","topright","bottomleft","bottomright")}
 \item{cpoint}{if positive, a character size for drawing the polygons vertices (check up),
 used with \code{par("cex")*cpoint}}
 \item{label}{if not NULL, by default the levels of the factor that define the polygons
-are used as labels. To change this value, use label. These labels must be in the same order than
+are used as labels. To change this value, use label. These labels must be in the same order as
 \code{unique(x.area[,1])}}
 \item{clabel}{if not NULL, a character size for the polygon labels, used with \code{par("cex")*clabel}}
 \item{polys}{a list belonging to the 'polylist' class in the spdep package}
@@ -95,7 +91,7 @@ s.label(xy, area = irishdata$area, incl = FALSE, clab = 0,
 cpoi = 3, addax = FALSE, contour = w)
 s.label(xy, area = irishdata$area, incl = FALSE, 
 addax = FALSE, contour = w)
-if (require(maptools, quiet = TRUE) & require(spdep, quiet = TRUE)) {
+if (require(spdep, quiet = TRUE)) {
     data(columbus)
     par(mfrow = c(2,2))
     plot(col.gal.nb, coords, pch = 20, cex = 2)
@@ -111,10 +107,9 @@ if (require(maptools, quiet = TRUE) & require(spdep, quiet = TRUE)) {
     include.lowest = TRUE))
     colours <- c("salmon1", "salmon2", "red3", "brown", "black")
     plot(bbs[,1], bbs[,4], xlab = "", ylab = "", asp = 1, type = "n",
-    xlim = range(c(bbs[,1], bbs[,3])), ylim = range(c(bbs[,2],
-     bbs[,4])))
+    xlim = range(c(bbs[,1], bbs[,3])), ylim = range(c(bbs[,2], bbs[,4])))
     for (i in 1:length(polys)) 
-    polygon(polys[[i]], col = colours[unclass(crime.f[i])])
+    polygon(polys[[i]], col = colours[codes(crime.f[i])])
     legend(x = c(6, 7.75), y = c(13.5, 15), legend = levels(crime.f),
     fill = colours, cex = 0.7)
     title(sub = paste("Columbus OH: residential burglaries and ",
@@ -142,19 +137,7 @@ if (require(maptools, quiet = TRUE) & require(spdep, quiet = TRUE)) {
     plot(fr.nb, fr.xy, add = TRUE)
     s.label(fr.xy, clab = 0, area = fr.area, neig = fr.neig, 
     cneig = 1, cpo = 2, inc = FALSE, addax = FALSE)
-par(mfrow=c(1,1))
 }
-
-data(irishdata)
-w <- irishdata$area[c(42:53,18:25),]
-w
-w$poly <- as.factor(as.character(w$poly))
-area.plot(w, clab = 2)
- 
-points(68, 59, pch = 20, col = "red", cex = 3)
-points(68, 35, pch = 20, col = "red", cex = 3)
-points(45, 12, pch = 20, col = "red", cex = 3)
-sqrt((59-35)^2)+sqrt((68-45)^2+(35-12)^2)
-area2link(w)
+par(mfrow = c(1,1))
 }
 \keyword{hplot}

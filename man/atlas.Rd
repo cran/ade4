@@ -1,6 +1,6 @@
 \name{atlas}
 \alias{atlas}
-\docType{data}
+\non_function{}
 \title{Small Ecological Dataset}
 \description{
 \code{atlas} is a list containing three kinds of information about 23 regions : \cr
@@ -13,16 +13,16 @@ geographical coordinates, meteorology and bird presences.
     \item{area}{is a convex hull of 23 geographical regions. }
     \item{xy}{are the coordinates of the region centers and altitude (in meters). }
     \item{names.district}{is a vector of region names.}
-    \item{meteo}{is a data frame with 7 variables: min and max temperature in january; min and max temperature in july; january, july and total rainfalls.}
+    \item{meteo}{is a data frame with 7 variables (temperature and rainfall).}
     \item{birds}{is a data frame with 15 variables (species).}
     \item{alti}{is a data frame with 3 variables altitude in percentage [0,800], ]800,1500] and ]1500,5000].}
     }
 }
 \source{
-Extract from: \cr
-Lebreton, Ph. (1977) Les oiseaux nicheurs rhonalpins. \emph{Atlas ornithologique Rhone-Alpes}.
-Centre Ornithologique Rhone-Alpes, Université Lyon 1, 69621 Villeurbanne. 
-Direction de la Protection de la Nature, Ministère de la Qualité de la Vie. 1--354.
+Extract from \cr
+Lebreton, Ph. (1977) Les oiseaux nicheurs rhonalpins. \emph{Atlas ornithologique Rhone-Alpes}.\cr
+Centre Ornithologique Rhone-Alpes, Université Lyon 1, 69621 Villeurbanne.\cr
+Direction de la Protection de la Nature, Minist"re de la Qualité de la Vie. 1--354.
 }
 \examples{
 data(atlas)
@@ -50,5 +50,5 @@ s.value(atlas$xy, x, contour = atlas$contour, csi = 2,
     incl = FALSE, addax = FALSE)
 triangle.plot(atlas$alti)
 par(op)
-par(mfrow=c(1,1))}
+}
 \keyword{datasets}

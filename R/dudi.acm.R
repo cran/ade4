@@ -10,7 +10,7 @@
     if (any(row.w) < 0) 
         stop("row weight < 0")
     row.w <- row.w/sum(row.w)
-    col.w <- apply(X, 2, function(x) sum(x*row.w))
+    col.w <- drop(row.w %*% as.matrix(X))
     if (any(col.w) == 0) 
         stop("One category with null weight")
     X <- t(t(X)/col.w) - 1
@@ -85,17 +85,14 @@
 } 
 
 "acm.disjonctif" <- function (df) {
-    acm.util <- function(i) {
-        cl <- df[,i]
-        cha <- names(df)[i] 
+    acm.util <- function(cl) {
         n <- length(cl)
         cl <- as.factor(cl)
         x <- matrix(0, n, length(levels(cl)))
         x[(1:n) + n * (unclass(cl) - 1)] <- 1
-        dimnames(x) <- list(row.names(df), paste(cha,levels(cl),sep="."))
-        return(x)
+        dimnames(x) <- list(names(cl), levels(cl))
+        data.frame(x)
     }
-    G <- lapply(1:ncol(df), acm.util)
-    G <- data.frame (G, check.names = FALSE)
+    G <- data.frame(c(lapply(df, acm.util), check.names = FALSE))
     return(G)
 }
