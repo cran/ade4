@@ -189,14 +189,16 @@
     labels <- attr(x,"labels")
     print(labels)
     euclid <- attr(x,"euclid")
-    print1 <- function (x,size,labels,...) # from mva
+    print1 <- function (x,size,labels,...) 
+    # modif error sur CRAN DAILY 18/11:2004
+    # from print.dist de stats
     {
-        df <- matrix(NA, size, size,labels)
+        df <- matrix(0, size, size)
         df[row(df) > col(df)] <- x
-        #df <- df + t(df)
-        diag(df) <- 0
+        df <- format(df)
+        df[row(df) <= col(df)] <- ""
         dimnames(df) <- list(labels, labels)
-        print(df, na = "",...)
+        print(df, quote = FALSE, ...)
     }
     for (i in 1:n) {
         w <- x[[i]]
@@ -209,6 +211,7 @@
         }
     }
 }
+
 ######################## [.kdist #######################
 "[.kdist" <- function(object,selection) {
     retval <- unclass(object)[selection]
