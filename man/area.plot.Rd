@@ -59,6 +59,9 @@ are used as labels. To change this value, use label. These labels must be in the
 poly2area returns a data frame 'factor,x,y'. \cr
 area2poly returns a list of class \code{polylist}. \cr
 }
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+}
 \examples{
 data(elec88)
 par(mfrow = c(2,2))
@@ -68,7 +71,9 @@ area.plot(elec88$area, clab = 0.75)
 # elec88$neig <- neig(area = elec88$area)
 area.plot(elec88$area, graph = elec88$neig, 
 sub = "Neighbourhood graph", possub = "topright")
+par(mfrow = c(1,1))
 
+\dontrun{
 par(mfrow = c(3,3))
 for (i in 1:9) {
     x <- elec88$tab[,i]
@@ -102,7 +107,7 @@ if (require(maptools, quiet = TRUE) & require(spdep, quiet = TRUE)) {
     col.gal.neig <- nb2neig(col.gal.nb)
     s.label(data.frame(coords), neig = col.gal.neig,
     inc = FALSE, addax = FALSE, clab = 0, cneig = 1, cpo = 2)
-    plotpolys(polys,bbs)
+     plot.polylist(polys,bbs)
     area.plot(poly2area(polys))
 
     # 1
@@ -138,12 +143,12 @@ if (require(maptools, quiet = TRUE) & require(spdep, quiet = TRUE)) {
     # 4
     fr.poly <- area2poly(fr.area)
     fr.nb <- neig2nb(fr.neig)
-    plotpolys(fr.poly, attr(fr.poly, "region.rect"), border = "grey")
+    plot.polylist(fr.poly, attr(fr.poly, "region.rect"), border = "grey")
     plot(fr.nb, fr.xy, add = TRUE)
     s.label(fr.xy, clab = 0, area = fr.area, neig = fr.neig, 
     cneig = 1, cpo = 2, inc = FALSE, addax = FALSE)
 par(mfrow=c(1,1))
-}
+}}
 
 data(irishdata)
 w <- irishdata$area[c(42:53,18:25),]

@@ -40,7 +40,14 @@ Lebart, L., A. Morineau, and M. Piron. 1995. Statistique exploratoire multidimen
 \seealso{
     \code{\link{s.chull}}, \code{\link{s.class}}
 }
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+}
 \examples{
+data(ours)
+summary(ours)
+boxplot(dudi.acm(ours, scan = FALSE))
+\dontrun{
 data(banque)
 banque.acm <- dudi.acm(banque, scann = FALSE, nf = 3)
 scatter.dudi(banque.acm)
@@ -63,5 +70,5 @@ bdcoa <- dudi.coa(bd, scann = FALSE)
 plot(banque.acm$li[,1], bdcoa$li[,1]) 
 # mca and coa of disjonctive table. Lebart & coll. section 1.4
 plot(banque.acm$co[,1], dudi.coa(bd, scann = FALSE)$co[,1]) 
-}
+}}
 \keyword{multivariate}

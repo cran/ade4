@@ -125,6 +125,7 @@
         w <- strsplit(x.tre, "[(),;]")[[1]]
         w <- w[w != ""]
         leurre <- make.names(w, unique = TRUE)
+        leurre <- gsub("[.]","_", leurre, ext = FALSE)
         for (i in 1:length(w)) {
             old <- paste(w[i])
             x.tre <- sub(old, leurre[i], x.tre, ext = FALSE)
@@ -364,7 +365,7 @@
     w <- res$Wmat
     w <- w / sum(w)
     w <- bicenter.wt(w)
-    w <- La.eigen(w,sym=TRUE)
+    w <- eigen(w,sym=TRUE)
     res$Wvalues <- w$values[-nleaves]*nleaves
     w <- as.data.frame(w$vectors[,-nleaves]*sqrt(nleaves))
     row.names(w) <- leave.names
@@ -396,7 +397,7 @@
     # double centrage
     w <- bicenter.wt(w)
     # diagonalisation
-    eig <- La.eigen (w, sym = TRUE)
+    eig <- eigen (w, sym = TRUE)
     w0 <- abs(eig$values)/max(abs(eig$values))
     w0 <- which(w0<tol)
     if (length(w0)==0) stop ("abnormal output : no null eigenvalue")

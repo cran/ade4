@@ -18,9 +18,10 @@ frequencies of 51 bird species ; two factors (habitats and Mediterranean origin)
 \source{
 Blondel, J., Chessel, D., & Frochot, B. (1988)
 Bird species impoverishment, niche expansion, and density inflation in mediterranean island habitats.
-\emph{Ecology}, \bold{69}, 1899--1917
+\emph{Ecology}, \bold{69}, 1899--1917.
 }
 \examples{
+\dontrun{
 data(avimedi)
 par(mfrow = c(2,2))
 coa1 <- dudi.coa(avimedi$fau, scan = FALSE, nf = 3)
@@ -38,5 +39,5 @@ s.match(pcaiv1$li, pcaiv1$ls, clab = 0,
 s.class(pcaiv1$li, avimedi$plan$str:avimedi$plan$reg, 
     add.plot = TRUE)
 par(mfrow=c(1,1))
-}
+}}
 \keyword{datasets}

@@ -19,7 +19,7 @@
 \alias{ktab.util.addfactor<-}
 \title{the class of objects 'ktab' (K-tables)}
 \description{
-an object of class \code{ktab} is a list of data frame with the same row.names in common.\cr
+an object of class \code{ktab} is a list of data frames with the same row.names in common.\cr
 a list of class 'ktab' contains moreover :
  \item{blo}{: the vector of the numbers of columns for each table}
  \item{lw}{: the vector of the row weightings in common for all tables}
@@ -50,6 +50,7 @@ A 'ktab' object can be created with :\cr
     a list of \code{dudi} objects : \code{\link{ktab.list.dudi}}\cr
     a data.frame : \code{\link{ktab.data.frame}}\cr
     an object \code{within} : \code{\link{ktab.within}}\cr
+    a couple of \code{ktab}s : \code{\link{ktab.match2ktabs}}\cr
 }
 \value{
 \code{c.ktab} returns an object \code{ktab}. It concatenates K-tables with the same rows in common. \cr
@@ -61,6 +62,7 @@ A 'ktab' object can be created with :\cr
 \code{tab.names} returns the vector of the array names of a K-tables and allowes to modifie them.\cr
 \code{ktab.util.names} is a useful function.
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(friday87)
 wfri <- data.frame(scale(friday87$fau, scal = FALSE))

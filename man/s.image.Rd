@@ -6,10 +6,11 @@
 }
 \usage{
 s.image(dfxy, z, xax = 1, yax = 2, span = 0.5, xlim = NULL, ylim = NULL, 
-kgrid = 2, scale = TRUE, grid = FALSE, addaxes = FALSE, cgrid = 0, 
-include.origin = FALSE, origin = c(0, 0), sub = "", csub = 1, 
-possub = "topleft", neig = NULL, cneig = 1, image.plot = TRUE, 
-contour.plot = TRUE, pixmap = NULL, contour = NULL, area = NULL, add.plot = FALSE)
+  kgrid = 2, scale = TRUE, grid = FALSE, addaxes = FALSE, cgrid = 0, 
+  include.origin = FALSE, origin = c(0, 0), sub = "", csub = 1, 
+  possub = "topleft", neig = NULL, cneig = 1, image.plot = TRUE, 
+  contour.plot = TRUE, pixmap = NULL, contour = NULL, area = NULL, 
+  add.plot = FALSE)
 }
 \arguments{
   \item{dfxy}{ a data frame containing the two columns for the axes }
@@ -39,21 +40,11 @@ contour.plot = TRUE, pixmap = NULL, contour = NULL, area = NULL, add.plot = FALS
   \item{area}{ a data frame of class 'area' to plot a set of surface units in contour }
   \item{add.plot}{ if TRUE uses the current graphics window }
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
-data(t3012)
-    if (require(splancs, quiet = TRUE)){
-    par(mfrow = c(4,4))
-    for(k in 1:12)  s.image(t3012$xy,scalewt(t3012$temp[,k]), kgrid = 3)
-    par(mfrow = c(1,1))
-    
-data(elec88)
-    par(mfrow = c(4,4))
-    for(k in 1:12)
-    s.image(t3012$xy, scalewt(t3012$temp[,k]), kgrid = 3, sub = names(t3012$temp)[k],
-        csub = 3, area = elec88$area)
-    par(mfrow = c(1,1))
-        
-wxy=data.frame(expand.grid(-3:3,-3:3))
+
+if (require(splancs, quiet = TRUE)){
+   wxy=data.frame(expand.grid(-3:3,-3:3))
    names(wxy)=c("x","y")
    z=(1/sqrt(2))*exp(-(wxy$x^2+wxy$y^2)/2)
    par(mfrow=c(2,2))
@@ -61,6 +52,24 @@ wxy=data.frame(expand.grid(-3:3,-3:3))
    s.image(wxy,z)
    s.image(wxy,z,kgrid=5)
    s.image(wxy,z,kgrid=15)
+}
+
+\dontrun{
+data(t3012)
+if (require(splancs, quiet = TRUE)){
+    par(mfrow = c(4,4))
+    for(k in 1:12)  s.image(t3012$xy,scalewt(t3012$temp[,k]), kgrid = 3)
+    par(mfrow = c(1,1))
+}
+    
+data(elec88)
+if (require(splancs, quiet = TRUE)){
+   par(mfrow = c(4,4))
+   for(k in 1:12)
+   s.image(t3012$xy, scalewt(t3012$temp[,k]), kgrid = 3, sub = names(t3012$temp)[k],
+        csub = 3, area = elec88$area)
+    par(mfrow = c(1,1))
+}
 }
 }
 \keyword{hplot}

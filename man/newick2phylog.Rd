@@ -16,7 +16,7 @@ newick2phylog.addtools(res, tol = 1e-07)
 }
 \arguments{
   \item{x.tre}{a character string corresponding to a phylogenetic tree in Newick format\cr
-   (see \url{http://evolution.genetics.washington.edu/phylip/newicktree.html})}
+   (\url{http://evolution.genetics.washington.edu/phylip/newicktree.html})}
   \item{add.tools}{if TRUE, executes the function \code{newick2phylog.addtools}}
   \item{call}{call}
   \item{hc}{an object of class \code{hclust}}
@@ -32,7 +32,18 @@ Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr}
 }
 \seealso{\code{\link{phylog}}, \code{\link{plot.phylog}}, \code{\link{as.taxo}}}
 \examples{
+
+ w <- "((((,,),,(,)),),(,));"
+ w.phy <- newick2phylog(w)
+ print(w.phy)
+ plot(w.phy)
+
+\dontrun{
 # newick2phylog
+data(newick.eg)
+radial.phylog(newick2phylog(newick.eg[[8]], FALSE), cnode = 1,
+ clabel.l = 0.8)
+
 w <- NULL
 w[1] <- "(,((((((((((((((((,,(,(,))),),(((,(,)),(,)),),(,(,)),(,)),((((("
 w[2] <- ",(,)),),),(,)),((((,((,),((,(,)),))),(,)),(,(,),,((,),(,)),)),("
@@ -60,7 +71,6 @@ phy1 <- newick2phylog(w,FALSE)
 phy1
 radial.phylog(phy1, clabel.l = 0, circle = 2.2, clea = 0.5,
  cnod = 0.5)
-
 data(newick.eg)
 radial.phylog(newick2phylog(newick.eg[[8]], FALSE), cnode = 1,
  clabel.l = 0.8)
@@ -97,5 +107,5 @@ plot.phylog(taxo2phylog(as.taxo(taxo.eg[[1]][sample(15),])),
 par(mfrow=c(1,1))
 plot.phylog(taxo2phylog(as.taxo(taxo.eg[[2]])), clabel.l = 1,
  clabel.n = 0.75, f = 0.65)
-}
+}}
 \keyword{manip}
