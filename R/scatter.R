@@ -88,6 +88,7 @@
 "add.scatter.eig" <- function (w, nf, xax, yax, posi = c("bottom", "top", "none"),
     ratio = 1/4) 
 {
+    posi <- posi[1]
     if (posi == "none") 
         return(invisible())
     born <- par("usr")
@@ -307,7 +308,7 @@
         return(invisible())
     if (is.null(label)) 
         return(invisible())
-    if (label == "") 
+    if (any(label == "")) 
         return(invisible())
     for (i in 1:(length(x))) {
         cha <- as.character(label[i])
@@ -486,7 +487,7 @@
         return(invisible())
     if (is.na(cha)) 
         return(invisible())
-    if (cha == "") 
+    if (any(cha == ""))
         return(invisible())
     if (csub == 0) 
         return(invisible())
