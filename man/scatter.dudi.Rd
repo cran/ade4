@@ -5,7 +5,7 @@
 performs the scatter diagrams of objects of class \code{dudi}. 
 }
 \usage{
-scatter.dudi(x, xax = 1, yax = 2, clab.row = 0.75, clab.col = 1, 
+scatter.dudi(x, xax = 1, yax = 2, clab.row = 0.5, clab.col = 1, 
     permute = FALSE, posieig = "top", sub = NULL, \dots)
 }
 \arguments{
@@ -22,7 +22,6 @@ scatter.dudi(x, xax = 1, yax = 2, clab.row = 0.75, clab.col = 1,
 \details{
 \code{scatter.dudi} is a factorial map of individuals and the projection of the vectors of the canonical basis multiplied by a constante of rescaling. In the eigenvalues bar plot,the used axes for the plot are in black, the other kept axes in grey and the other in white.
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(deug)
 scatter(dd1 <- dudi.pca(deug$tab, scannf = FALSE, nf = 4), 

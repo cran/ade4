@@ -16,7 +16,7 @@ print.statis (x, \dots)
   \item{scannf}{a logical value indicating whether the number of kept axes for the compromise should be asked}
   \item{nf}{if \code{scannf} FALSE, an integer indicating the number of kept axes for the compromise}
   \item{tol}{a tolerance threshold to test whether the distance matrix is Euclidean : an eigenvalue is considered positive if it is larger than \code{-tol*lambda1} where \code{lambda1} is the largest eigenvalue}
-  \item{x}{an object of class 'statis'}
+  \item{statis, x}{an object of class 'statis'}
   \item{xax, yax}{the numbers of the x-axis and the y-axis}
   \item{option}{an integer between 1 and 4, otherwise the 4 components of the plot are dispayed}
   \item{\dots}{further arguments passed to or from other methods}
@@ -40,9 +40,6 @@ print.statis (x, \dots)
 \references{
 Lavit, C. (1988) \emph{Analyse conjointe de tableaux quantitatifs}, Masson, Paris.\cr\cr
 Lavit, C., Escoufier, Y., Sabatier, R. and Traissac, P. (1994) The ACT (Statis method). \emph{Computational Statistics and Data Analysis}, \bold{18}, 97--119.
-}
-\author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(jv73)

@@ -16,7 +16,7 @@
 \alias{scatterutil.sub}
 \title{Scatter Plot}
 \description{
-scatter is a generic function. It has methods for the classes \code{coa}, \code{dudi}, \code{fca}, \code{acm} and \code{pco}.\cr
+scatter is a generic function. It has methods for the classes 'coa', 'dudi', 'fca', 'acm' and 'pco'.\cr
 The scale of the grid is situated on the right-top of the graph.\cr
 The points are in the middle of the labels.\cr
 This process plots the graphs of the multivariate analyses.\cr
@@ -27,7 +27,7 @@ scatter(x, ...)
 }
 \arguments{
   \item{x}{an object used to select a method}
-  \item{\dots}{further arguments passed to or from other methods}
+  \item{\dots}{\code{\dots} further arguments passed to or from other methods}
 }
 \details{
   The functions scatter use some utilities functions :\cr
@@ -50,7 +50,6 @@ scatter(x, ...)
 \code{\link{s.corcircle}},\code{\link{s.distri}},\code{\link{s.label}},
 \code{\link{s.match}},\code{\link{s.traject}},\code{\link{s.value}}
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 par(mfrow = c(3,3))
 plot.new()
@@ -83,7 +82,7 @@ plot(x,y) ; scatterutil.star(x, y, z, 1)
 
 x <- c(runif(10,0,0.5), runif(10,0.5,1))
 y <- runif(20)
-plot(x, y, asp = 1) # asp=1 is essential to have perpendicular axes
+plot(x, y, asp = 1)	# asp=1 is essential to have perpendicular axes
 scatterutil.ellipse(x, y, rep(c(1,0), c(10,10)), cell = 1.5, ax = TRUE)
 scatterutil.ellipse(x, y, rep(c(0,1), c(10,10)), cell = 1.5, ax = TRUE)
 

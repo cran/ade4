@@ -1,7 +1,7 @@
 "dist.binary" <- function (df, method = NULL, diag = FALSE, upper = FALSE) {
-    METHODS <- c("JACCARD S3", "SOCKAL & MICHENER S4", "SOCKAL & SNEATH S5", 
-        "ROGERS & TANIMOTO S6", "CZEKANOWSKI S7", "GOWER & LEGENDRE S9", "OCHIAI S12", "SOKAL & SNEATH S13", 
-        "Phi of PEARSON S14", "GOWER & LEGENDRE S2")
+    METHODS <- c("JACCARD", "SOCKAL & MICHENER", "SOCKAL & SNEATH S5", 
+        "ROGERS & TANIMOTO", "CZEKANOWSKI", "S9", "OCHIAI", "SOKAL & SNEATH S13", 
+        "Phi of PEARSON", "GOWER & LEGENDRE S2")
     if (!inherits(df, "data.frame")) 
         stop("df is not a data.frame")
     if (any(df < 0)) 
@@ -18,7 +18,7 @@
         cat("s3 = a/(a+2(b+c)) --> d = sqrt(1 - s)\n")
         cat("4 = ROGERS & TANIMOTO (1960) S6 coefficient of GOWER & LEGENDRE\n")
         cat("s4 = (a+d)/(a+2(b+c)+d) --> d = sqrt(1 - s)\n")
-        cat("5 = CZEKANOWSKI (1913) or SORENSEN (1948) S7 coefficient of GOWER & LEGENDRE\n")
+        cat("5 = CZEKANOWSKI (1913) or SORENSEN (1948)\n")
         cat("s5 = 2*a/(2*a+b+c) --> d = sqrt(1 - s)\n")
         cat("6 = S9 index of GOWER & LEGENDRE (1986)\n")
         cat("s6 = (a-(b+c)+d)/(a+b+c+d) --> d = sqrt(1 - s)\n")
@@ -30,7 +30,7 @@
         cat("s9 = ad-bc)/sqrt((a+b)(a+c)(b+d)(d+c)) --> d = sqrt(1 - s)\n")
         cat("10 = S2 coefficient of GOWER & LEGENDRE\n")
         cat("s10 =  a/(a+b+c+d) --> d = sqrt(1 - s) and unit self-similarity\n")
-        cat("Select an integer (1-10): ")
+        cat("Selec an integer (1-10): ")
         method <- as.integer(readLines(n = 1))
     }
     df <- as.matrix(df)
@@ -51,9 +51,8 @@
     else if (method == 4) {
         d <- (a + d)/(a + 2 * (b + c) + d)
     }
-    # correction d'un bug signalé par Christian Düring <c.duering@web.de>
     else if (method == 5) {
-        d <- 2*a/(2 * a + b + c)
+        d <- (a + d)/(a + 2 * (b + c) + d)
     }
     else if (method == 6) {
         d <- (a - (b + c) + d)/(a + b + c + d)

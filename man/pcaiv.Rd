@@ -12,18 +12,18 @@ plot.pcaiv (x, xax = 1, yax = 2, \dots)
 print.pcaiv (x, \dots) 
 }
 \arguments{
-  \item{dudi}{a duality diagram, object of class \code{dudi}}
+  \item{dudi}{a duality diagram, object of class 'dudi'}
   \item{df}{a data frame with the same rows}
   \item{scannf}{a logical value indicating whether the eigenvalues bar plot should be displayed}
   \item{nf}{if scannf FALSE, an integer indicating the number of kept axes}
   \cr
-  \item{x}{an object of class \code{pcaiv}}
+  \item{x}{an object of class 'pcaiv'}
   \item{xax}{the column number for the x-axis}
   \item{yax}{the column number for the y-axis}
   \item{\dots}{further arguments passed to or from other methods}
 }
 \value{
-returns an object of class \code{pcaiv}, sub-class of class \code{dudi}
+returns an object of class 'pcaiv', sub-class of class 'dudi'
   \item{rank}{an integer indicating the rank of the studied matrix}
   \item{nf}{an integer indicating the number of kept axes}
   \item{eig}{a vector with the all eigenvalues}
@@ -46,7 +46,6 @@ Rao, C. R. (1964) The use and interpretation of principal component analysis in 
 Obadia, J. (1978) L'analyse en composantes explicatives. \emph{Revue de Statistique Appliquée}, \bold{24}, 5--28.\cr\cr
 Lebreton, J. D., Sabatier, R., Banco G. and  Bacou A. M. (1991) Principal component and correspondence analyses with respect to instrumental variables : an overview of their role in studies of structure-activity and species- environment relationships. In J. Devillers and W. Karcher, editors. \emph{Applied Multivariate Analysis in SAR and Environmental Studies}, Kluwer Academic Publishers, 85--114 
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(rhone)
 pca1 <- dudi.pca(rhone$tab, scan = FALSE, nf = 3)

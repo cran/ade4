@@ -7,7 +7,7 @@
 \alias{redo.dudi}
 \title{Duality Diagram}
 \description{
-\code{as.dudi} is called by many functions (\code{dudi.pca}, \code{dudi.coa}, \code{dudi.acm}, ...) 
+\code{as.dudi} is called by many functions (\code{pca.dudi}, \code{coa.dudi}, \code{acm.dudi}, ...) 
 and not directly by the user. It creates duality diagrams.
 
 \code{t.dudi} returns an object of class 'dudi' where the rows are the columns and the columns are the rows
@@ -56,9 +56,6 @@ as.dudi and all the functions that use it return a list with the following compo
 The duality diagram  : a means of better practical applications 
 In \emph{Development in numerical ecology}, Legendre, P. & Legendre, L. (Eds.) 
 NATO advanced Institute,  Serie G. Springer Verlag, Berlin,  139--156.
-}
-\author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(deug)

@@ -13,7 +13,7 @@ suprow.default (x, Xsup, \dots)
 suprow.pca (x, Xsup, \dots) 
 }
 \arguments{
-  \item{x}{an object of class \code{dudi}}
+  \item{x}{an object of class 'dudi'}
   \item{Xsup}{an array with the supplementary rows (\code{Xsup} and \code{x$tab} have the same column number)}
   \item{\dots}{further arguments passed to or from other methods}
 }
@@ -25,9 +25,6 @@ returns a data frame containing the coordinates of the supplementary projections
 }
 \references{
 Gower, J. C. (1967) Multivariate analysis and multivariate geometry. \emph{The statistician}, \bold{17}, 13--28.
-}
-\author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(euro123)
