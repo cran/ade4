@@ -10,18 +10,17 @@ these points.
 dist.neig(neig)
 }
 \arguments{
-  \item{neig}{a neighbouring graph, object of class \code{neig}}
+  \item{neig}{a neighbouring graph, object of class 'neig'}
 }
 \value{
-returns a distance matrix, object of class \code{dist}
-}
-\author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+returns a distance matrix, object of class 'dist'
 }
 \examples{
-    data(elec88)
-    d0 <- dist.neig(elec88$neig)
-    plot(dist(elec88$xy),d0)
+if (require(mva, quiet = TRUE)) {
+	data(elec88)
+	d0 <- dist.neig(elec88$neig)
+	plot(dist(elec88$xy),d0)
+}
 }
 \keyword{array}
 \keyword{multivariate}

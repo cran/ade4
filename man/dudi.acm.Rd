@@ -31,23 +31,14 @@ boxplot.acm (x, xax = 1, \dots)
 are the correlation ratios}
 }
 \references{
-Tenenhaus, M. & Young, F.W. (1985) An analysis and synthesis of multiple correspondence analysis, 
-optimal scaling, dual scaling, homogeneity analysis ans other methods for quantifying categorical multivariate data. 
-\emph{Psychometrika}, \bold{50}, 1, 91-119.
+Tenenhaus, M. & Young, F.W. (1985) An analysis and synthesis of multiple correspondence analysis, optimal scaling, dual scaling, homogeneity analysis ans other methods for quantifying categorical multivariate data. Psychometrika, \bold{50}, 1, 91-119.\cr\cr
 
 Lebart, L., A. Morineau, and M. Piron. 1995. Statistique exploratoire multidimensionnelle. Dunod, Paris.
 }
 \seealso{
-    \code{\link{s.chull}}, \code{\link{s.class}}
-}
-\author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+	\link{s.chull}, \link{s.class}
 }
 \examples{
-data(ours)
-summary(ours)
-boxplot(dudi.acm(ours, scan = FALSE))
-\dontrun{
 data(banque)
 banque.acm <- dudi.acm(banque, scann = FALSE, nf = 3)
 scatter.dudi(banque.acm)
@@ -70,5 +61,5 @@ bdcoa <- dudi.coa(bd, scann = FALSE)
 plot(banque.acm$li[,1], bdcoa$li[,1]) 
 # mca and coa of disjonctive table. Lebart & coll. section 1.4
 plot(banque.acm$co[,1], dudi.coa(bd, scann = FALSE)$co[,1]) 
-}}
+}
 \keyword{multivariate}

@@ -22,9 +22,6 @@ sco.boxplot(score, df, labels = names(df), clabel = 1, xlim = NULL,
   \item{sub}{a string of characters to be inserted as legend}
   \item{csub}{a character size for the legend, used with \code{par("cex")*csub}}
 }
-\author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
-}
 \examples{
 w1 <- rnorm(100,-1)
 w2 <- rnorm(100)

@@ -22,32 +22,19 @@
     if (any(cwX != cwY)) stop("The two ktabs must have the same column weights")
     if (ntabX != ntabY) stop("The two ktabs must have the same number of tables")
     if (!all(bloX == bloY)) stop("The two tables of one pair must have the same number of columns")
-    ntab <- ntabX
-    indica <- as.factor(rep(1:ntab, KTX$blo))
-    lw <- split(cwX, indica)
 #### Compute crossed ktab
+    ntab <- ntabX
     for (i in 1:ntab) {
-        tx <- as.matrix(KTX[[i]])
-        ty <- as.matrix(KTY[[i]])
-        res[[i]] <- as.data.frame(tx %*% (t(ty) * lw[[i]]))
-     }
+	tx <- as.matrix(KTX[[i]])
+	ty <- as.matrix(KTY[[i]])
+	res[[i]] <- as.data.frame(tx %*% t(ty) * cwX)
+    }
 #### Complete crossed ktab structure
-    res$lw <- lwX
-    res$cw <- rep(lwY,ntab)
+    res$lw <- rep(1, nligX)/nligX
+    res$cw <- rep(rep(1, nligY)/nligY,ntab)
     blo <- rep(nligY,ntab)
     res$blo <- blo
     ktab.util.addfactor(res) <- list(blo, length(res$lw))
-#### Enregistrement des tableaux de départ
-    res$supX <- KTX[[1]]
-    res$supY <- KTY[[1]]
-    for (i in 2:ntab) {
-        res$supX <- cbind(res$supX, KTX[[i]])
-        res$supY <- cbind(res$supY, KTY[[i]])
-    }
-    res$supX=t(res$supX)
-    res$supY=t(res$supY)
-    res$supblo <- KTX$blo
-    res$suplw <- cwX
     res$call <- match.call()
     class(res) <- c("ktab", "kcoinertia")
     col.names(res) <- rep(row.names(KTY),ntab)

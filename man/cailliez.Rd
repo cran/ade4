@@ -13,7 +13,7 @@ cailliez(distmat, print = FALSE)
   \item{print}{if TRUE, prints the eigenvalues of the matrix}
 }
 \value{
-an object of class \code{dist} containing a Euclidean distance matrix.
+an object of class 'dist' containing an Euclidean distance matrix.
 }
 \references{
 Cailliez, F. (1983) The analytical solution of the additive constant problem. \emph{Psychometrika}, \bold{48}, 305--310.\cr
@@ -25,10 +25,8 @@ Legendre, P., and Legendre, L. (1998) \emph{Numerical ecology}, 2nd English edit
 From the DistPCoa program of P. Legendre et M.J. Anderson\cr
 \url{http://www.fas.umontreal.ca/BIOL/Casgrain/en/labo/distpcoa.html}
 }
-\author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
-}
 \examples{
+library(mva)
 data(capitales)
 d0 <- as.dist(capitales$df)
 is.euclid(d0) # FALSE

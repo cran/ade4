@@ -5,7 +5,7 @@
 performs the scatter diagrams of objects of class \code{dudi}. 
 }
 \usage{
-scatter.dudi(x, xax = 1, yax = 2, clab.row = 0.75, clab.col = 1, 
+scatter.dudi(x, xax = 1, yax = 2, clab.row = 0.5, clab.col = 1, 
     permute = FALSE, posieig = "top", sub = NULL, \dots)
 }
 \arguments{
@@ -15,14 +15,13 @@ scatter.dudi(x, xax = 1, yax = 2, clab.row = 0.75, clab.col = 1,
   \item{clab.row}{a character size for the rows}
   \item{clab.col}{a character size for the columns}
   \item{permute}{if FALSE, the rows are plotted by points and the columns by arrows. If TRUE it is the opposite.}
-  \item{posieig}{if "top" the eigenvalues bar plot is upside, if "bottom" it is downside, if "none" no plot}
+  \item{posieig}{if "top" the eigenvalues bar plot is upside,vif "bottom" it is downside, if "none" no plot}
   \item{sub}{a string of characters to be inserted as legend}
   \item{\dots}{further arguments passed to or from other methods}
 }
 \details{
 \code{scatter.dudi} is a factorial map of individuals and the projection of the vectors of the canonical basis multiplied by a constante of rescaling. In the eigenvalues bar plot,the used axes for the plot are in black, the other kept axes in grey and the other in white.
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(deug)
 scatter(dd1 <- dudi.pca(deug$tab, scannf = FALSE, nf = 4), 

@@ -12,15 +12,13 @@
     d <- triangle.param(ta, scale = scale, min3 = min3, max3 = max3)
     opar <- par(mar = par("mar"))
     on.exit(par(opar))
+    par(mar = c(0.1, 0.1, 0.1, 0.1))
     A <- d$A
     B <- d$B
     C <- d$C
     xy <- d$xy
     mini <- d$mini
     maxi <- d$maxi
-    if (show.position) 
-        add.position.triangle(d)
-    par(mar = c(0.1, 0.1, 0.1, 0.1))
     plot(0, 0, type = "n", xlim = c(-0.8, 0.8), ylim = c(-0.6, 
         1), xlab = "", ylab = "", xaxt = "n", yaxt = "n", asp = 1, 
         frame.plot = FALSE)
@@ -96,7 +94,8 @@
     }
     if (csub > 0) 
         scatterutil.sub(sub, csub, possub)
-    return(invisible(xy))
+    if (show.position) 
+        add.position.triangle(d)
 } 
 
 ######################### triangle.posipoint ######################################
@@ -110,6 +109,9 @@
 
 ######################### add.position.triangle ######################################
 "add.position.triangle" <- function (d) {
+    opar <- par(new = par("new"), mar = par("mar"))
+    on.exit(par(opar))
+    par(new = TRUE)
     par(mar = c(0.1, 0.1, 0.1, 0.1))
     w <- matrix(0, 3, 3)
     w[1, 1] <- d$mini[1]
@@ -132,8 +134,6 @@
         asp = 1, frame.plot = FALSE)
     polygon(c(A[1], B[1], C[1]), c(A[2], B[2], C[2]))
     polygon(c(a[1], b[1], c[1]), c(a[2], b[2], c[2]), col = grey(0.75))
-    par(new = TRUE)
-
 }
 
 ######################### triangle.biplot ######################################
@@ -149,15 +149,13 @@
     d <- triangle.param(rbind(ta1, ta2), scale = scale)
     opar <- par(mar = par("mar"))
     on.exit(par(opar))
+    par(mar = c(0.1, 0.1, 0.1, 0.1))
     A <- d$A
     B <- d$B
     C <- d$C
     xy <- d$xy
     mini <- d$mini
     maxi <- d$maxi
-    if (show.position) 
-        add.position.triangle(d)
-    par(mar = c(0.1, 0.1, 0.1, 0.1))
     plot(0, 0, type = "n", xlim = c(-0.8, 0.8), ylim = c(-0.6, 
         1), xlab = "", ylab = "", xaxt = "n", yaxt = "n", asp = 1, 
         frame.plot = FALSE)
@@ -197,7 +195,9 @@
     }
     points(xy[1:nrow(ta1), ])
     text(xy[1:nrow(ta1), ], label, pos = 4)
- }
+    if (show.position) 
+        add.position.triangle(d)
+}
 
 ######################### triangle.param ######################################
 "triangle.param" <- function (ta, scale = TRUE, min3 = NULL, max3 = NULL) {
@@ -213,27 +213,22 @@
     maxi <- apply(tb, 2, max)
     mini <- (floor(mini/0.1))/10
     maxi <- (floor(maxi/0.1) + 1)/10
-    mini[mini<0] <- 0
-    maxi[maxi>1] <- 1
     if (!is.null(min3)) 
         mini <- min3
     if (!is.null(max3)) 
         maxi <- min3
     ampli <- maxi - mini
     amplim <- max(ampli)
-    # correction d'un bug trouvé par J. Lobry 15/11/2004
-    if (!all(ampli==amplim)) {
-        for (j in 1:3) {
-            k <- amplim - ampli[j]
-            while (k > 0) {
-                if ((k > 0) & (maxi[j] < 1)) {
-                    maxi[j] <- maxi[j] + 0.1
-                    k <- k - 1
-                }
-                if ((k > 0) & (mini[j] > 0)) {
-                    mini[j] <- mini[j] - 0.1
-                    k <- k - 1
-                }
+    for (j in 1:3) {
+        k <- amplim - ampli[j]
+        while (k > 0) {
+            if ((k > 0) & (maxi[j] < 1)) {
+                maxi[j] <- maxi[j] + 0.1
+                k <- k - 1
+            }
+            if ((k > 0) & (mini[j] > 0)) {
+                mini[j] <- mini[j] - 0.1
+                k <- k - 1
             }
         }
     }
@@ -278,8 +273,5 @@
     C <- c(0, 2/sqrt(6))
     xy <- t(apply(tb, 1, FUN = triangle.posipoint, mini = mini, 
         maxi = maxi))
-    # pour avoir en sortie une matrice des coordonnées
-    dimnames(xy) <- list(row.names(ta),c("x","y"))
     return(list(A = A, B = B, C = C, xy = xy, mini = mini, maxi = maxi))
-}
-
+} 

@@ -7,12 +7,12 @@ This data set gives the densities per hectare of 11 species of trees
 for 10 transects of topographic moisture values (mean of several stations per class)
 }
 \usage{data(santacatalina)}
-\format{
+format{
 a data frame with 11 rows and 10 columns
 }
 \source{
-Gauch, H. G. J., Chase, G. B. and Whittaker R. H. (1974)
-Ordination of vegetation samples by Gaussian species distributions.
+Gauch, H. G. J., Chase, G. B. and Whittaker R. H. (1974)\cr
+Ordination of vegetation samples by Gaussian species distributions.\cr
 \emph{Ecology}, \bold{55}, 1382--1390.
 }
 \examples{

@@ -1,9 +1,9 @@
 \name{ktab.list.df}
 \alias{ktab.list.df}
-\title{Creating a K-tables from a list of data frames.
+\title{Creating a K-tables from a list of data frame.
 }
 \description{
-creates a list of class \code{ktab} from a list of data frames 
+creates a list of class \code{ktab} from a list of data frame 
 }
 \usage{
 ktab.list.df(obj, rownames = NULL, colnames = NULL, tabnames = NULL, 
@@ -21,9 +21,8 @@ ktab.list.df(obj, rownames = NULL, colnames = NULL, tabnames = NULL,
 \details{
 Each element of the initial list have to possess the same names and row numbers
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \value{
-returns a list of class \code{ktab}. See \code{\link{ktab}}
+returns a list of class 'ktab'. See \code{\link{ktab}}
 }
 \examples{
 data(jv73)
