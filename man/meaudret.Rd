@@ -1,6 +1,6 @@
 \name{meaudret}
 \alias{meaudret}
-\non_function{}
+\docType{data}
 \title{Ecological Data : sites-variables, sites-species, where and when}
 \description{
 This data set contains informations about sites, environmental variables
@@ -8,19 +8,23 @@ and species (Trichopters).
 }
 \usage{data(meaudret)}
 \format{
-	\code{meaudret} is a list of 4 components.
-	\enumerate{
-		\item{mil}{is a data frame with 24 sites and 9 variables.}
-		\item{fau}{is a data frame with 24 sites and 10 species (Trichopters).}
-		\item{date}{is a factor with 4 levels.}
-		\item{site}{is a factor with 6 levels.}
-	}
+    \code{meaudret} is a list of 3 components.
+\describe{
+        \item{mil}{is a data frame with 24 sites and 9 variables.}
+        \item{fau}{is a data frame with 24 sites and 13 species (Trichopters).}
+        \item{plan}{is a data frame with 24 sites and 2 factors.
+            \enumerate{
+                \item{dat}{is a factor with 4 levels.}
+                \item{sta}{is a factor with 5 levels.}
+            }
+        }
+    }
 }
 \source{
-Pegaz-Maucet, D. (1980)\cr
-Impact d'une perturbation d'origine organique sur la dérive des macro-invertébérés benthiques d'un cours d'eau.\cr
-Comparaison avec le benthos.\cr
-Th"se de 3° cycle, Université Lyon 1, 130 p.
+Pegaz-Maucet, D. (1980) 
+\emph{Impact d'une perturbation d'origine organique sur la dérive des macro-invertébérés benthiques d'un cours d'eau.
+Comparaison avec le benthos.}
+Thèse de troisième cycle, Université Lyon 1, 130 p.
 }
 \examples{
 data(meaudret)
@@ -32,6 +36,5 @@ pca2 <- between(pca1, meaudret$plan$dat, scan = FALSE, nf = 2)
 s.class(pca2$ls, meaudret$plan$dat, sub = "Between dates Principal Component Analysis")
 s.corcircle(pca1$co)
 s.corcircle(pca2$as)
-par(mfrow = c(1,1))
 }
 \keyword{datasets}

@@ -33,7 +33,7 @@ s.class(dfxy, fac, wt = rep(1, length(fac)), xax = 1,
   \item{include.origin}{a logical value indicating whether the point "origin" should be belonged to the graph space}
   \item{sub}{a string of characters to be inserted as legend}
   \item{csub}{a character size for the legend, used with \code{par("cex")*csub}}
-  \item{possub}{a string of characters indicating the sub-title position ("topleft","topright","bottomleft","bottomright")}
+  \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{cgrid}{a character size, parameter used with par("cex")* \code{cgrid} to indicate the mesh of the grid}
   \item{pixmap}{an object 'pixmap' displayed in the map background}
   \item{contour}{a data frame with 4 columns to plot the contour of the map : each row gives a line (x1,y1,x2,y2)}
@@ -48,6 +48,7 @@ s.class(xy, posi, cpoi = 2)
 s.class(xy, posi, cell = 0, cstar = 0.5)
 s.class(xy, posi, cell = 2, axesell = FALSE, csta = 0)
 s.chull(xy, posi, cpoi = 1)
+par(mfrow = c(1,1))
 
 data(banque)
 dudi1 <- dudi.acm(banque, scannf = FALSE)
@@ -60,6 +61,7 @@ s.class(dudi1$li, banque[,20], csta = 0, cell = 2, cgrid = 0,
     clab = 1.5)
 s.class(dudi1$li, banque[,20], sub = names(banque)[20], 
     possub = "topright", cgrid = 0)
+par(mfrow = c(1,1))
 
 par(mfrow = n2mfrow(ncol(banque)))
 for (i in 1:(ncol(banque)))

@@ -7,7 +7,7 @@ using an object of class \code{foucart}.
 }
 \usage{
 kplot.foucart(object, xax = 1, yax = 2, mfrow = NULL, 
-    which.tab = 1:length(fouc$blo), clab.r = 1, clab.c = 1.25, 
+    which.tab = 1:length(object$blo), clab.r = 1, clab.c = 1.25, 
     csub = 2, possub = "bottomright", \dots)
 }
 \arguments{
@@ -17,8 +17,8 @@ kplot.foucart(object, xax = 1, yax = 2, mfrow = NULL,
   \item{which.tab}{vector of table numbers for analyzing}
   \item{clab.r}{a character size for the row labels}
   \item{clab.c}{a character size for the column labels}
-  \item{csub}{a character size for the sub-titles used with }
-  \item{possub}{a string of characters indicating the sub-title position ("topleft","topright","bottomleft","bottomright")}
+  \item{csub}{a character size for the sub-titles used with \code{par("cex")*csub}}
+  \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{\dots}{further arguments passed to or from other methods}
 }
 \examples{

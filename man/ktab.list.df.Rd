@@ -1,9 +1,9 @@
 \name{ktab.list.df}
 \alias{ktab.list.df}
-\title{Creating a K-tables from a list of data frame.
+\title{Creating a K-tables from a list of data frames.
 }
 \description{
-creates a list of class \code{ktab} from a list of data frame. 
+creates a list of class \code{ktab} from a list of data frames 
 }
 \usage{
 ktab.list.df(obj, rownames = NULL, colnames = NULL, tabnames = NULL, 
@@ -14,7 +14,7 @@ ktab.list.df(obj, rownames = NULL, colnames = NULL, tabnames = NULL,
   \item{obj}{a list of data frame}
   \item{rownames}{the names of the K-tables rows (otherwise, the row names of the arrays)}
   \item{colnames}{the names of the K-tables columns (otherwise, the column names of the arrays)}
-  \item{tabnames}{the names of the arrays of the K-tables (otherwise, the names of the obj if they exist, or else "Ana1", "Ana2", …)}
+  \item{tabnames}{the names of the arrays of the K-tables (otherwise, the names of the obj if they exist, or else "Ana1", "Ana2", \dots)}
   \item{w.row}{a vector of the row weightings in common with all the arrays}
   \item{w.col}{a list of the vector of the column weightings for each array}
 }
@@ -22,7 +22,7 @@ ktab.list.df(obj, rownames = NULL, colnames = NULL, tabnames = NULL,
 Each element of the initial list have to possess the same names and row numbers
 }
 \value{
-returns a list of class 'ktab'. See \code{\link{ktab}}
+returns a list of class \code{ktab}. See \code{\link{ktab}}
 }
 \examples{
 data(jv73)

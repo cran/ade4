@@ -52,18 +52,23 @@
         if (ncol(area) < 3) 
             area <- NULL
     }
-    if (add.plot) 
-        return(list(x = x, y = y))
-    plot.default(0, 0, type = "n", asp = 1, xlab = "", ylab = "", 
+    if ( !add.plot) 
+        plot.default(0, 0, type = "n", asp = 1, xlab = "", ylab = "", 
         xaxt = "n", yaxt = "n", xlim = xlim, ylim = ylim, xaxs = "i", 
         yaxs = "i", frame.plot = FALSE)
+
     if (!is.null(pixmap)) {
         plot(pixmap, add = TRUE)
     }
+
     if (!is.null(contour)) {
         apply(contour, 1, function(x) segments(x[1], x[2], x[3], 
             x[4], lwd = 1))
     }
+    if (grid & !add.plot) 
+        scatterutil.grid(cgrid)
+    if (addaxes & !add.plot) 
+        abline(h = 0, v = 0, lty = 1)
     if (!is.null(area)) {
         nlev <- nlevels(area[, 1])
         x1 <- area[, 2]
@@ -75,10 +80,6 @@
             polygon(a1, a2)
         }
     }
-    if (grid) 
-        scatterutil.grid(cgrid)
-    if (addaxes) 
-        abline(h = 0, v = 0, lty = 1)
     if (csub > 0) 
         scatterutil.sub(sub, csub, possub)
     return(list(x = x, y = y))
@@ -88,6 +89,7 @@
 "add.scatter.eig" <- function (w, nf, xax, yax, posi = c("bottom", "top", "none"),
     ratio = 1/4) 
 {
+    posi <- posi[1]
     if (posi == "none") 
         return(invisible())
     born <- par("usr")
@@ -164,7 +166,7 @@
 }
 
 ############ scatterutil.eigen #################
-"scatterutil.eigen" <- function (w, xmax = length(w), ymax = max(w), wsel = 1, sub = "Eigen values",
+"scatterutil.eigen" <- function (w, xmax = length(w), ymin=0, ymax = max(w), wsel = 1, sub = "Eigenvalues",
     csub = 2, possub = "topright") 
 {
     opar <- par(mar = par("mar"))
@@ -174,7 +176,7 @@
         w <- c(w, rep(0, xmax - length(w)))
     col.w <- rep(grey(0.8), length(w))
     col.w[wsel] <- grey(0)
-    barplot(w, col = col.w, ylim = c(0, ymax))
+    barplot(w, col = col.w, ylim = c(ymin, ymax))
     scatterutil.sub(cha = sub, csub = csub, possub = possub)
 }
 
@@ -264,7 +266,7 @@
             lty = 2)
 }
 ############ scatterutil.eti.circ #################
-"scatterutil.eti.circ" <- function (x, y, label, clabel) {
+"scatterutil.eti.circ" <- function (x, y, label, clabel, origin=c(0,0)) {
     if (is.null(label)) 
         return(invisible())
     # message de JT warning pour R 1.7 modif samedi, mars 29, 2003 at 14:31
@@ -272,26 +274,29 @@
         return(invisible())
     if (any(label == ""))
         return(invisible())
-    # fin de modif
+    # modif mercredi, juillet 2, 2003 at 17:26
+    # pour les cas où le centre n'est pas l'origine
+    xref <- x - origin[1]
+    yref <- y - origin[2]
     for (i in 1:(length(x))) {
         cha <- as.character(label[i])
         cha <- paste(" ", cha, " ", sep = "")
         cex0 <- par("cex") * clabel
         xh <- strwidth(cha, cex = cex0)
         yh <- strheight(cha, cex = cex0) * 5/6
-        if ((x[i] > y[i]) & (x[i] > -y[i])) {
+        if ((xref[i] > yref[i]) & (xref[i] > -yref[i])) {
             x1 <- x[i] + xh/2
             y1 <- y[i]
         }
-        else if ((x[i] > y[i]) & (x[i] <= (-y[i]))) {
+        else if ((xref[i] > yref[i]) & (xref[i] <= (-yref[i]))) {
             x1 <- x[i]
             y1 <- y[i] - yh
         }
-        else if ((x[i] <= y[i]) & (x[i] <= (-y[i]))) {
+        else if ((xref[i] <= yref[i]) & (xref[i] <= (-yref[i]))) {
             x1 <- x[i] - xh/2
             y1 <- y[i]
         }
-        else if ((x[i] <= y[i]) & (x[i] > (-y[i]))) {
+        else if ((xref[i] <= yref[i]) & (xref[i] > (-yref[i]))) {
             x1 <- x[i]
             y1 <- y[i] + yh
         }
@@ -307,7 +312,7 @@
         return(invisible())
     if (is.null(label)) 
         return(invisible())
-    if (label == "") 
+    if (any(label == "")) 
         return(invisible())
     for (i in 1:(length(x))) {
         cha <- as.character(label[i])
@@ -486,7 +491,7 @@
         return(invisible())
     if (is.na(cha)) 
         return(invisible())
-    if (cha == "") 
+    if (any(cha == ""))
         return(invisible())
     if (csub == 0) 
         return(invisible())

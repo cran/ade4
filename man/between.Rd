@@ -4,8 +4,8 @@
 \alias{plot.between}
 \title{Between-Class Analysis}
 \description{
-Performs a particular case of a Principal Component Analysis on Instrumental Variables,
-in which there is only one instrumental variable, and it is a factor
+Performs a particular case of a Principal Component Analysis with respect to Instrumental Variables,
+in which there is only one instrumental variable, and it is a factor.
 }
 \usage{
 between(dudi, fac, scannf = TRUE, nf = 2)
@@ -59,7 +59,7 @@ s.class(bet1$ls, meaudret$plan$sta,
 s.class(bet2$ls, meaudret$plan$sta,
     sub = "Between sites PCA (fau)", csub = 1.75)
 
-par(mfrow=c(1,1))
+par(mfrow = c(1,1))
 coib <- coinertia(bet1, bet2, scann = FALSE)
 plot(coib)
 }

@@ -18,8 +18,8 @@ s.value(dfxy, z, xax = 1, yax = 2, method = c("squaresize", "greylevel"),
   \item{xax}{column for the x axis}
   \item{yax}{column for the y axis}
   \item{method}{a string of characters \cr
-  	"squaresize" gives black squares for positive values and white for negative values with a proportional area equal to the absolute value.  \cr
-	"greylevel" gives squares of equal size with a grey level proportional to the value. By default the first choice}
+    "squaresize" gives black squares for positive values and white for negative values with a proportional area equal to the absolute value.  \cr
+    "greylevel" gives squares of equal size with a grey level proportional to the value. By default the first choice}
   \item{csize}{a size coefficient for symbols}
   \item{cpoint}{a character size for plotting the points, used with \code{par("cex")*cpoint}. If zero, no points are drawn}
   \item{pch}{if \code{cpoint} > 0, an integer specifying the symbol or the single character to be used in plotting points}
@@ -35,7 +35,7 @@ s.value(dfxy, z, xax = 1, yax = 2, method = c("squaresize", "greylevel"),
   \item{origin}{the fixed point in the graph space, for example c(0,0) the origin axes}
   \item{sub}{a string of characters to be inserted as legend}
   \item{csub}{a character size for the legend, used with \code{par("cex")*csub}}
-  \item{possub}{a string of characters indicating the sub-title position ("topleft","topright","bottomleft","bottomright")}
+  \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{pixmap}{an object 'pixmap' displayed in the map background}
   \item{contour}{a data frame with 4 columns to plot the contour of the map : each row gives a line (x1,y1,x2,y2)}
   \item{area}{a data frame of class 'area' to plot a set of surface units in contour}
@@ -46,7 +46,7 @@ xy <- cbind.data.frame(x = runif(500), y = runif(500))
 z <- rnorm(500)
 s.value(xy, z)
 
-s.value(xy, z, method="greylevel")
+s.value(xy, z, method = "greylevel")
 
 data(rpjdl)
 fau.coa <- dudi.coa(rpjdl$fau, scan = FALSE, nf = 3)
@@ -61,7 +61,6 @@ for (i in 1:12) {
     csub = 2, sub = nam, cleg = 1.5, cgrid = 0, inc = FALSE,
     xlim = c(16,205), ylim = c(-50,268), adda = FALSE, grid = FALSE)
 }
-par(mfrow = c(1,1))
 }
 \keyword{multivariate}
 \keyword{hplot}

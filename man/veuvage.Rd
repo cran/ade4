@@ -1,6 +1,6 @@
 \name{veuvage}
 \alias{veuvage}
-\non_function{}
+\docType{data}
 \title{Example for Centring in PCA}
 \description{
 The data come from the INSEE (National Institute of Statistics and Economical Studies). 
@@ -9,9 +9,9 @@ It is an array of widower percentages in relation with the age and the socioprof
 \usage{data(veuvage)}
 \format{
     \code{veuvage} is a list of 2 components.
-    \enumerate{
-    \item{tab}{is a data frame with 37 rows (widowers) 6 columns (socio-professional categories)}
-    \item{age}{is a vector of the ages of the 37 widowers. }
+\describe{
+   \item{tab}{is a data frame with 37 rows (widowers) 6 columns (socio-professional categories)}
+   \item{age}{is a vector of the ages of the 37 widowers. }
     }
 }
 \details{
@@ -28,6 +28,5 @@ par(mfrow = c(3,2))
 for (j in 1:6) plot(veuvage$age, veuvage$tab[,j],
     xlab = "âge", ylab = "pourcentage de veufs",
     type = "b", main = names(veuvage$tab)[j])
-par(mfrow = c(1,1))
 }
 \keyword{datasets}
