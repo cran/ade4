@@ -6,10 +6,10 @@
 \alias{add.position.triangle}
 \title{Triangular Plotting}
 \description{
-	Graphs for a dataframe with 3 columns of positive or null values\cr
-	\code{triangle.plot} is a scatterplot\cr
-	\code{triangle.biplot} is a paired scatterplots\cr
-	\code{triangle.posipoint}, \code{triangle.param}, \code{add.position.triangle} are utilitaries functions. 
+    Graphs for a dataframe with 3 columns of positive or null values\cr
+    \code{triangle.plot} is a scatterplot\cr
+    \code{triangle.biplot} is a paired scatterplots\cr
+    \code{triangle.posipoint}, \code{triangle.param}, \code{add.position.triangle} are utilitaries functions. 
 }
 \usage{
 triangle.plot(ta, label = as.character(1:nrow(ta)), clabel = 0, 
@@ -20,7 +20,7 @@ triangle.biplot (ta1, ta2, label = as.character(1:nrow(ta1)),
     draw.line = TRUE, show.position = TRUE, scale = TRUE)
 }
 \arguments{
-  \item{ta ta1 ta2}{data frame with three columns, will be transformed in \bold{percentages} by rows}
+  \item{ta, ta1, ta2,}{data frame with three columns, will be transformed in \bold{percentages} by rows}
   \item{label}{a vector of strings of characters for the point labels}
   \item{clabel}{if not NULL, a character size for the labels, used with  \code{par("cex")*clabel}}
   \item{cpoint}{a character size for plotting the points, used with \code{par("cex")*cpoint}. If zero, no points are drawn}
@@ -30,11 +30,14 @@ triangle.biplot (ta1, ta2, label = as.character(1:nrow(ta1)),
   \item{labeltriangle}{a logical value indicating whether the variable names should be wrote}
   \item{sub}{a string of characters to be inserted as legend}
   \item{csub}{a character size for the legend, used with \code{par("cex")*csub}}
-  \item{possub}{a string of characters indicating the sub-title position ("topleft","topright","bottomleft","bottomright")}
+  \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{show.position}{a logical value indicating whether the used triangle should be shown in the complete one}
   \item{scale}{a logical value indicating whether the smaller equilateral triangle containing the plot should be used}
   \item{min3}{If scale is FALSE, a vector of three values for the minima e.g. c(0.1,0.1,0.1) can be used}
   \item{max3}{If scale is FALSE a vector of three values for the maxima e.g. c(0.9,0.9,0.9) can be used}
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data (euro123)
@@ -58,7 +61,5 @@ triangle.plot(euro123[[2]], min3 = c(0,0.2,0.3), max3 = c(0.5,0.7,0.8),
 triangle.plot(euro123[[3]], min3 = c(0,0.2,0.3), max3 = c(0.5,0.7,0.8), 
     clab = 1, label = row.names(euro123[[1]]), addax = TRUE)
 triangle.plot(rbind.data.frame(euro123[[1]], euro123[[2]], euro123[[3]]))
-
-par(mfrow = c(1,1))
 }
 \keyword{hplot}

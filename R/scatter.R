@@ -52,18 +52,23 @@
         if (ncol(area) < 3) 
             area <- NULL
     }
-    if (add.plot) 
-        return(list(x = x, y = y))
-    plot.default(0, 0, type = "n", asp = 1, xlab = "", ylab = "", 
+    if ( !add.plot) 
+        plot.default(0, 0, type = "n", asp = 1, xlab = "", ylab = "", 
         xaxt = "n", yaxt = "n", xlim = xlim, ylim = ylim, xaxs = "i", 
         yaxs = "i", frame.plot = FALSE)
+
     if (!is.null(pixmap)) {
         plot(pixmap, add = TRUE)
     }
+
     if (!is.null(contour)) {
         apply(contour, 1, function(x) segments(x[1], x[2], x[3], 
             x[4], lwd = 1))
     }
+    if (grid & !add.plot) 
+        scatterutil.grid(cgrid)
+    if (addaxes & !add.plot) 
+        abline(h = 0, v = 0, lty = 1)
     if (!is.null(area)) {
         nlev <- nlevels(area[, 1])
         x1 <- area[, 2]
@@ -75,10 +80,6 @@
             polygon(a1, a2)
         }
     }
-    if (grid) 
-        scatterutil.grid(cgrid)
-    if (addaxes) 
-        abline(h = 0, v = 0, lty = 1)
     if (csub > 0) 
         scatterutil.sub(sub, csub, possub)
     return(list(x = x, y = y))
@@ -115,7 +116,7 @@
 }
 
 ############ scatterutil.chull #################
-"scatterutil.chull" <- function (x, y, fac, optchull = c(0.25, 0.5, 0.75, 1)) {
+"scatterutil.chull" <- function (x, y, fac, optchull = c(0.25, 0.5, 0.75, 1), col=rep(1,length(levels(fac)))) {
     if (!is.factor(fac)) 
         return(invisible())
     if (length(x) != length(fac)) 
@@ -140,21 +141,21 @@
             if ((taux <= cref) & (cref == 1)) {
                 cref <- 0.75
                 if (any(optchull == 1)) 
-                  polygon(x2, y2, lty = 1)
+                  polygon(x2, y2, lty = 1, border=col[i])
             }
             if ((taux <= cref) & (cref == 0.75)) {
                 if (any(optchull == 0.75)) 
-                  polygon(x2, y2, lty = 5)
+                  polygon(x2, y2, lty = 5, border=col[i])
                 cref <- 0.5
             }
             if ((taux <= cref) & (cref == 0.5)) {
                 if (any(optchull == 0.5)) 
-                  polygon(x2, y2, lty = 3)
+                  polygon(x2, y2, lty = 3, border=col[i])
                 cref <- 0.25
             }
             if ((taux <= cref) & (cref == 0.25)) {
                 if (any(optchull == 0.25)) 
-                  polygon(x2, y2, lty = 2)
+                  polygon(x2, y2, lty = 2, border=col[i])
                 cref <- 0
             }
             x1 <- x1[-num]
@@ -165,7 +166,7 @@
 }
 
 ############ scatterutil.eigen #################
-"scatterutil.eigen" <- function (w, xmax = length(w), ymax = max(w), wsel = 1, sub = "Eigen values",
+"scatterutil.eigen" <- function (w, xmax = length(w), ymin=0, ymax = max(w), wsel = 1, sub = "Eigenvalues",
     csub = 2, possub = "topright") 
 {
     opar <- par(mar = par("mar"))
@@ -175,20 +176,20 @@
         w <- c(w, rep(0, xmax - length(w)))
     col.w <- rep(grey(0.8), length(w))
     col.w[wsel] <- grey(0)
-    barplot(w, col = col.w, ylim = c(0, ymax))
+    barplot(w, col = col.w, ylim = c(ymin, ymax))
     scatterutil.sub(cha = sub, csub = csub, possub = possub)
 }
 
 ############ scatterutil.ellipse #################
-"scatterutil.ellipse" <- function (x, y, z, cellipse, axesell) {
-   
-    # modif du vendredi, mars 28, 2003 at 08:01 ajout des tests 
-    if (any(is.na(z)))  return (invisible())
-    if (sum(z*z)==0) return (invisible())
-    
+"scatterutil.ellipse" <- function (x, y, z, cellipse, axesell, coul = rep(1,length(x))) 
+{
+    if (any(is.na(z))) 
+        return(invisible())
+    if (sum(z * z) == 0) 
+        return(invisible())
     util.ellipse <- function(mx, my, vx, cxy, vy, coeff) {
         lig <- 100
-        epsi <- 1e-05
+        epsi <- 1e-10
         x <- 0
         y <- 0
         if (vx < 0) 
@@ -256,16 +257,17 @@
     ell <- util.ellipse(m1, m2, v1, cxy, v2, cellipse)
     if (is.null(ell)) 
         return(invisible())
-    polygon(ell$x, ell$y)
+    polygon(ell$x, ell$y, border=coul)
     if (axesell) 
         segments(ell$seg1[1], ell$seg1[2], ell$seg1[3], ell$seg1[4], 
-            lty = 2)
+            lty = 2, col=coul)
     if (axesell) 
         segments(ell$seg2[1], ell$seg2[2], ell$seg2[3], ell$seg2[4], 
-            lty = 2)
+            lty = 2, col=coul)
 }
+
 ############ scatterutil.eti.circ #################
-"scatterutil.eti.circ" <- function (x, y, label, clabel) {
+"scatterutil.eti.circ" <- function (x, y, label, clabel, origin=c(0,0), boxes=TRUE) {
     if (is.null(label)) 
         return(invisible())
     # message de JT warning pour R 1.7 modif samedi, mars 29, 2003 at 14:31
@@ -273,37 +275,44 @@
         return(invisible())
     if (any(label == ""))
         return(invisible())
-    # fin de modif
+    # modif mercredi, juillet 2, 2003 at 17:26
+    # pour les cas où le centre n'est pas l'origine
+    xref <- x - origin[1]
+    yref <- y - origin[2]
     for (i in 1:(length(x))) {
         cha <- as.character(label[i])
         cha <- paste(" ", cha, " ", sep = "")
         cex0 <- par("cex") * clabel
-        xh <- strwidth(cha, cex = cex0)
-        yh <- strheight(cha, cex = cex0) * 5/6
-        if ((x[i] > y[i]) & (x[i] > -y[i])) {
-            x1 <- x[i] + xh/2
-            y1 <- y[i]
+        
+        if (boxes) {
+            xh <- strwidth(cha, cex = cex0)
+            yh <- strheight(cha, cex = cex0) * 5/6
+            if ((xref[i] > yref[i]) & (xref[i] > -yref[i])) {
+                x1 <- x[i] + xh/2
+                y1 <- y[i]
+            }
+            else if ((xref[i] > yref[i]) & (xref[i] <= (-yref[i]))) {
+                x1 <- x[i]
+                y1 <- y[i] - yh
+            }
+            else if ((xref[i] <= yref[i]) & (xref[i] <= (-yref[i]))) {
+                x1 <- x[i] - xh/2
+                y1 <- y[i]
+            }
+            else if ((xref[i] <= yref[i]) & (xref[i] > (-yref[i]))) {
+                x1 <- x[i]
+                y1 <- y[i] + yh
+            }
+            rect(x1 - xh/2, y1 - yh, x1 + xh/2, y1 + yh, col = "white", 
+                border = 1)
         }
-        else if ((x[i] > y[i]) & (x[i] <= (-y[i]))) {
-            x1 <- x[i]
-            y1 <- y[i] - yh
-        }
-        else if ((x[i] <= y[i]) & (x[i] <= (-y[i]))) {
-            x1 <- x[i] - xh/2
-            y1 <- y[i]
-        }
-        else if ((x[i] <= y[i]) & (x[i] > (-y[i]))) {
-            x1 <- x[i]
-            y1 <- y[i] + yh
-        }
-        rect(x1 - xh/2, y1 - yh, x1 + xh/2, y1 + yh, col = "white", 
-            border = 1)
         text(x1, y1, cha, cex = cex0)
     }
 }
 
 ############ scatterutil.eti #################
-"scatterutil.eti" <- function (x, y, label, clabel) {
+"scatterutil.eti" <- function (x, y, label, clabel, boxes=TRUE, coul = rep(1,length(x))) 
+{
     if (length(label) == 0) 
         return(invisible())
     if (is.null(label)) 
@@ -314,15 +323,17 @@
         cha <- as.character(label[i])
         cha <- paste(" ", cha, " ", sep = "")
         cex0 <- par("cex") * clabel
-        xh <- strwidth(cha, cex = cex0)
-        yh <- strheight(cha, cex = cex0) * 5/3
         x1 <- x[i]
         y1 <- y[i]
-        rect(x1 - xh/2, y1 - yh/2, x1 + xh/2, y1 + yh/2, col = "white", 
-            border = 1)
-        text(x1, y1, cha, cex = cex0)
+        if (boxes) {
+        	xh <- strwidth(cha, cex = cex0)
+        	yh <- strheight(cha, cex = cex0) * 5/3
+            rect(x1 - xh/2, y1 - yh/2, x1 + xh/2, y1 + yh/2, col= "white", border = coul[i])
+        }
+        text(x1, y1, cha, cex = cex0, col=coul[i])
     }
 }
+
 
 ############ scatterutil.grid #################
 "scatterutil.grid" <- function (cgrid) {
@@ -467,16 +478,18 @@
     return(xynew)
 }
 ############ scatterutil.star #################
-"scatterutil.star" <- function (x, y, z, cstar) {
+"scatterutil.star" <- function (x, y, z, cstar, coul = rep(1,length(x))) 
+{
     z <- z/sum(z)
     x1 <- sum(x * z)
     y1 <- sum(y * z)
     for (i in which(z > 0)) {
         hx <- cstar * (x[i] - x1)
         hy <- cstar * (y[i] - y1)
-        segments(x1, y1, x1 + hx, y1 + hy)
+        segments(x1, y1, x1 + hx, y1 + hy, col=coul)
     }
 }
+
 
 ############ scatterutil.sub #################
 "scatterutil.sub" <- function (cha, csub, possub = "bottomleft") {

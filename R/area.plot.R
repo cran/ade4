@@ -16,7 +16,8 @@
     # si il est non nul, doit être de dimensions (nombre de niveaux de x[,1] , 2) et
     # contenir les coordonnées dans l'ordre de unique(x[,1])
     x.area <- x
-    opar <- par(mar = par("mar"), new = par("new"))
+    if(dev.cur() == 1) plot.new()
+    opar <- par(mar = par("mar")) #, new = par("new")
     on.exit(par(opar))
     par(mar = c(0.1, 0.1, 0.1, 0.1))
     if (!is.factor(x.area[, 1])) 
@@ -163,6 +164,8 @@
     class(res) <- "polylist"
     attr(res, "region.id") <- label.poly
     attr(res, "region.rect") <- r0
+    # message de Stéphane Dray du 06/02/2004
+    attr(res,"maplim") <- list(x=range(x1),y=range(x2))
     return(res)
 } 
 

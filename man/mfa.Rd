@@ -45,8 +45,9 @@ summary.mfa (object, \dots)
   \item{link}{a data frame containing the projected inertia and the links between the arrays and the reference array}
   \item{corli}{a data frame giving the correlations between the \$lisup and the \$li}
 }
-\references{Escofier, B. and Pag"s, J. (1994) Multiple factor analysis (AFMULT package), \emph{Computational Statistics and Data Analysis}, \bold{18}, 121--140.
+\references{Escofier, B. and Pagès, J. (1994) Multiple factor analysis (AFMULT package), \emph{Computational Statistics and Data Analysis}, \bold{18}, 121--140.
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(friday87)
 w1 <- data.frame(scale(friday87$fau, scal = FALSE))

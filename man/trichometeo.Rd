@@ -1,6 +1,6 @@
 \name{trichometeo}
 \alias{trichometeo}
-\non_function{}
+\docType{data}
 \title{Pair of Ecological Data}
 \description{
 This data set gives for trappong nights informations about 
@@ -8,20 +8,20 @@ species and meteorological variables.
 }
 \usage{data(trichometeo)}
 \format{
-    \code{trichometeo} is a list of 3 components.
-    \enumerate{
+\code{trichometeo} is a list of 3 components.
+\describe{
     \item{fau}{is a data frame with 49 rows (trapping nights) and 17 species.}
     \item{meteo}{is a data frame with 49 rows and 11 meteorological variables.}
     \item{cla}{is a factor of 12 levels for the definition of the consecutive night groups}
     }
 }
 \source{
-	Data from P. Usseglio-Polatera
+    Data from P. Usseglio-Polatera
 }
 \references{
-Usseglio-Polatera, P. and Auda, Y. (1987)\cr
-Influence des facteurs météorologiques sur les résultats de piégeage lumineux.\cr
-\emph{Annales de Limnologie}, \bold{23}, 65--79, code des esp"ces p. 76
+Usseglio-Polatera, P. and Auda, Y. (1987) 
+Influence des facteurs météorologiques sur les résultats de piégeage lumineux. 
+\emph{Annales de Limnologie}, \bold{23}, 65--79, code des espèces p. 76
 }
 \examples{
 data(trichometeo)

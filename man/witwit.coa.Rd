@@ -10,13 +10,13 @@ witwit.coa(dudi, row.blocks, col.blocks, scannf = TRUE, nf = 2)
 summary.witwit(object, \dots)
 }
 \arguments{
-  \item{dudi}{an object of class 'coa' }
+  \item{dudi}{an object of class \code{coa} }
   \item{row.blocks}{a numeric vector indicating the row numbers for each block of rows}
   \item{col.blocks}{a numeric vector indicating the column numbers for each block of columns}
   \item{scannf}{a logical value indicating whether the eigenvalues bar plot should be displayed}
   \item{nf}{if scannf FALSE, an integer indicating the number of kept axes}
   \cr
-  \item{object}{an object of class 'witwit'}
+  \item{object}{an object of class \code{witwit}}
   \item{\dots}{further arguments passed to or from other methods}
 }
 value{
@@ -29,6 +29,9 @@ returns a list of class \code{witwit}, \code{coa} and \code{dudi} (see \link{as.
 \references{
 Cazes, P., Chessel, D. and Dolédec, S. (1988) L'analyse des correspondances internes d'un tableau partitionné :
 son usage en hydrobiologie. \emph{Revue de Statistique Appliquée}, \bold{36}, 39--54. 
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(ardeche)

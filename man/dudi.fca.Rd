@@ -22,12 +22,15 @@ dudi.fca(df, scannf = TRUE, nf = 2)
   \item{nf}{if scannf FALSE, an integer indicating the number of kept axes}
 }
 \value{
-The function \code{prep.fuzzy.var} returns a data frame with attribute \code{col.blocks}
+The function \code{prep.fuzzy.var} returns a data frame with the attribute \code{col.blocks}. 
 The function \code{dudi.fca} returns a list of class \code{fca} and \code{dudi} (see \link{dudi}) containing also
-\item{cr}{a data frame which rows are the blocs, columns are the kept axes, and values are correlation ratios.}
+\item{cr}{a data frame which rows are the blocs, columns are the kept axes, and values are the correlation ratios.}
 }
 \references{Chevenet, F., Dolédec, S. and Chessel, D. (1994) A fuzzy coding approach for the analysis of 
 long-term ecological data. \emph{Freshwater Biology}, \bold{31}, 295--309. 
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 w1 <- matrix(c(1,0,0,2,1,1,0,2,2,0,1,0,1,1,1,0,1,3,1,0), 4, 5)
@@ -41,7 +44,7 @@ data(bsetal97)
 w <- prep.fuzzy.var(bsetal97$biol, bsetal97$biol.blo)
 scatter(dudi.fca(w, scann = FALSE, nf = 3), csub = 3, clab.moda = 1.5)
 
- w1 <- prep.fuzzy.var(bsetal97$biol, bsetal97$biol.blo)
+w1 <- prep.fuzzy.var(bsetal97$biol, bsetal97$biol.blo)
 w2 <- prep.fuzzy.var(bsetal97$ecol, bsetal97$ecol.blo)
 d1 <- dudi.fca(w1, scann = FALSE, nf = 3)
 d2 <- dudi.fca(w2, scann = FALSE, nf = 3)
