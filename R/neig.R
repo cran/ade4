@@ -1,17 +1,4 @@
-"nb2neig" <-
-function (nb) 
-{
-    if (!inherits(nb, "nb")) 
-        stop("Non convenient data")
-    res <- neig(list = nb)
-    w <- attr(nb, "region.id")
-    if (is.null(w)) 
-        w <- as.character(1:length(nb))
-    names(attr(res, "degrees")) <- w
-    return(res)
-}
-"neig" <-
-function (list = NULL, mat01 = NULL, edges = NULL, n.line = NULL, 
+"neig" <- function (list = NULL, mat01 = NULL, edges = NULL, n.line = NULL,
     n.circle = NULL, area = NULL) 
 {
     if (!is.null(list)) {
@@ -88,9 +75,38 @@ function (list = NULL, mat01 = NULL, edges = NULL, n.line = NULL,
     class(output) <- "neig"
     output
 }
-"neig.util.GtoL" <-
-function (G) 
-{
+
+"nb2neig" <- function (nb) {
+    if (!inherits(nb, "nb")) 
+        stop("Non convenient data")
+    res <- neig(list = nb)
+    w <- attr(nb, "region.id")
+    if (is.null(w)) 
+        w <- as.character(1:length(nb))
+    names(attr(res, "degrees")) <- w
+    return(res)
+}
+
+"neig2nb" <- function (neig) {
+    if (!inherits(neig, "neig")) 
+        stop("Non convenient data")
+    w1 <- attr(neig, "degrees")
+    n <- length(w1)
+    region.id <- names(w1)
+    if (is.null(region.id)) 
+        region.id <- as.character(1:n)
+    G <- neig.util.LtoG(neig)
+    res <- split(G, row(G))
+    res <- lapply(res, function(x) which(x > 0))
+    attr(res, "region.id") <- region.id
+    attr(res, "gal") <- FALSE
+    attr(res, "call") <- match.call()
+    class(res) <- "nb"
+    return(res)
+}
+
+
+"neig.util.GtoL" <- function (G) {
     G <- as.matrix(G)
     n <- nrow(G)
     if (ncol(G) != n) 
@@ -108,9 +124,8 @@ function (G)
     G <- cbind(Re(G), Im(G))
     return(G)
 }
-"neig.util.LtoG" <-
-function (L, n = max(L)) 
-{
+
+"neig.util.LtoG" <- function (L, n = max(L)) {
     L <- unclass(L)
     if (ncol(L) != 2) 
         stop("two col expected")
@@ -129,28 +144,30 @@ function (L, n = max(L))
     G <- 1 * (G > 0)
     return(G)
 }
-"neig2nb" <-
-function (neig) 
-{
-    if (!inherits(neig, "neig")) 
-        stop("Non convenient data")
-    w1 <- attr(neig, "degrees")
-    n <- length(w1)
-    region.id <- names(w1)
-    if (is.null(region.id)) 
-        region.id <- as.character(1:n)
-    G <- neig.util.LtoG(neig)
-    res <- split(G, row(G))
-    res <- lapply(res, function(x) which(x > 0))
-    attr(res, "region.id") <- region.id
-    attr(res, "gal") <- FALSE
-    attr(res, "call") <- match.call()
-    class(res) <- "nb"
-    return(res)
+
+"print.neig" <- function (x, ...) {
+    deg <- attr(x, "degrees")
+    n <- length(deg)
+    labels <- names(deg)
+    df <- neig.util.LtoG(x)
+    for (i in 1:n) {
+        w <- c(".", "1")[df[i, 1:i] + 1]
+        cat(labels[i], " ", w, "\n", sep = "")
+    }
+    invisible(df)
 }
-"scores.neig" <-
-function (obj) 
-{
+
+ "summary.neig" <- function (object, ...) {
+    cat("Neigbourhood undirected graph\n")
+    deg <- attr(object, "degrees")
+    size <- length(deg)
+    cat("Vertices:", size, "\n")
+    cat("Degrees:", deg, "\n")
+    m <- sum(deg)/2
+    cat("Edges (pairs of vertices):", m, "\n")
+}
+
+"scores.neig" <- function (obj) {
     if (is.null(class(obj))) 
         stop("Object of class 'neig' expected")
     if (class(obj) != "neig") 
