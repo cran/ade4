@@ -10,7 +10,7 @@
 \alias{neig2mat}
 \title{Neighbourhood Graphs}
 \description{
-\code{neig} creates objects of class 'neig' with : \cr
+\code{neig} creates objects of class \code{neig} with : \cr
     a list of edges\cr
     a binary square matrix\cr
     a list of vectors of neighbours\cr
@@ -20,11 +20,11 @@
 scores.neig returns the eigenvectors of neighbouring,\cr
 orthonormalized scores (null average, unit variance 1/n and null covariances) of maximal autocorrelation.\cr
 
-nb2neig returns an object of class 'neig' using an object of class 'nb' in the library 'spdep'
+nb2neig returns an object of class \code{neig} using an object of class \code{nb} in the library 'spdep'
 
-neig2nb returns an object of class 'nb' using an object of class 'neig'
+neig2nb returns an object of class \code{nb} using an object of class \code{neig}
 
-neig2mat returns the incidence matrix between edges (1= neighbour ; 0= no neighbour)}
+neig2mat returns the incidence matrix between edges (1 = neighbour ; 0 = no neighbour)}
 
 neig.util.GtoL and neig.util.LtoG are utilities.
 }
@@ -51,9 +51,9 @@ neig2mat (neig)
 \item{\dots}{further arguments passed to or from other methods}
 }
 \references{
-Thioulouse, J., D. Chessel, and S. Champely. 1995.\cr
-Multivariate analysis of spatial patterns: a unified approach to local and global structures.\cr
-Environmental and Ecological Statistics, \bold{2}, 1--14.
+Thioulouse, J., D. Chessel, and S. Champely. 1995. 
+Multivariate analysis of spatial patterns: a unified approach to local and global structures.
+\emph{Environmental and Ecological Statistics}, \bold{2}, 1--14.
 }
 \examples{
 data(mafragh)
@@ -103,5 +103,41 @@ if (require(tripack, quietly=TRUE)) {
 }
 par(mfrow = c(1,1))
 
+if (require(maptools, quiet = TRUE) & require(spdep, quiet = TRUE)) {
+    data(columbus)
+    par(mfrow = c(2,1))
+    par(mar = c(0.1,0.1,0.1,0.1))
+    plot(col.gal.nb, coords)
+    s.label(data.frame(coords), neig = neig(list = col.gal.nb),
+        inc = FALSE, clab = 0.6, cneig = 1)
+    par(mfrow = c(1,1))
+    
+    data(mafragh)
+    maf.rel <- relativeneigh(as.matrix(mafragh$xy))
+    maf.rel <- graph2nb(maf.rel)
+    s.label(mafragh$xy, neig = neig(list = maf.rel), inc = FALSE,
+        clab = 0, addax = FALSE, cne = 1, cpo = 2)
+    
+    par(mfrow = c(2,2))
+    w <- matrix(runif(100), 50, 2)
+    x.gab <- gabrielneigh(w)
+    x.gab <- graph2nb(x.gab)
+    s.label(data.frame(w), neig = neig(list = x.gab), inc = FALSE,
+        clab = 0, addax = FALSE, cne = 1, cpo = 2, sub = "relative")
+    x.rel <- relativeneigh(w)
+    x.rel <- graph2nb(x.rel)
+    s.label(data.frame(w), neig = neig(list = x.rel), inc = FALSE,
+        clab = 0, addax = FALSE, cne = 1, cpo = 2, sub = "Gabriel")
+    k1 <- knn2nb(knearneigh(w))
+    s.label(data.frame(w), neig = neig(list = k1), inc = FALSE,
+        clab = 0, addax = FALSE, cne = 1, cpo = 2, sub = "k nearest neighbours")
+    
+    all.linked <- max(unlist(nbdists(k1, w)))
+    z <- dnearneigh(w, 0, all.linked)
+    s.label(data.frame(w), neig = neig(list = z), inc = FALSE,
+        clab = 0, addax = FALSE, cne = 1, cpo = 2, 
+        sub = "Neighbourhood contiguity by distance")
+}
+par(mfrow = c(1,1))
 }
 \keyword{utilities}
