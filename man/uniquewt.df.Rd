@@ -1,11 +1,11 @@
-\name{unique.df}
-\alias{unique.df}
+\name{uniquewt.df}
+\alias{uniquewt.df}
 \title{Elimination of Duplicated Rows in a Array}
 \description{
 An utility function to eliminate the duplicated rows in a array. 
 }
 \usage{
-unique.df(x)
+uniquewt.df(x)
 }
 \arguments{
   \item{x}{a data frame which contains duplicated rows}
@@ -17,7 +17,7 @@ The function returns a \code{y} which contains once each duplicated row of \code
 }
 \examples{
 data(ecomor)
-forsub.r <- unique.df(ecomor$forsub)
+forsub.r <- uniquewt.df(ecomor$forsub)
 attr(forsub.r, "factor")
 forsub.r[1,]
 ecomor$forsub[126,] #idem
