@@ -7,6 +7,7 @@
 \alias{scores.neig}
 \alias{nb2neig}
 \alias{neig2nb}
+\alias{neig2mat}
 \title{Neighbourhood Graphs}
 \description{
 \code{neig} creates objects of class 'neig' with : \cr
@@ -23,6 +24,8 @@ nb2neig returns an object of class 'neig' using an object of class 'nb' in the l
 
 neig2nb returns an object of class 'nb' using an object of class 'neig'
 
+neig2mat returns the incidence matrix between edges (1= neighbour ; 0= no neighbour)}
+
 neig.util.GtoL and neig.util.LtoG are utilities.
 }
 \usage{
@@ -34,6 +37,7 @@ print.neig  (x, \dots)
 summary.neig  (object, \dots)
 nb2neig (nb)
 neig2nb (neig)
+neig2mat (neig)
 }
 \arguments{
 \item{list}{a list which each component gives the number of neighbours}
@@ -49,7 +53,7 @@ neig2nb (neig)
 \references{
 Thioulouse, J., D. Chessel, and S. Champely. 1995.\cr
 Multivariate analysis of spatial patterns: a unified approach to local and global structures.\cr
-Environmental and Ecological Statistics 2:1-14.
+Environmental and Ecological Statistics, \bold{2}, 1--14.
 }
 \examples{
 data(mafragh)
