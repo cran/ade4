@@ -46,8 +46,9 @@
     x <- (1 - f.phylog) * x + f.phylog
     nl <- nrow(df)
     y <- 1/2/nl+((nl-1):0)/nl
+    par(new = TRUE)
     plot.default(0, 0, type = "n", xlab = "", ylab = "", 
-        xaxt = "n", yaxt = "n", xlim = c(0,1), ylim = c(0,1), 
+        xaxt = "n", yaxt = "n", xlim = c(-0.075,1), ylim = c(0,1), 
         xaxs = "i", yaxs = "i", frame.plot = FALSE)
     if (cexrow > 0) {
         for (i in 1:length(y)) {

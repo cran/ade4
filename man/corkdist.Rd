@@ -5,9 +5,9 @@
 \alias{print.corkdist}
 \alias{summary.corkdist}
 \alias{plot.corkdist}
-\title{Tests of randomization on the correlation between distances applied to 'kdist' objetcs}
+\title{Tests of randomization between distances applied to 'kdist' objetcs}
 \description{
-The mantelkdist and RVkdist functions apply to blocks of distance matrices the mantel.rtest et RV.rtest functions.
+The mantelkdist and RVkdist functions apply to blocks of distance matrices the mantel.rtest and RV.rtest functions.
 }
 \usage{
 mantelkdist (kd, nrepet = 999)
