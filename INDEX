@@ -180,7 +180,6 @@ procuste.rtest          Monte-Carlo Test on the sum of the singular
 pta                     Partial Triadic Analysis of a K-tables
 quasieuclid             Transformation of a distance matrice to a
                         Euclidean one
-randtest-internal       Internal Permutation Tests functions (in C).
 randtest                Class of the Permutation Tests (in C).
 randtest.between        Monte-Carlo Test on the between-groups inertia
                         percentage (in C).
@@ -257,6 +256,7 @@ table.phylog            Plot arrays in front of a phylogenetic tree
 table.value             Plot of the Arrays
 tarentaise              Mountain Avifauna
 taxo.eg                 Examples of taxonomy
+testdiscrimin           Internal Permutation Tests functions (in C).
 tintoodiel              Tinto and Odiel estuary geochemistry
 tithonia                Phylogeny and quantitative traits of flowers
 tortues                 Morphological Study of the Painted Turtle
