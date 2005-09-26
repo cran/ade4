@@ -66,6 +66,7 @@
         }
         attr(retval, "size") <- size
         attr(retval, "labels") <- attr(list.obj[[1]],"Labels")
+	if(is.null(attr(retval, "labels"))) attr(retval, "labels") <- as.character(1:size)
         attr(retval, "euclid") <- res
         return(retval)
     }
@@ -80,7 +81,7 @@
         }
         size <- unlist(lapply(list.obj,ncol))
         if (any(size!=size[1])) stop ("Non equal dimension")
-        list.obj =lapply(list.obj,mat2dist)
+        list.obj =lapply(list.obj,as.dist)
         return (as.kdist.dist(list.obj))
      }
 
@@ -96,7 +97,7 @@
         attr(retval, "labels") <- as.character(1:size)
         euclid <- logical(n)
         for (i in 1:n) {
-            euclid[i] <- is.euclid(mat2dist(triinftodist(retval[[i]])),tol = epsi)
+            euclid[i] <- is.euclid(as.dist(triinftodist(retval[[i]])),tol = epsi)
         }
         if (is.null(names(retval))) {
             names(retval) <- as.character(1:length(list.obj))
