@@ -9,16 +9,17 @@ Performs a Monte-Carlo test on the between-groups inertia percentage.
 randtest.between(xtest, nrepet = 999, \dots)
 }
 \arguments{
-  \item{xtest}{an object of class 'between'}
+  \item{xtest}{an object of class \code{between}}
   \item{nrepet}{the number of permutations}
   \item{\dots}{further arguments passed to or from other methods}
 }
 \value{
-a list of the class 'randtest'
+a list of the class \code{randtest}
 }
 \references{
 Romesburg, H. C. (1985) Exploring, confirming and randomization tests. \emph{Computers and Geosciences}, \bold{11}, 19--37.
 }
+\author{Jean Thioulouse \email{ade4-jt@biomserv.univ-lyon1.fr}}
 \examples{
 data(meaudret)
 pca1 <- dudi.pca(meaudret$mil, scan = FALSE, nf = 3)

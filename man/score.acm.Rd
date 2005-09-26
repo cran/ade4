@@ -2,7 +2,7 @@
 \alias{score.acm}
 \title{Graphs to study one factor in a Multiple Correspondence Analysis}
 \description{
-performs the graphs to study one factor in a Multiple Correspondence Analysis. 
+performs the canonical graph of a Multiple Correspondence Analysis. 
 }
 \usage{
 score.acm(x, xax = 1, which.var = NULL, mfrow = NULL, 
@@ -18,6 +18,7 @@ score.acm(x, xax = 1, which.var = NULL, mfrow = NULL,
   \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{\dots}{further arguments passed to or from other methods}
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(banque)
 banque.acm <- dudi.acm(banque, scann = FALSE, nf = 3)

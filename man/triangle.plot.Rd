@@ -6,16 +6,17 @@
 \alias{add.position.triangle}
 \title{Triangular Plotting}
 \description{
-	Graphs for a dataframe with 3 columns of positive or null values\cr
-	\code{triangle.plot} is a scatterplot\cr
-	\code{triangle.biplot} is a paired scatterplots\cr
-	\code{triangle.posipoint}, \code{triangle.param}, \code{add.position.triangle} are utilitaries functions. 
+    Graphs for a dataframe with 3 columns of positive or null values\cr
+    \code{triangle.plot} is a scatterplot\cr
+    \code{triangle.biplot} is a paired scatterplots\cr
+    \code{triangle.posipoint}, \code{triangle.param}, \code{add.position.triangle} are utilitaries functions. 
 }
 \usage{
 triangle.plot(ta, label = as.character(1:nrow(ta)), clabel = 0, 
     cpoint = 1, draw.line = TRUE, addaxes = FALSE, addmean = FALSE, 
     labeltriangle = TRUE, sub = "", csub = 0, possub = "topright", 
-    show.position = TRUE, scale = TRUE, min3 = NULL, max3 = NULL)
+    show.position = TRUE, scale = TRUE, min3 = NULL, max3 = NULL, 
+    box = FALSE)
 triangle.biplot (ta1, ta2, label = as.character(1:nrow(ta1)), 
     draw.line = TRUE, show.position = TRUE, scale = TRUE)
 }
@@ -35,6 +36,13 @@ triangle.biplot (ta1, ta2, label = as.character(1:nrow(ta1)),
   \item{scale}{a logical value indicating whether the smaller equilateral triangle containing the plot should be used}
   \item{min3}{If scale is FALSE, a vector of three values for the minima e.g. c(0.1,0.1,0.1) can be used}
   \item{max3}{If scale is FALSE a vector of three values for the maxima e.g. c(0.9,0.9,0.9) can be used}
+  \item{box}{a logical value indicating whether a box around the current plot should be drawn}
+}
+\values{
+Returns a matrix \code{xy} containing the coordinates used for the plot. The graph can be supplemented in various ways.
+}  
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data (euro123)
@@ -58,5 +66,13 @@ triangle.plot(euro123[[2]], min3 = c(0,0.2,0.3), max3 = c(0.5,0.7,0.8),
 triangle.plot(euro123[[3]], min3 = c(0,0.2,0.3), max3 = c(0.5,0.7,0.8), 
     clab = 1, label = row.names(euro123[[1]]), addax = TRUE)
 triangle.plot(rbind.data.frame(euro123[[1]], euro123[[2]], euro123[[3]]))
+
+wtriangleplot <- cbind.data.frame(a = runif(100), b = runif(100), 
+    c = runif(100,4,5))
+wtriangleplot <- triangle.plot(wtriangleplot)
+points(wtriangleplot, col = "blue", cex = 2)
+wtriangleplot <- colMeans(wtriangleplot)
+points(wtriangleplot[1], wtriangleplot[2], pch = 20, cex = 3, col = "red")
+rm(wtriangleplot)
 }
 \keyword{hplot}

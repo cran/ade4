@@ -4,6 +4,7 @@
 ########### area2poly         ################
 ########### poly2area         ################
 ########### area2link         ################
+########### area.util.class   ################
 
 "area.plot" <- function (x, center= NULL, values = NULL, graph = NULL, lwdgraph = 2, nclasslegend = 8,
     clegend = 0.75, sub = "", csub = 1, possub = "topleft", cpoint = 0, 
@@ -16,7 +17,8 @@
     # si il est non nul, doit être de dimensions (nombre de niveaux de x[,1] , 2) et
     # contenir les coordonnées dans l'ordre de unique(x[,1])
     x.area <- x
-    opar <- par(mar = par("mar"), new = par("new"))
+    if(dev.cur() == 1) plot.new()
+    opar <- par(mar = par("mar")) #, new = par("new")
     on.exit(par(opar))
     par(mar = c(0.1, 0.1, 0.1, 0.1))
     if (!is.factor(x.area[, 1])) 
@@ -163,6 +165,8 @@
     class(res) <- "polylist"
     attr(res, "region.id") <- label.poly
     attr(res, "region.rect") <- r0
+    # message de Stéphane Dray du 06/02/2004
+    attr(res,"maplim") <- list(x=range(x1),y=range(x2))
     return(res)
 } 
 
@@ -229,4 +233,47 @@
     res <- res+t(res)
     dimnames(res)=list(as.character(levpoly),as.character(levpoly))
     res
+}
+
+"area.util.class" <- function (area,fac) {
+    if (nlevels(area[,1]!= length(fac))) stop ("non convenient matching")
+    lreg <- split (as.character(unique(area[,1])),fac)
+    "contour2poly" <- function(x) {
+        a = paste(x[,1],x[,2],sep="_")
+        b = paste(x[,3],x[,4],sep="_")
+        a = cbind(a,b)
+        points = a[1,1]
+        curr = a[1,1]
+        rowcur = 1
+        colcur = 1
+        npts = nrow(x)
+        for (k in (1:(npts-2))) {
+            colnew = 3-colcur
+            curnew = a[rowcur,colnew]
+            points = c(points,curnew)
+            a <- a[-rowcur,]
+             coo = which(a==curnew,arr=TRUE)
+           rowcur=coo[1,1]
+            colcur=coo[1,2]
+            curr=a[rowcur,colcur]
+           }
+        colnew = 3-colcur
+        curnew = a[rowcur,colnew]
+        points = c(points,curnew)
+        return(matrix(as.numeric(unlist(strsplit(points,"_"))),ncol=2,byr=TRUE))
+    }
+    "souscontour" <- function(k) {
+        sel = unlist(lapply(lreg[[k]],function(x) which(area[,1]==x)))
+        area.sel = area[sel,]
+        area.sel[,1]=as.factor(as.character(area.sel[,1]))
+        w=area.util.contour(area.sel)
+        w=contour2poly(w)
+        w=cbind(rep(k,nrow(w)),w)
+        return(w)
+    }
+    lcontour <- lapply(1:nlevels(fac),souscontour)
+    w = lcontour[[1]]
+    for (k in 2:length(lcontour)) w <- rbind.data.frame(w,lcontour[[k]])
+    w[,1] <- as.factor(levels(fac)[w[,1]])
+    return(w)
 }

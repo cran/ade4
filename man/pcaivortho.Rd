@@ -8,13 +8,13 @@ performs a Principal Component Analysis with respect to orthogonal instrumental 
 pcaivortho(dudi, df, scannf = TRUE, nf = 2)
 }
 \arguments{
-  \item{dudi}{a duality diagram, object of class 'dudi'}
+  \item{dudi}{a duality diagram, object of class \code{dudi}}
   \item{df}{a data frame with the same rows}
   \item{scannf}{a logical value indicating whether the eigenvalues bar plot should be displayed}
   \item{nf}{if scannf FALSE, an integer indicating the number of kept axes}
 }
 \value{
-an object of class 'pcaivortho' sub-class of class 'dudi'
+an object of class 'pcaivortho' sub-class of class \code{dudi}
   \item{rank}{an integer indicating the rank of the studied matrix}
   \item{nf}{an integer indicating the number of kept axes}
   \item{eig}{a vector with the all eigenvalues}
@@ -31,11 +31,16 @@ an object of class 'pcaivortho' sub-class of class 'dudi'
   \item{co}{a data frame with the inner product between the CPC and Y}
   \item{param}{a data frame containing a summary}
 }
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+}
 \references{
 Rao, C. R. (1964) The use and interpretation of principal component analysis in applied research. \emph{Sankhya}, \bold{A 26}, 329--359.\cr\cr
 Sabatier, R., Lebreton J. D. and Chessel D. (1989) Principal component analysis with instrumental variables as a tool for modelling composition data. In R. Coppi and S. Bolasco, editors. \emph{Multiway data analysis}, Elsevier Science Publishers B.V., North-Holland, 341--352
 }
 \examples{
+\dontrun{
 par(mfrow = c(2,2))
 data(avimedi)
 cla <- avimedi$plan$reg:avimedi$plan$str
@@ -60,5 +65,6 @@ interAplusB <- pcaiv(coa1, avimedi$plan, scan = FALSE)
 s.match(interAplusB$li, interAplusB$ls, clab = 0, 
     sub = "Contrainte A + B")
 s.class(interAplusB$li, cla, add.plot = TRUE)
-}
+
+par(mfrow = c(1,1))}}
 \keyword{multivariate}

@@ -2,7 +2,7 @@
 \alias{within.pca}
 \title{Normed within Principal Component Analysis}
 \description{
-performs a normed within principal component analysis. 
+performs a normed within Principal Component Analysis. 
 }
 \usage{
 within.pca(df, fac, scaling = c("partial", "total"), 
@@ -12,15 +12,20 @@ within.pca(df, fac, scaling = c("partial", "total"),
   \item{df}{a data frame with quantitative variables}
   \item{fac}{a factor distributing the rows of df in classes}
   \item{scaling}{a string of characters as a scaling option : \cr
-  	if "partial", for each factor level, the sub-array is centred and normed.\cr
-	If "total", for each factor level, the sub-array is centred and the total array is then normed.}
+    if "partial", for each factor level, the sub-array is centred and normed.\cr
+    If "total", for each factor level, the sub-array is centred and the total array is then normed.}
   \item{scannf}{a logical value indicating whether the eigenvalues bar plot should be displayed}
   \item{nf}{if scannf FALSE, an integer indicating the number of kept axes}
 }
 \value{
-returns a list of the sub-class 'within' of class 'dudi'. See \code{\link{within}}
+returns a list of the sub-class \code{within} of class \code{dudi'}. See \code{\link{within}}
 }
-\references{Bouroche, J. M. (1975) Analyse des données ternaires: la double analyse en composantes principales. Thèse de 3ème cycle, Université de Paris VI.
+\references{Bouroche, J. M. (1975) \emph{Analyse des données ternaires: la double analyse en composantes principales}. 
+ Thèse de 3ème cycle, Université de Paris VI.
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(meaudret)

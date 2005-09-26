@@ -3,21 +3,26 @@
 \docType{data}
 \title{African Estuary Fishes}
 \description{
-This data set is a list containing relations between sites and species linked to dates
+This data set is a list containing relations between sites and fish species linked to dates.
 }
 \usage{data(baran95)}
 \format{
-	This list contains the following objects:
-	\describe{
-		\item{fau}{is a data frame 95 sites 33 species. }
-		\item{plan}{is a data frame 2 factors date and site. }
-		\item{species.names}{is a vector of species latin names. }
-	}
+    This list contains the following objects:
+    \describe{
+        \item{fau}{is a data frame 95 seinings and 33 fish species. }
+        \item{plan}{is a data frame 2 factors : date and site. The \code{date} has 6 levels (april 1993, june 1993, 
+        august 1993, october 1993, december 1993 and february 1994) and the \code{sites} are defined by 4 distances to the
+        Atlantic Ocean (km03, km17, km33 and km46). }
+        \item{species.names}{is a vector of species latin names. }
+    }
 }
 \source{
-Baran, E. (1995) Dynamique spatio-temporelle des peuplements de Poissons estuariens en Guinée (Afrique de l'Ouest).\cr
-Thèse de Doctorat, Université de Bretagne Occidentale.\cr
-Data collected by net fishing sampling in the Fatala river estuary
+Baran, E. (1995) \emph{Dynamique spatio-temporelle des peuplements de Poissons estuariens en Guinée (Afrique de l'Ouest)}.
+Thèse de Doctorat, Université de Bretagne Occidentale. 
+Data collected by net fishing sampling in the Fatala river estuary.
+}
+\references{
+See a data description at \url{http://pbil.univ-lyon1.fr/R/pps/pps027.pdf} (in French).
 }
 \examples{
 data(baran95)

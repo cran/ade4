@@ -4,7 +4,7 @@
 \alias{plot.statis}
 \title{STATIS, a method for analysing K-tables}
 \description{
-performs a STATIS analysis of K-tables. 
+performs a STATIS analysis of a \code{ktab} object. 
 }
 \usage{
 statis(X, scannf = TRUE, nf = 3, tol = 1e-07)
@@ -16,7 +16,7 @@ print.statis (x, \dots)
   \item{scannf}{a logical value indicating whether the number of kept axes for the compromise should be asked}
   \item{nf}{if \code{scannf} FALSE, an integer indicating the number of kept axes for the compromise}
   \item{tol}{a tolerance threshold to test whether the distance matrix is Euclidean : an eigenvalue is considered positive if it is larger than \code{-tol*lambda1} where \code{lambda1} is the largest eigenvalue}
-  \item{statis, x}{an object of class 'statis'}
+  \item{x}{an object of class 'statis'}
   \item{xax, yax}{the numbers of the x-axis and the y-axis}
   \item{option}{an integer between 1 and 4, otherwise the 4 components of the plot are dispayed}
   \item{\dots}{further arguments passed to or from other methods}
@@ -32,7 +32,7 @@ print.statis (x, \dots)
   \item{rank}{an integer indicating the rank of the studied matrix}
   \item{C.li}{a data frame with the row coordinates}
   \item{C.Co}{a data frame with the column coordinates}
-  \item{T4}{a data frame with the principal vectors (for each table)}
+  \item{C.T4}{a data frame with the principal vectors (for each table)}
   \item{TL}{a data frame with the factors (not used)}
   \item{TC}{a data frame with the factors for Co}
   \item{T4}{a data frame with the factors for T4}
@@ -40,6 +40,9 @@ print.statis (x, \dots)
 \references{
 Lavit, C. (1988) \emph{Analyse conjointe de tableaux quantitatifs}, Masson, Paris.\cr\cr
 Lavit, C., Escoufier, Y., Sabatier, R. and Traissac, P. (1994) The ACT (Statis method). \emph{Computational Statistics and Data Analysis}, \bold{18}, 97--119.
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(jv73)

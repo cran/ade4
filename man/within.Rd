@@ -12,7 +12,7 @@ plot.within (x, xax = 1, yax = 2, \dots)
 print.within (x, \dots)
 }
 \arguments{
- \item{dudi}{an object of class 'dudi'}
+ \item{dudi}{an object of class \code{dudi}}
  \item{fac}{a factor distributing the rows of \code{dudi$tab} in classes }
  \item{scannf}{a logical value indicating whether the eigenvalues bar plot should be displayed}
  \item{nf}{if scannf FALSE, an integer indicating the number of kept axes}
@@ -22,7 +22,7 @@ print.within (x, \dots)
  \item{\dots}{further arguments passed to or from other methods}
 }
 \value{
-Returns a list of the sub-class 'within' in the class 'dudi'
+Returns a list of the sub-class \code{within} in the class \code{dudi}
   \item{call}{origine}
   \item{nf}{number of axis saved}
   \item{rank}{rank}
@@ -43,6 +43,10 @@ Returns a list of the sub-class 'within' in the class 'dudi'
 \references{
 Benzécri, J. P. (1983) Analyse de l'inertie intra-classe par l'analyse d'un tableau de correspondances. \emph{Les Cahiers de l'Analyse des données}, \bold{8}, 351--358.\cr\cr
 Dolédec, S. and Chessel, D. (1987) Rythmes saisonniers et composantes stationnelles en milieu aquatique I- Description d'un plan d'observations complet par projection de variables. \emph{Acta Oecologica, Oecologia Generalis}, \bold{8}, 3, 403--426.
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(meaudret)

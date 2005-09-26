@@ -11,7 +11,7 @@ reconst.pca (dudi, nf = 1, ...)
 }
 \arguments{
   \item{dudi}{an object used to select a method}
-  \item{\dots}{\code{\dots} further arguments passed to or from other methods}
+  \item{\dots}{further arguments passed to or from other methods}
   
   \item{nf}{an integer indicating the number of kept axes}
 }
@@ -19,6 +19,10 @@ reconst.pca (dudi, nf = 1, ...)
 a data frame reconstituting the data
 }
 \references{Gabriel, K.R. (1978) Least-squares approximation of matrices by additive and multiplicative models. \emph{Journal of the Royal Statistical Society}, B , \bold{40}, 186--196.
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(rhone)

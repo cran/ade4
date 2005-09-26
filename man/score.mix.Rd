@@ -2,7 +2,7 @@
 \alias{score.mix}
 \title{Graphs to Analyse a factor in a Mixed Analysis}
 \description{
-represents the graphs to analyse a factor in a mixed analysis. 
+performs the canonical graph of a mixed analysis. 
 }
 \usage{
 score.mix (x, xax = 1, csub = 2, mfrow = NULL, which.var = NULL, \dots)
@@ -15,6 +15,7 @@ score.mix (x, xax = 1, csub = 2, mfrow = NULL, which.var = NULL, \dots)
   \item{which.var}{the numbers of the kept columns for the analysis, otherwise all columns }
   \item{\dots}{further arguments passed to or from other methods}
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(lascaux)
 w <- cbind.data.frame(lascaux$colo, lascaux$ornem)

@@ -35,10 +35,11 @@ s.distri(dfxy, dfdistri, xax = 1, yax = 2, cstar = 1,
   \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{cgrid}{a character size, parameter used with par("cex")* \code{cgrid} to indicate the mesh of the grid}
   \item{pixmap}{an object 'pixmap' displayed in the map background}
-  \item{contour}{a data frame with 4 columns to plot the contour of the map : each row gives a line (x1,y1,x2,y2)}
+  \item{contour}{a data frame with 4 columns to plot the contour of the map : each row gives a segment (x1,y1,x2,y2)}
   \item{area}{a data frame of class 'area' to plot a set of surface units in contour}
   \item{add.plot}{if TRUE uses the current graphics window}
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 xy <- cbind.data.frame(x = runif(200,-1,1), y = runif(200,-1,1))
 distri <- data.frame(w1 = rpois(200, xy$x * (xy$x > 0)))
@@ -61,6 +62,7 @@ par(mfrow = c(3,4))
 for (i in c(1,5,8,20,21,23,26,33,36,44,47,49)){
 s.distri(xy, rpjdl$fau[,i], cell = 1.5, sub = rpjdl$frlab[i], 
     csub = 2, cgrid = 1.5)}
+par(mfrow = c(1,1))
 }
 \keyword{multivariate}
 \keyword{hplot}

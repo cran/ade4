@@ -7,7 +7,7 @@ using an object of class \code{foucart}.
 }
 \usage{
 kplot.foucart(object, xax = 1, yax = 2, mfrow = NULL, 
-    which.tab = 1:length(fouc$blo), clab.r = 1, clab.c = 1.25, 
+    which.tab = 1:length(object$blo), clab.r = 1, clab.c = 1.25, 
     csub = 2, possub = "bottomright", \dots)
 }
 \arguments{
@@ -21,6 +21,7 @@ kplot.foucart(object, xax = 1, yax = 2, mfrow = NULL,
   \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{\dots}{further arguments passed to or from other methods}
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 data(bf88)
 fou1 <- foucart(bf88, scann = FALSE, nf = 3)

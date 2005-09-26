@@ -17,13 +17,13 @@ print.procuste (x, \dots)
   \item{nf}{an integer indicating the number of kept axes}
   \item{tol}{a tolerance threshold to test whether the distance matrix is Euclidean : an eigenvalue is considered positive if it is larger than \code{-tol*lambda1} where \code{lambda1} is the largest eigenvalue.}
   \cr
-  \item{x}{an objet of class 'procuste'}
+  \item{x}{an objet of class \code{procuste}}
   \item{xax}{the column number for the x-axis}
   \item{yax}{the column number for the y-axis}
   \item{\dots}{further arguments passed to or from other methods}
 }
 \value{
-returns a list of 9 components of the class 'procuste'
+returns a list of the class \code{procuste} with 9 components 
   \item{d}{a numeric vector of the singular values}
   \item{rank}{an integer indicating the rank of the crossed matrix}
   \item{nfact}{an integer indicating the number of kept axes}
@@ -36,6 +36,10 @@ returns a list of 9 components of the class 'procuste'
   \item{scor1}{a data frame with the scores of array 1}
   \item{scor2}{a data frame with the scores of array 2}
   \item{call}{a call order of the analysis}
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \references{
 Digby, P. G. N. and Kempton, R. A. (1987) Multivariate Analysis of Ecological Communities. \emph{Population and Community Biology Series}, Chapman and Hall, London.\cr\cr
@@ -53,6 +57,7 @@ s.match(pro1$tab2, pro1$rot1, clab = 0.7)
 pro2 <- procuste(macaca$xy1, macaca$xy2)
 s.match(pro2$tab1, pro2$rot2, clab = 0.7)
 s.match(pro2$tab2, pro2$rot1, clab = 0.7)
+par(mfrow = c(1,1))
 
 data(doubs)
 pca1 <- dudi.pca(doubs$mil, scal = TRUE, scann = FALSE)
@@ -66,6 +71,7 @@ s.label(pro3$scor2, clab = 0.8, add.p = TRUE)
 s.arrow(pro3$load1, clab = 0.75)
 s.arrow(pro3$load2, clab = 0.75)
 plot(pro3)
+par(mfrow = c(1,1))
 
 data(fruits)
 plot(procuste(scalewt(fruits$jug), scalewt(fruits$var)))
