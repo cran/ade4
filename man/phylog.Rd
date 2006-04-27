@@ -12,7 +12,7 @@ Create and use objects of class \code{phylog}. \cr
 \usage{
 print.phylog(x, ...)
 phylog.extract(phylog, node, distance = TRUE)
-phylog.permut(phylog, list.nodes = NULL, distance = TRUE))
+phylog.permut(phylog, list.nodes = NULL, distance = TRUE)
 }
 \arguments{
   \item{x, phylog}{: an object of class \code{phylog}}
@@ -45,9 +45,8 @@ Returns a list of class \code{phylog} :
     \item{Blabels}{: a vector giving for each nodes the name of the vector of Bscores that is associated to its}    
 }
 \references{
-Ollier, S., Pontier, D. and Chessel, D. (submitted) Comments on Abouheif's test. \emph{Evolutionary Ecology Research}.
-
-Ollier, S., Couteron, P. and Chessel, D. (submitted) Orthonormal transforms to detect and describe phylogenetic autocorrelation. \emph{Biometrics}.
+Ollier, S., Couteron, P. and Chessel, D. (2005) Orthonormal transforms to detect and describe 
+phylogenetic autocorrelation. \emph{Biometrics} (in press).
 }
 \author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
 Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr}

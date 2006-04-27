@@ -6,8 +6,8 @@
 \title{Is a Distance Matrix Euclidean ?}
 \description{
 Confirmation of the Euclidean nature of a distance matrix by the Gower's theorem.\cr
-is.euclid is used in summary.dist.\cr
-mat2dist and dist2mat are local copies of as.dist and as.matrix.dist of mva.
+\code{is.euclid} is used in \code{summary.dist}.\cr
+\code{mat2dist} and \code{dist2mat} are local copies of \code{as.dist} and \code{as.matrix.dist} of mva.
 }
 \usage{
 is.euclid(distmat, plot = FALSE, print = FALSE, tol = 1e-07)
@@ -26,7 +26,10 @@ returns a logical value indicating if all the eigenvalues are positive or equal 
 }
 \references{Gower, J.C. and Legendre, P. (1986) Metric and Euclidean properties of dissimilarity coefficients. \emph{Journal of Classification}, \bold{3}, 5--48.
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
+Stéphane Dray \email{dray@biomserv.univ-lyon1.fr}
+}
 \examples{
 w <- matrix(runif(10000), 100, 100)
 w <- dist(w)

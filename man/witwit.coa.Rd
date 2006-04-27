@@ -1,13 +1,17 @@
 \name{witwit.coa}
 \alias{witwit.coa}
 \alias{summary.witwit}
+\alias{witwitsepan}
 \title{Internal Correspondence Analysis}
 \description{
-performs an Internal Correspondence Analysis. 
+\code{witwit.coa} performs an Internal Correspondence Analysis. 
+\code{witwitsepan} gives the computation and the barplot of the eigenvalues
+for each separated analysis in an Internal Correspondence Analysis.
 }
 \usage{
 witwit.coa(dudi, row.blocks, col.blocks, scannf = TRUE, nf = 2)
 summary.witwit(object, \dots)
+witwitsepan(ww, mfrow = NULL, csub = 2, plot = TRUE)
 }
 \arguments{
   \item{dudi}{an object of class \code{coa} }
@@ -18,6 +22,11 @@ summary.witwit(object, \dots)
   \cr
   \item{object}{an object of class \code{witwit}}
   \item{\dots}{further arguments passed to or from other methods}
+  \cr
+  \item{ww}{an object of class \code{witwit}}
+  \item{mfrow} {a vector of the form "c(nr,nc)", otherwise computed by a special own function 'n2mfrow'}
+  \item{csub} {a character size for the sub-titles, used with \code{par("cex")*csub}}
+  \item{plot} {if FALSE, numeric results are returned}
 }
 \value{
 returns a list of class \code{witwit}, \code{coa} and \code{dudi} (see \link{as.dudi}) containing
@@ -32,6 +41,7 @@ son usage en hydrobiologie. \emph{Revue de Statistique Appliquée}, \bold{36}, 39
 }
 \author{
 Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(ardeche)
@@ -41,5 +51,7 @@ ww
 s.class(ww$co, ardeche$sta.fac, clab = 1.5, cell = 0, axesell = FALSE)
 s.label(ww$co, add.p = TRUE, clab = 0.75)
 summary(ww)
+
+witwitsepan(ww, c(4,6))
 }
 \keyword{multivariate}

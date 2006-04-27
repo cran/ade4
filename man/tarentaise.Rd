@@ -35,13 +35,16 @@ Oiseaux de Vanoise. Guide de l'ornithologue en montagne.
 Lebreton, Ph., Lebrun, Ph., Martinot, J.P., Miquet, A. and Tournier, H. (1999) 
 Approche écologique de l'avifaune de la Vanoise. 
 \emph{Travaux scientifiques du Parc national de la Vanoise}, \bold{21}, 7--304.
+
+See a data description at \url{http://pbil.univ-lyon1.fr/R/pps/pps038.pdf} (in French).
 }
 \examples{
 data(tarentaise)
 coa1 <- dudi.coa(tarentaise$ecol, sca = FALSE, nf = 2)
 s.class(coa1$li, tarentaise$envir$alti, wt = coa1$lw)
-
+\dontrun{
 acm1 <- dudi.acm(tarentaise$envir, sca = FALSE, nf = 2)
 s.class(acm1$li, tarentaise$envir$alti)
+}
 }
 \keyword{datasets}

@@ -36,7 +36,7 @@ Rao, C.R. (1982) Diversity and dissimilarity coefficients:
 a unified approach. \emph{Theoretical Population Biology}, 
 \bold{21}, 24--43.
 
-Gini, C. (1912) Variabilitá e mutabilitá. 
+Gini, C. (1912) Variabilit\'a e mutabilit\'a. 
 \emph{Universite di Cagliari III}, Parte II.
 
 Simpson, E.H. (1949) Measurement of diversity. 
@@ -46,13 +46,14 @@ Champely, S. and Chessel, D. (2002) Measuring biological diversity
 using Euclidean metrics. \emph{Environmental and Ecological Statistics}, 
 \bold{9}, 167--177.
 
-Pavoine, S., Ollier, S. and Pontier, D. (in revision) 
+Pavoine, S., Ollier, S. and Pontier, D. (2005) 
 Measuring diversity from dissimilarities with Rao's quadratic entropy: 
-are any dissimilarities suitable? \emph{Theoretical Population Biology}.
+are any dissimilarities suitable? \emph{Theoretical Population Biology},
+\bold{67}, 231--239.
 
 }
 \author{
-Stéphane Champely \email{Stephane.Champely@univ-lyon1.fr}\cr
+Stéphane Champely \email{Stephane.Champely@univ-lyon1.fr} \cr
 Sandrine Pavoine \email{pavoine@biomserv.univ-lyon1.fr}
 }
 \examples{

@@ -8,7 +8,8 @@
 s.kde2d(dfxy, xax = 1, yax = 2, pch = 20, cpoint = 1, neig = NULL, cneig = 2, 
     xlim = NULL, ylim = NULL, grid = TRUE, addaxes = TRUE, cgrid = 1, 
     include.origin = TRUE, origin = c(0, 0), sub = "", csub = 1.25, 
-    possub = "bottomleft", pixmap = NULL, contour = NULL, area = NULL, add.plot = FALSE)
+    possub = "bottomleft", pixmap = NULL, contour = NULL, 
+    area = NULL, add.plot = FALSE)
 }
 \arguments{
   \item{dfxy}{ a data frame with at least two coordinates }
@@ -40,7 +41,7 @@ s.kde2d(dfxy, xax = 1, yax = 2, pch = 20, cpoint = 1, neig = NULL, cneig = 2,
           ("topleft", "topright", "bottomleft", "bottomright") }
   \item{pixmap}{ an object \code{pixmap} displayed in the map background }
   \item{contour}{ a data frame with 4 columns to plot the contour of the map :
-          each row gives a line (x1,y1,x2,y2) }
+          each row gives a segment (x1,y1,x2,y2) }
   \item{area}{ a data frame of class 'area' to plot a set of surface units
           in contour }
   \item{add.plot}{ if TRUE uses the current graphics window }

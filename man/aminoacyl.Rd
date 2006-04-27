@@ -13,7 +13,7 @@
    \item{localisation}{is a vector giving the cellular localisation
          of the proteins (M = mitochondrial, C = cytoplasmic,
          I = indetermined, CI = cyto and mito).}    
-   \item{codon}{is a vector containing the codon.}
+   \item{codon}{is a vector containing the 64 triplets.}
    \item{AA}{is a factor giving the amino acid names for each codon.}
    \item{usage.codon}{is a dataframe containing the codon counts for each gene.}
  } 
@@ -23,7 +23,9 @@
  \url{http://www.expasy.org/sprot/}
 }
 \references{
-Chiapello H., Olivier E., Landes-Devauchelle C., Nitschké P. and Risler J.L (1999) Codon usage as a tool to predict the cellular localisation of eukariotic ribosomal proteins and aminoacyl-tRNA synthetases. ,\emph{Nucleic Acids Res.}, \bold{27}, 14, 2848--2851.
+Chiapello H., Olivier E., Landes-Devauchelle C., Nitschké P. and Risler J.L (1999) 
+Codon usage as a tool to predict the cellular localisation of eukariotic ribosomal 
+proteins and aminoacyl-tRNA synthetases. \emph{Nucleic Acids Res.}, \bold{27}, 14, 2848--2851.
 }
 \examples{
 data(aminoacyl)

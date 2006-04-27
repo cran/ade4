@@ -16,7 +16,8 @@ dist.neig(neig)
 returns a distance matrix, object of class \code{dist}
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
+Stéphane Dray \email{dray@biomserv.univ-lyon1.fr}
 }
 \examples{
     data(elec88)

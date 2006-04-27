@@ -2,7 +2,7 @@
 \alias{score.coa}
 \title{Graphs to analyse a factor in a correspondence analysis}
 \description{
-represents the graphs to analyse a factor in a correspondence analysis. 
+performs the canonical graph of a correspondence analysis. 
 }
 \usage{
 score.coa (x, xax = 1, dotchart = FALSE, clab.r = 1, clab.c = 1, 
@@ -24,6 +24,7 @@ In a "reciprocal scaling", the reference score is a numeric code centred and nor
 }
 \references{Thioulouse, J. and Chessel D. (1992) A method for reciprocal scaling of species tolerance and sample diversity. \emph{Ecology}, \bold{73}, 670--680.
 }
+\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
 \examples{
 layout(matrix(c(1,1,2,3), 2, 2), resp = FALSE)
 data(aviurba)

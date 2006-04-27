@@ -10,8 +10,8 @@
 \code{as.dudi} is called by many functions (\code{dudi.pca}, \code{dudi.coa}, \code{dudi.acm}, ...) 
 and not directly by the user. It creates duality diagrams.
 
-\code{t.dudi} returns an object of class 'dudi' where the rows are the columns and the columns are the rows
-of the initial dudi. 
+\code{t.dudi} returns an object of class '\code{dudi}' where the rows are the columns and the columns are the rows
+of the initial \code{dudi}. 
 
 \code{is.dudi} returns TRUE if the object is of class \code{dudi} 
 
@@ -26,7 +26,7 @@ redo.dudi(dudi, newnf = 2)
 t.dudi(x) 
 }
 \arguments{
-  \item{df}{a data frame with n rows and p columns}
+  \item{df}{a data frame with \emph{n} rows and \emph{p} columns}
   \item{col.w}{a numeric vector containing the row weights}
   \item{row.w}{a numeric vector containing the column weights}
   \item{scannf}{a logical value indicating whether the eigenvalues bar plot should be displayed}
@@ -42,8 +42,8 @@ t.dudi(x)
 \value{
 as.dudi and all the functions that use it return a list with the following components :
 \item{tab}{a data frame with n rows and p columns}
-\item{cw}{row weights, a vector with n components} 
-\item{lw}{column weights, a vector with p components}
+\item{cw}{column weights, a vector with n components} 
+\item{lw}{row (lines) weights, a vector with p components}
 \item{eig}{eigenvalues, a vector with min(n,p) components}
 \item{nf}{integer, number of kept axes}
 \item{c1}{principal axes, data frame with p rows and nf columns}
@@ -58,7 +58,8 @@ In \emph{Development in numerical ecology}, Legendre, P. & Legendre, L. (Eds.)
 NATO advanced Institute,  Serie G. Springer Verlag, Berlin,  139--156.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(deug)

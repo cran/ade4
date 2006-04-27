@@ -20,7 +20,10 @@ This data set gives physical and physico-chemical variables, fish species, spati
 \source{
 Verneaux, J. (1973) Cours d'eau de Franche-Comté (Massif du Jura).
 Recherches écologiques sur le réseau hydrographique du Doubs.
-Essai de biotypologie. Thèse d'état, Besançon.
+Essai de biotypologie. Thèse d'Etat, Besançon.
+}
+\references{
+See a data description at \url{http://pbil.univ-lyon1.fr/R/pps/pps047.pdf} (in French).
 }
 \examples{
 data(jv73)

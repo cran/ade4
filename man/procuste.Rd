@@ -23,7 +23,7 @@ print.procuste (x, \dots)
   \item{\dots}{further arguments passed to or from other methods}
 }
 \value{
-returns a list of 9 components of the class \code{procuste}
+returns a list of the class \code{procuste} with 9 components 
   \item{d}{a numeric vector of the singular values}
   \item{rank}{an integer indicating the rank of the crossed matrix}
   \item{nfact}{an integer indicating the number of kept axes}
@@ -36,6 +36,10 @@ returns a list of 9 components of the class \code{procuste}
   \item{scor1}{a data frame with the scores of array 1}
   \item{scor2}{a data frame with the scores of array 2}
   \item{call}{a call order of the analysis}
+}
+\author{
+Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \references{
 Digby, P. G. N. and Kempton, R. A. (1987) Multivariate Analysis of Ecological Communities. \emph{Population and Community Biology Series}, Chapman and Hall, London.\cr\cr

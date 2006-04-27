@@ -3,7 +3,7 @@
 \docType{data}
 \title{Bird species distribution}
 \description{
-This data set contains informations about spatial distribution of bird species in a zone surrounding the river Rhône near Lyon (France).
+This data set contains information about spatial distribution of bird species in a zone surrounding the river Rhône near Lyon (France).
 }
 \usage{data(avijons)}
 \format{
@@ -19,7 +19,10 @@ Bournaud, M., Amoros, C., Chessel, D., Coulet, M., Doledec, S., Michelot, J.L., 
 \emph{Peuplements d'oiseaux et propriétés des écocomplexes de la plaine du Rhône : descripteurs de fonctionnement global et gestion des berges.} Rapport programme S.R.E.T.I.E., Ministère de l'Environnement CORA et URA CNRS 367, Univ. Lyon I. 
 }
 \references{
-Thioulouse, J., Chessel, D. and Champely, S. (1995) Multivariate analysis of spatial patterns: a unified approach to local and global structures. \emph{Environmental and Ecological Statistics}, \bold{2}, 1--14.
+Thioulouse, J., Chessel, D. and Champely, S. (1995) Multivariate analysis of spatial patterns: 
+a unified approach to local and global structures. \emph{Environmental and Ecological Statistics}, \bold{2}, 1--14.
+
+See a data description at \url{http://pbil.univ-lyon1.fr/R/pps/pps051.pdf} (in French).
 }
 \examples{
 data(avijons)

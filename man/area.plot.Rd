@@ -18,7 +18,8 @@ area.plot : grey levels areas mapping
 poly2area takes an object of class 'polylist' (spdep package, that contains the
 older package 'spweights') and returns a data frame of type area.\cr
 area2poly takes an object of type 'area' and returns a list of class 'polylist'\cr
-area2link takes an object of type 'area' and returns a proximity matrix which terms are given by the length of the frontier between two polygons. \cr
+area2link takes an object of type 'area' and returns a proximity matrix which terms are given by 
+the length of the frontier between two polygons. \cr
 area.util.contour,area.util.xy and area.util.class are three utility functions.
 }
 \usage{
@@ -51,7 +52,8 @@ used with \code{par("cex")*cpoint}}
 \item{label}{if not NULL, by default the levels of the factor that define the polygons
 are used as labels. To change this value, use label. These labels must be in the same order than
 \code{unique(x.area[,1])}}
-\item{clabel}{if not NULL, a character size for the polygon labels, used with \code{par("cex")*clabel}}
+\item{clabel}{if not NULL, a character size for the polygon labels, \cr
+used with \code{par("cex")*clabel}}
 \item{polys}{a list belonging to the 'polylist' class in the spdep package}
 \item{area}{a data frame of class 'area'}
 \item{\dots}{further arguments passed to or from other methods}
@@ -67,7 +69,7 @@ Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
 data(elec88)
 par(mfrow = c(2,2))
 area.plot(elec88$area, cpoint = 1)
-area.plot(elec88$area, lab = elec88$lab, clab = 0.75)
+area.plot(elec88$area, lab = elec88$lab$dep, clab = 0.75)
 area.plot(elec88$area, clab = 0.75)
 # elec88$neig <- neig(area = elec88$area)
 area.plot(elec88$area, graph = elec88$neig, 
