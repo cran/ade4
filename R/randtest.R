@@ -2,10 +2,22 @@
     UseMethod("randtest")
 }
 
-"as.randtest" <- function (sim, obs, call = match.call()) {
+"as.randtest" <- function (sim, obs, alter=c("greater", "less", "two-sided"), call = match.call() ) {
     res <- list(sim = sim, obs = obs)
+    res$alter <- match.arg(alter)
     res$rep <- length(sim)
-    res$pvalue <- (sum(sim >= obs) + 1)/(length(sim) + 1)
+    res$expvar <- c(Std.Obs=(res$obs-mean(sim))/sd(sim),Expectation=mean(sim),Variance=var(sim))
+    if(res$alter=="greater"){
+      res$pvalue <- (sum(sim >= obs) + 1)/(length(sim) + 1)
+    }
+    else if(res$alter=="less"){
+      res$pvalue <- (sum(sim <= obs) + 1)/(length(sim) + 1)
+    }
+    else if(res$alter=="two-sided") {
+      sim0 <- abs(sim-mean(sim))
+      obs0 <- abs(obs-mean(sim))
+      res$pvalue <- (sum(sim0 >= obs0) + 1)/(length(sim) +1)
+    }
     res$call <- call
     class(res) <- "randtest"
     return(res)
@@ -15,11 +27,13 @@
     if (!inherits(x, "randtest")) 
         stop("Non convenient data")
     cat("Monte-Carlo test\n")
-    cat("Observation:", x$obs, "\n")
     cat("Call: ")
     print(x$call)
-    cat("Based on", x$rep, "replicates\n")
+    cat("\nObservation:", x$obs, "\n")
+    cat("\nBased on", x$rep, "replicates\n")
     cat("Simulated p-value:", x$pvalue, "\n")
+    cat("Alternative hypothesis:", x$alter, "\n\n")
+    print(x$expvar)
 }
 
 "plot.randtest" <- function (x, nclass = 10, coeff = 1, ...) {

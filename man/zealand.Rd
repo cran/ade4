@@ -21,7 +21,7 @@
 \examples{
 data(zealand)
 
-d0 = mat2dist(as.matrix(zealand$road))
+d0 = as.dist(as.matrix(zealand$road))
 d1 = cailliez (d0)
 d2 = lingoes(d0)
 s.label(zealand$xy,lab=as.character(1:13),neig=zealand$neig)
@@ -29,10 +29,10 @@ par(mfrow = c(2,2))
     s.label(cmdscale(dist(zealand$xy)),lab = as.character(1:13),
      neig = zealand$neig, sub = "Distance canonique", csub = 2)
     s.label(cmdscale(d0), lab = as.character(1:13), neig = zealand$neig,
-        sub = "Distance routière", csub = 2)
+        sub = "Distance routiere", csub = 2)
     s.label(cmdscale(d1), lab = as.character(1:13), neig = zealand$neig,
-        sub = "Distance routière / Cailliez", csub = 2)
+        sub = "Distance routiere / Cailliez", csub = 2)
     s.label(cmdscale(d2), lab = as.character(1:13), neig = zealand$neig,
-        sub = "Distance routière / Lingoës", csub = 2)
+        sub = "Distance routiere / Lingoes", csub = 2)
 }
 \keyword{datasets}
