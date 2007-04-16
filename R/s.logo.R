@@ -52,6 +52,7 @@
     }
     scatterutil.logo(coo$x, coo$y, listlogo, klogo, clogo, rectlogo)
     box()
+    invisible(match.call())
 }
 
 "scatterutil.logo" <- function(coox,cooy,lico,kico,cico,rico) {
