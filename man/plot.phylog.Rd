@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{plot.phylog}
 \alias{plot.phylog}
 \alias{radial.phylog}
@@ -9,7 +10,7 @@
 \code{enum.phylog} enumerate all the possible representations for a phylogeny.
 }
 \usage{
-plot.phylog(x, y = NULL, f.phylog = 0.5, cleaves = 1, cnodes = 0,
+\method{plot}{phylog}(x, y = NULL, f.phylog = 0.5, cleaves = 1, cnodes = 0,
  labels.leaves = names(x$leaves), clabel.leaves = 1,
  labels.nodes = names(x$nodes), clabel.nodes = 0, sub = "",
  csub = 1.25, possub = "bottomleft", draw.box = FALSE, ...)
@@ -44,7 +45,7 @@ The vector y is a permutation of the set of leaves \{1,2,\dots,f\} compatible wi
 \value{
 The function \code{enum.phylog} returns a matrix with as many columns as leaves. Each row gives a permutation of the set of leaves \{1,2,\dots,f\} compatible with the phylogeny's topology. 
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
+\author{Daniel Chessel  \cr
 Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr}
 }
 \seealso{\code{\link{phylog}}}

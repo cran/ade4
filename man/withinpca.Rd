@@ -1,11 +1,12 @@
-\name{within.pca}
-\alias{within.pca}
+\encoding{latin1}
+\name{withinpca}
+\alias{withinpca}
 \title{Normed within Principal Component Analysis}
 \description{
 performs a normed within Principal Component Analysis. 
 }
 \usage{
-within.pca(df, fac, scaling = c("partial", "total"), 
+withinpca(df, fac, scaling = c("partial", "total"), 
     scannf = TRUE, nf = 2)
 }
 \arguments{
@@ -24,12 +25,12 @@ returns a list of the sub-class \code{within} of class \code{dudi'}. See \code{\
  Thèse de 3ème cycle, Université de Paris VI.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(meaudret)
-wit1 <- within.pca(meaudret$mil, meaudret$plan$dat, 
+wit1 <- withinpca(meaudret$mil, meaudret$plan$dat, 
     scan = FALSE, scal = "partial")
 kta1 <- ktab.within(wit1, colnames = rep(c("S1","S2","S3","S4","S5"), 4))
 unclass(kta1)

@@ -6,7 +6,7 @@ performs high level plots for a STATIS analysis,
 using an object of class \code{statis}. 
 }
 \usage{
-kplot.statis(object, xax = 1, yax = 2, mfrow = NULL, 
+\method{kplot}{statis}(object, xax = 1, yax = 2, mfrow = NULL, 
     which.tab = 1:length(object$tab.names), clab = 1.5, cpoi = 2, 
     traject = FALSE, arrow = TRUE, class = NULL, 
     unique.scale = FALSE, csub = 2, possub = "bottomright",\dots)
@@ -26,7 +26,7 @@ kplot.statis(object, xax = 1, yax = 2, mfrow = NULL,
   \item{possub}{a string of characters indicating the sub-title position ("topleft", "topright", "bottomleft", "bottomright")}
   \item{\dots}{further arguments passed to or from other methods}
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
+\author{Daniel Chessel }
 \examples{
 data(jv73)
 dudi1 <- dudi.pca(jv73$poi, scann = FALSE, scal = FALSE)

@@ -34,10 +34,8 @@
     sco.distri.class.2g <- function(score, fac1, fac2, weight, 
         labels1 = as.character(levels(fac1)), labels2 = as.character(levels(fac2)), 
         clab1, clab2, cpoi, cet) {
-        n <- length(score)
         nvar1 <- nlevels(fac1)
         nvar2 <- nlevels(fac2)
-        nvar <- nvar1 + nvar2
         ymin <- scoreutil.base(y = score, xlim = NULL, grid = TRUE, 
             cgrid = 0.75, include.origin = TRUE, origin = 0, 
             sub = NULL, csub = 0)
@@ -128,8 +126,6 @@
             points(x.moy, y0, pch = 20, cex = par("cex") * cpoi)
         }
     }
-    nl <- nrow(x$l1)
-    nc <- nrow(x$c1)
     if (inherits(x, "witwit")) {
         y <- eval(as.list(x$call)[[2]], sys.frame(0))
         oritab <- eval(as.list(y$call)[[2]], sys.frame(0))
@@ -153,4 +149,37 @@
         cpoi = cpoi, cet = cet)
     scatterutil.sub("Rows", csub = csub, possub = "topleft")
     scatterutil.sub("Columns", csub = csub, possub = "bottomright")
+}
+
+
+
+"reciprocal.coa" <- function (x) {
+    if (!inherits(x, "coa")) 
+        stop("Object of class 'coa' expected")
+    if (inherits(x, "witwit")) {
+        y <- eval(as.list(x$call)[[2]], sys.frame(0))
+        oritab <- eval(as.list(y$call)[[2]], sys.frame(0))
+    }
+    else oritab <- eval(as.list(x$call)[[2]], sys.frame(0))
+    l.names <- row.names(oritab)
+    c.names <- names(oritab)
+    oritab <- as.matrix(oritab)
+    f1 <- function(x,oritab,xax){
+      a <- x$co[col(oritab), xax]
+      a <- a + x$li[row(oritab), xax]
+      a <- a/sqrt(2 * x$eig[xax] * (1 + sqrt(x$eig[xax])))
+      a <- a[oritab > 0]
+    }
+    res <- sapply(1:x$nf,f1,x=x,oritab=oritab)
+    aco <- col(oritab)[oritab > 0]
+    aco <- factor(aco)
+    levels(aco) <- c.names
+    ali <- row(oritab)[oritab > 0]
+    ali <- factor(ali)
+    levels(ali) <- l.names
+    aw <- oritab[oritab > 0]/sum(oritab)
+    res <- cbind.data.frame(res,Row=ali,Col=aco,Weight=aw)
+    names(res)[1:x$nf] <- paste("Scor",1:x$nf,sep="")
+    rownames(res) <- paste(ali,aco,sep="")
+    return(res)
 }

@@ -182,8 +182,6 @@
     names(res$leaves) <- nam[cat == "ext"]
     res$nodes <- poi[cat == "int"]
     names(res$nodes) <- nam[cat == "int"]
-    nleaves <- length(res$leaves)
-    nnodes <- length(res$nodes)
     listclass <- list()
     dnext <- c(names(res$leaves), names(res$nodes))
     listpath <- as.list(dnext)
@@ -222,7 +220,6 @@
     if (!inherits(hc, "hclust")) 
         stop("'hclust' object expected")
     labels.leaves <- make.names(hc$labels, TRUE)
-    nleaves <- length(labels.leaves)
     nnodes <- nrow(hc$merge)
     labels.nodes <- paste("Int", 1:nnodes, sep = "")
     l.bra <- matrix("$", nnodes, 2)
@@ -261,7 +258,6 @@ taxo2phylog <- function (taxo, add.tools = FALSE, root = "Root", abbrev = TRUE)
 {
     if (!inherits(taxo, "taxo")) 
         stop("Object 'taxo' expected")
-    nr <- nrow(taxo)
     nc <- ncol(taxo)
     for (k in 1:nc) { 
         w <- as.character(k)
@@ -371,7 +367,7 @@ taxo2phylog <- function (taxo, add.tools = FALSE, root = "Root", abbrev = TRUE)
     w[col(w) < row(w)] <- b[2,]
     w <- w + t(w)
     # On rajoute la diagonale pour que A soit bistochastique
-    floc1 <- function(x) {
+    floc2 <- function(x) {
         # cette fonction renvoie pour une feuille la fréquence des représentations
         # compatibles qui placent cette feuille tout en haut ou tout en bas
         c1 <- rev(res$paths[[x]])
@@ -380,7 +376,7 @@ taxo2phylog <- function (taxo, add.tools = FALSE, root = "Root", abbrev = TRUE)
         resw <- 1/prod(unlist(resw))
         return(resw)
     }
-    diag(w) <- unlist(lapply(leave.names,floc1))
+    diag(w) <- unlist(lapply(leave.names,floc2))
     dimnames(w) <- list(leave.names,1:nleaves)
     res$Amat <- w
     #############################
@@ -431,7 +427,7 @@ taxo2phylog <- function (taxo, add.tools = FALSE, root = "Root", abbrev = TRUE)
 
     # Complément : la valeur des noeuds #    
 
-    floc1 <- function(k) {
+    floc3 <- function(k) {
         # k est un numéro de noeud
         # x est un vecteur comportant un nom de noeud et des noms de descendants 
         # de ce noeud. 
@@ -447,7 +443,7 @@ taxo2phylog <- function (taxo, add.tools = FALSE, root = "Root", abbrev = TRUE)
         return(NULL)
     }
     
-    lapply(1:length(res$parts),floc1)
+    lapply(1:length(res$parts),floc3)
     # typolo.value <- 1-exp(wnodes-lgamma(effnodes+1)) abandon
     
     ####res$Aparam <- data.frame(x1=I(dimnodes), x2=I(effnodes), x3=I(wnodes), x4=I(typolo.value))
@@ -543,12 +539,7 @@ taxo2phylog <- function (taxo, add.tools = FALSE, root = "Root", abbrev = TRUE)
     # 4) orthonormalisation
     # on obtient toujours une base orthonormée de l'orthogonal de 1n
     #############################
-    floc <- function (x) {
-        x <- x-mean(x)
-        sum(t(res$Wmat*x)*x)
-    }
-    # chaque indicatrice donne une valeur
-    ### w.val <- unlist(apply(w,2, floc))
+
     w.val <- x1[nomuni]
     # trie par ordre descendant
     w.val <- rev(sort(w.val))

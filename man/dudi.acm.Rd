@@ -14,7 +14,7 @@
 dudi.acm (df, row.w = rep(1, nrow(df)), scannf = TRUE, nf = 2)
 acm.burt (df1, df2, counts = rep(1, nrow(df1))) 
 acm.disjonctif (df) 
-boxplot.acm (x, xax = 1, \dots) 
+\method{boxplot}{acm}(x, xax = 1, \dots) 
 }
 \arguments{
   \item{df, df1, df2}{data frames containing only factors}
@@ -41,7 +41,7 @@ Lebart, L., A. Morineau, and M. Piron. 1995. Statistique exploratoire multidimen
     \code{\link{s.chull}}, \code{\link{s.class}}
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{

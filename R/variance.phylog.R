@@ -23,7 +23,6 @@
             z[is.na(z)] <- mean(na.omit(z))
         else stop("unknown method for 'na.action'")
     }
-    labels <- names(phylog$leaves)
     res <- list()
     z <- (z - mean(z))/sqrt(var(z))
     w1 <- sort(names(z))
@@ -33,12 +32,9 @@
         names(z) <- names(phylog$leaves)
     }
     z <- z[names(phylog$leaves)]
-    vecpro <- phylog$Ascores
-    npro <- ncol(vecpro)
     df <- cbind.data.frame(z, phylog$Ascores[, 1:phylog$Adim])
     begin <- paste(names(df)[1], "~", sep = "")
     fmla <- as.formula(paste(begin, paste(names(df)[-1], collapse = "+")))
-    lmnull <- lm(z ~ 1, data = df)
     lm0 <- lm(fmla, data = df)
     res$lm <- lm0
     res$anova <- anova(lm0)

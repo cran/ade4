@@ -35,9 +35,7 @@
         if (is.na(charmatch("pixmap", class(pixmap)))) 
             pixmap <- NULL
     }
-    if (!is.null(pixmap)) {
-        dimobj <- attr(pixmap, "dim")
-    }
+   
     if (!is.null(contour)) {
         if (!is.data.frame(contour)) 
             contour <- NULL
@@ -138,7 +136,7 @@
 
 ############ scatterutil.eigen #################
 "scatterutil.eigen" <- function (w, nf = NULL, xmax = length(w), ymin=min(0,min(w)), ymax = max(w), wsel = 1, sub = "Eigenvalues",
-    csub = 2, possub = "topright",box=FALSE) 
+    csub = 2, possub = "topright",box=FALSE,yaxt="n") 
 {
     opar <- par(mar = par("mar"),plt=par("plt"))
     on.exit(par(opar))
@@ -150,7 +148,7 @@
     if(!is.null(nf)) {col.w[1:nf] <- "grey"}
     col.w[wsel] <- "black"
     #
-    barplot(w, col = col.w, ylim = c(ymin, ymax)*1.1)
+    barplot(w, col = col.w, ylim = c(ymin, ymax)*1.1,yaxt=yaxt)
     scatterutil.sub(cha = sub, csub = max(.8,csub), possub = possub)
     if(box) box()
 }

@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{mcoa}
 \alias{mcoa}
 \alias{print.mcoa}
@@ -11,9 +12,9 @@ using an object of class \code{ktab}.
 \usage{
 mcoa(X, option = c("inertia", "lambda1", "uniform", "internal"), 
     scannf = TRUE, nf = 3, tol = 1e-07)
-print.mcoa (x, \dots)
-summary.mcoa (object, \dots)
-plot.mcoa (x, xax = 1, yax = 2, eig.bottom = TRUE, \dots)
+\method{print}{mcoa}(x, \dots)
+\method{summary}{mcoa}(object, \dots)
+\method{plot}{mcoa}(x, xax = 1, yax = 2, eig.bottom = TRUE, \dots)
 }
 \arguments{
   \item{X}{an object of class \code{ktab}}
@@ -52,7 +53,7 @@ mcoa returns a list of  class 'mcoa' containing :
 Chessel, D. and Hanafi, M. (1996) Analyses de la co-inertie de K nuages de points, \emph{Revue de Statistique Appliquée}, \bold{44}, 35--60.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{

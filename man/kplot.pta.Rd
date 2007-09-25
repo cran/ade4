@@ -6,7 +6,7 @@ performs high level plots of a Partial Triadic Analysis,
 using an object of class \code{pta}. 
 }
 \usage{
-kplot.pta(object, xax = 1, yax = 2, which.tab = 1:nrow(object$RV), 
+\method{kplot}{pta}(object, xax = 1, yax = 2, which.tab = 1:nrow(object$RV), 
     mfrow = NULL, which.graph = 1:4, clab = 1, cpoint = 2, csub = 2, 
     possub = "bottomright", ask = par("ask"), ...)
 }
@@ -28,7 +28,7 @@ kplot.pta(object, xax = 1, yax = 2, which.tab = 1:nrow(object$RV),
   \item{ask}{a logical value indicating if the graphs requires several arrays of figures}
   \item{\dots}{further arguments passed to or from other methods}
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
+\author{Daniel Chessel }
 \examples{
 data(meaudret)
 wit1 <- within(dudi.pca(meaudret$fau, scan = FALSE, scal = FALSE), 

@@ -12,9 +12,9 @@ analysis, a strategy for the exploratory analysis of spatial pattern in the mult
 }
 \usage{
 multispati(dudi, listw, scannf = TRUE, nfposi = 2, nfnega = 0)
-plot.multispati(x, xax = 1, yax = 2, ...) 
-summary.multispati(object, ...) 
-print.multispati(x, ...)
+\method{plot}{multispati}(x, xax = 1, yax = 2, ...) 
+\method{summary}{multispati}(object, ...) 
+\method{print}{multispati}(x, ...)
 }
 \arguments{
   \item{dudi}{an object of class \code{dudi} for the duality diagram analysis}
@@ -66,7 +66,7 @@ Jombart, T., Devillard, S., Dufour, A.-B. and Pontier, D. A
 spatially explicit multivariate method to disentangle global and local
 patterns of genetic variability. Submitted to \emph{Genetics}.
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
+\author{Daniel Chessel  \cr
 Sebastien Ollier \email{ollier@biomserv.univ-lyon1.fr} \cr
 Thibaut Jombart \email{jombart@biomserv.univ-lyon1.fr}
 

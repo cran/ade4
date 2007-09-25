@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{corkdist}
 \alias{corkdist}
 \alias{mantelkdist}
@@ -12,7 +13,7 @@ The mantelkdist and RVkdist functions apply to blocks of distance matrices the m
 \usage{
 mantelkdist (kd, nrepet = 999)
 RVkdist (kd, nrepet = 999)
-plot.corkdist (x, whichinrow = NULL, whichincol = NULL, 
+\method{plot}{corkdist}(x, whichinrow = NULL, whichincol = NULL, 
    gap = 4, nclass = 10, coeff = 1,\dots)
 }
 \arguments{
@@ -33,7 +34,7 @@ a list of class \code{corkdist} containing for each pair of distances an object 
 The \code{corkdist} class has some generic functions \code{print}, \code{plot} and \code{summary}. The plot shows bivariate scatterplots between semi-matrices of distances or histograms of simulated values with an error position.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
+Daniel Chessel  \cr
 Stéphane Dray \email{dray@biomserv.univ-lyon1.fr}
 }
 \examples{

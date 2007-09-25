@@ -40,8 +40,8 @@
         res <- list(tab = tabcoiner, cw = dudiX$cw, lw = dudiY$cw)
         rank <- sum((w1$values/w1$values[1]) > tol)
         if (scannf) {
-            if (exists("ade4TkGUIFlag") && ade4TkGUIFlag) {
-                nf <- chooseaxes(w1$values, rank)
+            if (exists("ade4TkGUIFlag")) {
+                nf <- ade4TkGUI::chooseaxes(w1$values, rank)
             } else {
                 barplot(w1$values[1:rank])
                 cat("Select the number of axes: ")
@@ -157,7 +157,7 @@
         stop("Non convenient yax")
     def.par <- par(no.readonly = TRUE)
     on.exit(par(def.par))
-    nf <- layout(matrix(c(1, 2, 3, 4, 4, 5, 4, 4, 6), 3, 3), 
+    layout(matrix(c(1, 2, 3, 4, 4, 5, 4, 4, 6), 3, 3), 
         respect = TRUE)
     par(mar = c(0.1, 0.1, 0.1, 0.1))
     s.corcircle(x$aX, xax, yax, sub = "X axes", csub = 2, 
