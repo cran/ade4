@@ -2,7 +2,7 @@
     if (!inherits(x, "acm")) 
         stop("For 'acm' object")
     if (x$nf == 1) {
-        score.(x, 1)
+        score.acm(x, 1)
         return(invisible())
     }
     def.par <- par(no.readonly = TRUE)
@@ -15,7 +15,7 @@
     old.par <- par(no.readonly = TRUE)
     on.exit(par(old.par))
     par(mfrow = mfrow)
-    if (prod(mfrow)<nvar) par(ask=T)
+    if (prod(mfrow)<nvar) par(ask=TRUE)
     # modif lundi, décembre 16, 2002 at 16:48 
     # suite à message d'Alain Guerreau  
     for (i in 1:(nvar)) s.class(x$li, oritab[, i], xax=xax, yax=yax, clab = 1.5, 

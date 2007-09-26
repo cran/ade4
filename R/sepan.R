@@ -11,7 +11,6 @@
         dudi$l1 <- cbind.data.frame(dudi$l1, w)
         w <- data.frame(matrix(0, nrow(dudi$co), pcolzero))
         names(w) <- paste("Comp", (nf1:nf2), sep = "")
-        wco <- data.frame(matrix(0, nrow(dudi$co), pcolzero))
         dudi$co <- cbind.data.frame(dudi$co, w)
         w <- data.frame(matrix(0, nrow(dudi$co), pcolzero))
         names(w) <- paste("CS", (nf1:nf2), sep = "")
@@ -22,7 +21,6 @@
     cw <- X$cw
     blo <- X$blo
     ntab <- length(blo)
-    auxinames <- ktab.util.names(X)
     tab <- as.data.frame(X[[1]])
     j1 <- 1
     j2 <- as.numeric(blo[1])
@@ -81,7 +79,6 @@
     cat("Separate Analyses of a 'ktab' object\n")
     x1 <- object$tab.names
     ntab <- length(x1)
-    nf <- min(max(object$rank), 4)
     indica <- factor(rep(1:length(object$blo), object$rank))
     nrow <- nlevels(object$TL[, 2])
     sumry <- array("", c(ntab, 9), list(1:ntab, c("names", "nrow", 
@@ -117,13 +114,11 @@
     rank.fac <- factor(rep(1:nbloc, x$rank))
     nf <- ncol(x$Li)
     neig <- max(x$rank)
-    appel <- as.list(x$call)
-    X <- eval(appel$X, sys.frame(0))
     maxeig <- max(x$Eig)
     for (ianal in 1:nbloc) {
         w <- x$Eig[rank.fac == ianal]
         scatterutil.eigen(w, xmax = neig, ymax = maxeig, wsel = 1:nf, 
-            sub = x$tab.names[ianal], csub = csub, possub = "topright")
+            sub = x$tab.names[ianal], csub = csub, possub = "topright",yaxt="s")
     }
 }
 

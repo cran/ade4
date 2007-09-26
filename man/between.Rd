@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{between}
 \alias{between}
 \alias{print.between}
@@ -9,8 +10,8 @@ in which there is only one instrumental variable, and it is a factor.
 }
 \usage{
 between(dudi, fac, scannf = TRUE, nf = 2)
-plot.between(x, xax = 1, yax = 2, \dots) 
-print.between(x, \dots) 
+\method{plot}{between}(x, xax = 1, yax = 2, \dots) 
+\method{print}{between}(x, \dots) 
 }
 \arguments{
   \item{dudi}{a duality diagram, object of class \code{\link{dudi}} from one of the functions dudi.coa, dudi.pca, ...}
@@ -44,7 +45,7 @@ Dolédec, S. and Chessel, D. (1987) Rythmes saisonniers et composantes stationnel
 I- Description d'un plan d'observations complet par projection de variables. \emph{Acta Oecologica, Oecologia Generalis}, \bold{8}, 3, 403--426.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{

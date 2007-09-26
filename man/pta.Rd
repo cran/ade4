@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{pta}
 \alias{pta}
 \alias{print.pta}
@@ -9,8 +10,8 @@ using an object of class \code{ktab}.
 }
 \usage{
 pta(X, scannf = TRUE, nf = 2)
-plot.pta (x, xax = 1, yax = 2, option = 1:4, \dots)
-print.pta (x, \dots)
+\method{plot}{pta}(x, xax = 1, yax = 2, option = 1:4, \dots)
+\method{print}{pta}(x, \dots)
 }
 \arguments{
   \item{X}{an object of class \code{ktab} where the arrays have 1) the same dimensions 2) the same names for columns 3) the same column weightings}
@@ -58,7 +59,7 @@ Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(meaudret)
-wit1 <- within.pca(meaudret$mil, meaudret$plan$dat, scan = FALSE, 
+wit1 <- withinpca(meaudret$mil, meaudret$plan$dat, scan = FALSE, 
     scal = "partial")
 kta1 <- ktab.within(wit1, colnames = rep(c("S1","S2","S3","S4","S5"), 4))
 kta2 <- t(kta1)

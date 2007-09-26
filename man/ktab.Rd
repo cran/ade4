@@ -29,12 +29,12 @@ a list of class 'ktab' contains moreover :
  \item{T4}{: a data frame of two components to manage the parameter positions of 4 components associated to an array}
 }
 \usage{
-c.ktab (...)
-x[selection]
+\method{c}{ktab}(...)
+\method{[}{ktab}(x,selection)
 is.ktab(x)
-t.ktab(x)
-row.names.ktab(x)
-col.names.ktab(x)
+\method{t}{ktab}(x)
+\method{row.names}{ktab}(x)
+\method{col.names}{ktab}(x)
 tab.names(x)
 col.names(x)
 ktab.util.names(x)
@@ -63,7 +63,7 @@ A 'ktab' object can be created with :\cr
 \code{ktab.util.names} is a useful function.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
@@ -74,7 +74,7 @@ wfri[2:4]
 c(wfri[2:4], wfri[5])
 
 data(meaudret)
-wit1 <- within.pca(meaudret$mil, meaudret$plan$dat, scan = FALSE, 
+wit1 <- withinpca(meaudret$mil, meaudret$plan$dat, scan = FALSE, 
     scal = "partial")
 kta1 <- ktab.within(wit1, colnames = rep(c("S1","S2","S3","S4","S5"), 4))
 kta2 <- t(kta1)

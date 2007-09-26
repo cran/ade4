@@ -8,9 +8,9 @@
 performs projections of supplementary rows. 
 }
 \usage{ 
-suprow.coa (x, Xsup, \dots) 
-suprow.default (x, Xsup, \dots) 
-suprow.pca (x, Xsup, \dots) 
+\method{suprow}{coa}(x, Xsup, \dots) 
+\method{suprow}{default}(x, Xsup, \dots) 
+\method{suprow}{pca}(x, Xsup, \dots) 
 }
 \arguments{
   \item{x}{an object of class \code{dudi}}
@@ -27,7 +27,7 @@ returns a data frame containing the coordinates of the supplementary projections
 Gower, J. C. (1967) Multivariate analysis and multivariate geometry. \emph{The statistician}, \bold{17}, 13--28.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{

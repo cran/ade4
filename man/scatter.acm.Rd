@@ -5,7 +5,7 @@
 performs the scatter diagrams of a Multiple Correspondence Analysis. 
 }
 \usage{
-scatter.acm(x, xax = 1, yax = 2, mfrow=NULL, csub = 2, possub = "topleft", ...)
+\method{scatter}{acm}(x, xax = 1, yax = 2, mfrow=NULL, csub = 2, possub = "topleft", ...)
 }
 \arguments{
   \item{x}{an object of class \code{acm}}
@@ -18,7 +18,7 @@ scatter.acm(x, xax = 1, yax = 2, mfrow=NULL, csub = 2, possub = "topleft", ...)
     "topright", "bottomleft", "bottomright") in a array of figures}
   \item{\dots}{further arguments passed to or from other methods}
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
+\author{Daniel Chessel }
 \examples{
 data(lascaux)
 scatter(dudi.acm(lascaux$ornem, sca = FALSE), csub = 3)

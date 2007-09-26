@@ -8,8 +8,8 @@ Performs a double principal coordinate analysis
 }
 \usage{
 dpcoa (df, dis = NULL, scannf = TRUE, nf = 2, full = FALSE, tol = 1e-07)
-plot.dpcoa (x, xax = 1, yax = 2, option = 1:4, csize = 2, \dots)
-print.dpcoa (x, \dots)
+\method{plot}{dpcoa}(x, xax = 1, yax = 2, option = 1:4, csize = 2, \dots)
+\method{print}{dpcoa} (x, \dots)
 }
 \arguments{
   \item{df}{a data frame with elements as rows, samples as columns and abundance or presence-absence as entries}
@@ -43,7 +43,7 @@ Returns a list of class \code{dpcoa} containing:
   Pavoine, S., Dufour, A.B. and Chessel, D. (2004) From dissimilarities among species to dissimilarities among communities:
   a double principal coordinate analysis. \emph{Journal of Theoretical Biology}, \bold{228}, 523--537.
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
+\author{Daniel Chessel  \cr
 Sandrine Pavoine \email{pavoine@biomserv.univ-lyon1.fr} \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }

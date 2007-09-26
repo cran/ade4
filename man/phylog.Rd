@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{phylog}
 \alias{phylog}
 \alias{print.phylog}
@@ -10,7 +11,7 @@ Create and use objects of class \code{phylog}. \cr
 \code{phylog.permut} returns objects of class \code{phylog}. It creates the different representations compatible with tree topology.
 }
 \usage{
-print.phylog(x, ...)
+\method{print}{phylog}(x, ...)
 phylog.extract(phylog, node, distance = TRUE)
 phylog.permut(phylog, list.nodes = NULL, distance = TRUE)
 }
@@ -48,7 +49,7 @@ Returns a list of class \code{phylog} :
 Ollier, S., Couteron, P. and Chessel, D. (2005) Orthonormal transforms to detect and describe 
 phylogenetic autocorrelation. \emph{Biometrics} (in press).
 }
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr} \cr
+\author{Daniel Chessel  \cr
 Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr}
 }
 \seealso{\code{\link{newick2phylog}}, \code{\link{plot.phylog}}}

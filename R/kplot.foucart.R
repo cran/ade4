@@ -8,11 +8,8 @@
     if (is.null(mfrow)) 
         mfrow <- n2mfrow(length(which.tab))
     par(mfrow = mfrow)
-    nblo <- length(object$blo)
     if (length(which.tab) > prod(mfrow)) 
         par(ask = TRUE)
-    rank.fac <- factor(rep(1:nblo, object$rank))
-    nf <- ncol(object$li)
     coolig <- object$Tli[, c(xax, yax)]
     coocol <- object$Tco[, c(xax, yax)]
     names(coocol) <- names(coolig)

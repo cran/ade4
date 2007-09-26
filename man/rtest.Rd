@@ -9,9 +9,9 @@ rtest is a generic function. It proposes methods for the following objects \code
 }
 \usage{
     rtest(xtest, \dots)
-    plot.rtest(x, nclass = 10, coeff = 1, \dots)
+    \method{plot}{rtest}(x, nclass = 10, coeff = 1, \dots)
     as.rtest (sim, obs, call = match.call())
-    print.rtest (x, \dots)
+    \method{print}{rtest}(x, \dots)
 }
 \arguments{
 \item{xtest}{an object used to select a method}
@@ -28,7 +28,7 @@ rtest is a generic function. It proposes methods for the following objects \code
 \code{plot.rtest} draws the simulated values histograms and the position of the observed value\cr
 }
 \seealso{\code{\link{RV.rtest}}, \code{\link{mantel.rtest}}, \code{\link{procuste.rtest}}, \code{\link{randtest}}}
-\author{Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}}
+\author{Daniel Chessel }
 \examples{
 par(mfrow = c(2,2))
 for (x0 in c(2.4,3.4,5.4,20.4)) {

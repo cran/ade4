@@ -1,15 +1,20 @@
+\encoding{latin1}
 \name{niche}
 \alias{niche}
 \alias{plot.niche}
 \alias{print.niche}
+\alias{niche.param}
+\alias{rtest.niche}
 \title{Method to Analyse a pair of tables : Environmental and Faunistic Data}
 \description{
 performs a special multivariate analysis for ecological data. 
 }
 \usage{
 niche(dudiX, Y, scannf = TRUE, nf = 2)
-print.niche (x, \dots) 
-plot.niche (x, xax = 1, yax = 2, \dots)
+\method{print}{niche}(x, \dots) 
+\method{plot}{niche}(x, xax = 1, yax = 2, \dots)
+niche.param(x)
+\method{rtest}{niche}(xtest,nrepet=99, \dots)
 }
 \arguments{
   \item{dudiX}{a duality diagram providing from a function \code{dudi.coa}, \code{dudi.pca}, ... using an array sites-variables}
@@ -19,6 +24,8 @@ plot.niche (x, xax = 1, yax = 2, \dots)
   \item{x}{an object of class \code{niche}}
   \item{\dots}{further arguments passed to or from other methods}
   \item{xax, yax}{the numbers of the x-axis and the y-axis}
+    \item{xtest}{an object of class \code{niche}}
+  \item{nrepet}{the number of permutations for the testing procedure}
 }
 \value{
 Returns a list of the class \code{niche} (sub-class of \code{dudi}) containing :
@@ -39,8 +46,9 @@ Returns a list of the class \code{niche} (sub-class of \code{dudi}) containing :
 Dolédec, S., Chessel, D. and Gimaret, C. (2000) Niche separation in community analysis: a new method. \emph{Ecology}, \bold{81}, 2914--1927.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+Daniel Chessel\cr
+Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}\cr
+Stephane Dray \email{dray@biomserv.univ-lyon1.fr}
 }
 \examples{
 data(doubs)
@@ -65,6 +73,8 @@ data(trichometeo)
 pca1 <- dudi.pca(trichometeo$meteo, scan = FALSE)
 nic1 <- niche(pca1, log(trichometeo$fau + 1), scan = FALSE)
 plot(nic1)
+niche.param(nic1)
+rtest(nic1,19)
 
 data(rpjdl)
 plot(niche(dudi.pca(rpjdl$mil, scan = FALSE), rpjdl$fau, scan = FALSE))

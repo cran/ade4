@@ -1,3 +1,4 @@
+\encoding{latin1}
 \name{coinertia}
 \alias{coinertia}
 \alias{print.coinertia}
@@ -9,9 +10,9 @@ The coinertia analysis performs a double inertia analysis of two arrays.
 }
 \usage{
 coinertia(dudiX, dudiY, scannf = TRUE, nf = 2)
-plot.coinertia (x, xax = 1, yax = 2, \dots) 
-print.coinertia (x, \dots) 
-summary.coinertia (object, \dots) 
+\method{plot}{coinertia} (x, xax = 1, yax = 2, \dots) 
+\method{print}{coinertia} (x, \dots) 
+\method{summary}{coinertia} (object, \dots) 
 }
 \arguments{
   \item{dudiX}{a duality diagram providing from one of the functions dudi.coa, dudi.pca, \dots}
@@ -55,7 +56,7 @@ Dray, S., Chessel, D. and J. Thioulouse (2003) Co-inertia analysis and the linki
 IMPORTANT : \code{dudi1} and \code{dudi2} must have identical row weights.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{

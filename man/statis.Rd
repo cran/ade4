@@ -8,8 +8,8 @@ performs a STATIS analysis of a \code{ktab} object.
 }
 \usage{
 statis(X, scannf = TRUE, nf = 3, tol = 1e-07)
-plot.statis (x, xax = 1, yax = 2, option = 1:4, \dots) 
-print.statis (x, \dots) 
+\method{plot}{statis}(x, xax = 1, yax = 2, option = 1:4, \dots) 
+\method{print}{statis}(x, \dots) 
 }
 \arguments{
   \item{X}{an object of class 'ktab'}
@@ -42,11 +42,11 @@ Lavit, C. (1988) \emph{Analyse conjointe de tableaux quantitatifs}, Masson, Pari
 Lavit, C., Escoufier, Y., Sabatier, R. and Traissac, P. (1994) The ACT (Statis method). \emph{Computational Statistics and Data Analysis}, \bold{18}, 97--119.
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}
+Daniel Chessel 
 }
 \examples{
 data(jv73)
-kta1 <- ktab.within(within.pca(jv73$morpho, jv73$fac.riv, scann = FALSE))
+kta1 <- ktab.within(withinpca(jv73$morpho, jv73$fac.riv, scann = FALSE))
 statis1 <- statis(kta1, scann = FALSE)
 plot(statis1)
 

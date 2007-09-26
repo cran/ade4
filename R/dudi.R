@@ -33,8 +33,8 @@
   eig <- eig1$values
   rank <- sum((eig/eig[1]) > tol)
   if (scannf) {
-    if (exists("ade4TkGUIFlag") && ade4TkGUIFlag) {
-      nf <- chooseaxes(eig, rank)
+    if (exists("ade4TkGUIFlag")) {
+      nf <- ade4TkGUI::chooseaxes(eig, rank)
     }
     else {
       barplot(eig[1:rank])

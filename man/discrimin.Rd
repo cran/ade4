@@ -8,8 +8,8 @@ performs a linear discriminant analysis.
 }
 \usage{
 discrimin(dudi, fac, scannf = TRUE, nf = 2)
-plot.discrimin (x, xax = 1, yax = 2, \dots) 
-print.discrimin (x, \dots) 
+\method{plot}{discrimin}(x, xax = 1, yax = 2, \dots) 
+\method{print}{discrimin}(x, \dots) 
 }
 \arguments{
   \item{dudi}{a duality diagram, object of class \code{dudi}}
@@ -36,7 +36,7 @@ returns a list of class 'discrimin' containing :
 \seealso{\code{lda} in package \code{MASS}
 }
 \author{
-Daniel Chessel \email{chessel@biomserv.univ-lyon1.fr}\cr
+Daniel Chessel \cr
 Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
 }
 \examples{
