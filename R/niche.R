@@ -134,7 +134,6 @@
 
 
 rtest.niche <- function(xtest,nrepet=99,...){
-  nrepet <- nrepet + 1
   if (!inherits(xtest, "dudi"))
     stop("Object of class dudi expected")
   if (!inherits(xtest, "niche"))
