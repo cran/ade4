@@ -7,7 +7,7 @@
 \title{RLQ analysis }
 \description{
 RLQ analysis performs a double inertia analysis of two arrays (R and Q) with a link expressed by a contingency table (L).
-The rows of L correspond to the rows of R and the columns of Q correspond to the rows of Q.
+The rows of L correspond to the rows of R and the columns of L correspond to the rows of Q.
 }
 \usage{
 rlq(dudiR, dudiL, dudiQ, scannf = TRUE, nf = 2)
