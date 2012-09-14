@@ -1,6 +1,6 @@
 "coinertia" <- function (dudiX, dudiY, scannf = TRUE, nf = 2) {
     normalise.w <- function(X, w) {
-        # Correction d'un bug siganlé par Sandrine Pavoine le 21/10/2006
+        # Correction d'un bug siganle par Sandrine Pavoine le 21/10/2006
         f2 <- function(v) sqrt(sum(v * v * w))
         norm <- apply(X, 2, f2)
         X <- sweep(X, 2, norm, "/")
@@ -37,6 +37,12 @@
         w2 <- dudiY$lw*w2
         w1 <- w1%*%w2
         w1 <- eigen(w1)
+        # correction d'un bug signale par E. Prestat - juillet 2012
+        # Dans le cas d'une matrice non symetrique, eigen renvoie
+        # parfois des elements propres complexes possedant une partie
+        # imaginaire tres petite ou nulle.
+        w1$values <- Re(w1$values)
+        w1$vectors <- Re(w1$vectors)
         res <- list(tab = tabcoiner, cw = dudiX$cw, lw = dudiY$cw)
         rank <- sum((w1$values/w1$values[1]) > tol)
         if (scannf) {
@@ -194,8 +200,8 @@
     sumry[1, ] <- c("$eig", length(x$eig), mode(x$eig), "eigen values")
     sumry[2, ] <- c("$lw", length(x$lw), mode(x$lw), "row weigths (crossed array)")
     sumry[3, ] <- c("$cw", length(x$cw), mode(x$cw), "col weigths (crossed array)")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("\n")
     sumry <- array("", c(11, 4), list(1:11, c("data.frame", "nrow", 
         "ncol", "content")))
@@ -210,17 +216,23 @@
     sumry[9, ] <- c("$mY", nrow(x$mY), ncol(x$mY), "normed row scores (Y)")
     sumry[10, ] <- c("$aX", nrow(x$aX), ncol(x$aX), "axis onto co-inertia axis (X)")
     sumry[11, ] <- c("$aY", nrow(x$aY), ncol(x$aY), "axis onto co-inertia axis (Y)")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("\n")
 }
 
 "summary.coinertia" <- function (object, ...) {
     if (!inherits(object, "coinertia")) 
         stop("to be used with 'coinertia' object")
+
+    thetitle <- "Coinertia analysis" 
+    cat(thetitle)
+    cat("\n\n")
+    NextMethod()
+
     appel <- as.list(object$call)
-    dudiX <- eval(appel$dudiX, sys.frame(0))
-    dudiY <- eval(appel$dudiY, sys.frame(0))
+    dudiX <- eval.parent(appel$dudiX)
+    dudiY <- eval.parent(appel$dudiY)
     norm.w <- function(X, w) {
         f2 <- function(v) sqrt(sum(v * v * w)/sum(w))
         norm <- apply(X, 2, f2)
@@ -238,22 +250,27 @@
     corr <- covar/sdX/sdY
     U <- cbind.data.frame(eig, covar, sdX, sdY, corr)
     row.names(U) <- as.character(1:object$nf)
-    cat("\nEigenvalues decomposition:\n")
+    res <- list(EigDec = U)
+    cat("Eigenvalues decomposition:\n")
     print(U)
-    cat("\nInertia & coinertia X:\n")
+    cat(paste("\nInertia & coinertia X (", deparse(appel$dudiX),"):\n", sep=""))
     inertia <- cumsum(sdX^2)
     max <- cumsum(dudiX$eig[1:object$nf])
     ratio <- inertia/max
     U <- cbind.data.frame(inertia, max, ratio)
     row.names(U) <- util(object$nf)
+    res$InerX <- U
     print(U)
-    cat("\nInertia & coinertia Y:\n")
+    cat(paste("\nInertia & coinertia Y (", deparse(appel$dudiY),"):\n", sep=""))
     inertia <- cumsum(sdY^2)
     max <- cumsum(dudiY$eig[1:object$nf])
     ratio <- inertia/max
     U <- cbind.data.frame(inertia, max, ratio)
     row.names(U) <- util(object$nf)
+    res$InerY <- U
     print(U)
     RV <- sum(object$eig)/sqrt(sum(dudiX$eig^2))/sqrt(sum(dudiY$eig^2))
     cat("\nRV:\n", RV, "\n")
+    res$RV <- RV
+    invisible(res)
 }

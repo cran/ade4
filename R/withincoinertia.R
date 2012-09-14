@@ -4,8 +4,8 @@ wca.coinertia <- function (x, fac, scannf = TRUE, nf = 2, ...){
   if (!is.factor(fac)) 
     stop("factor expected")
   appel <- as.list(x$call)    
-  dudiX <- eval(appel$dudiX, sys.frame(0))
-  dudiY <- eval(appel$dudiY, sys.frame(0))
+  dudiX <- eval.parent(appel$dudiX)
+  dudiY <- eval.parent(appel$dudiY)
   ligX <- nrow(dudiX$tab)
   if (length(fac) != ligX) 
     stop("Non convenient dimension")
@@ -100,7 +100,7 @@ function(x, xax = 1, yax = 2, ...) {
   if (yax > x$nf)
     stop("Non convenient yax")
   appel <- as.list(x$call)
-  fac <- eval(appel$fac, sys.frame(0))
+  fac <- eval.parent(appel$fac)
   def.par <- par(no.readonly = TRUE)
   on.exit(par(def.par))
   nf <- layout(matrix(c(1, 2, 3, 4, 4, 5, 4, 4, 6), 3, 3),
@@ -142,8 +142,8 @@ function (x, ...)
   sumry[1, ] <- c("$eig", length(x$eig), mode(x$eig), "eigen values")
   sumry[2, ] <- c("$lw", length(x$lw), mode(x$lw), "row weigths (crossed array)")
   sumry[3, ] <- c("$cw", length(x$cw), mode(x$cw), "col weigths (crossed array)")
-  class(sumry) <- "table"
-  print(sumry)
+  
+  print(sumry, quote = FALSE)
   cat("\n")
   sumry <- array("", c(17, 4), list(1:17, c("data.frame", "nrow", 
                                             "ncol", "content")))
@@ -170,8 +170,8 @@ function (x, ...)
   sumry[17, ] <- c("$acY", nrow(x$acY), ncol(x$acY),
                    "co-inertia axis onto within co-inertia axis (Y)")
   
-  class(sumry) <- "table"
-  print(sumry)
+  
+  print(sumry, quote = FALSE)
   cat("\n")
 }
 
