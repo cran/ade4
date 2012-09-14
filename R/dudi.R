@@ -129,8 +129,8 @@
     sumry[1, ] <- c("$cw", length(x$cw), mode(x$cw), "column weights")
     sumry[2, ] <- c("$lw", length(x$lw), mode(x$lw), "row weights")
     sumry[3, ] <- c("$eig", length(x$eig), mode(x$eig), "eigen values")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("\n")
     sumry <- array("", c(5, 4), list(1:5, c("data.frame", "nrow", 
         "ncol", "content")))
@@ -139,8 +139,8 @@
     sumry[3, ] <- c("$l1", nrow(x$l1), ncol(x$l1), "row normed scores")
     sumry[4, ] <- c("$co", nrow(x$co), ncol(x$co), "column coordinates")
     sumry[5, ] <- c("$c1", nrow(x$c1), ncol(x$c1), "column normed scores")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("other elements: ")
     if (length(names(x)) > 11) 
         cat(names(x)[12:(length(x))], "\n")
@@ -171,16 +171,16 @@
         stop("Object of class 'dudi' expected")
     appel <- as.list(dudi$call)
     if (appel[[1]] == "t.dudi") {
-        dudiold <- eval(appel[[2]], sys.frame(0))
+        dudiold <- eval.parent(appel[[2]])
         appel <- as.list(dudiold$call)
         appel$nf <- newnf
         appel$scannf <- FALSE
-        dudinew <- eval(as.call(appel), sys.frame(0))
+        dudinew <- eval.parent(as.call(appel))
         return(t.dudi(dudinew))
     }
     appel$nf <- newnf
     appel$scannf <- FALSE
-    eval(as.call(appel), sys.frame(0))
+    eval.parent(as.call(appel))
 }
 
 
@@ -203,4 +203,40 @@ screeplot.dudi <- function (x, npcs = length(x$eig), type = c("barplot","lines")
 biplot.dudi <- function (x, ...){  
   scatter(x, ...)
   
+}
+
+summary.dudi <- function(object, ...){
+  cat("Class: ")
+  cat(class(object))
+  cat("\nCall: ")
+  print(object$call)
+  cat("\nTotal inertia: ")
+  cat(signif(sum(object$eig), 4))
+  cat("\n")
+  l0 <- length(object$eig)
+  
+  cat("\nEigenvalues:\n")
+  vec <- object$eig[1:(min(5, l0))]
+  names(vec) <- paste("Ax",1:length(vec), sep = "")
+  print(format(vec, digits = 4, trim = TRUE, width = 7), quote = FALSE)
+ 
+  cat("\nProjected inertia (%):\n")
+  vec <- (object$eig / sum(object$eig) * 100)[1:(min(5, l0))]
+  names(vec) <- paste("Ax",1:length(vec), sep = "")
+  print(format(vec, digits = 4, trim = TRUE, width = 7), quote = FALSE)
+  
+  cat("\nCumulative projected inertia (%):\n")
+  vec <- (cumsum(object$eig) / sum(object$eig) * 100)[1:(min(5, l0))]
+  names(vec)[1] <- "Ax1"
+
+  if(l0>1)
+    names(vec)[2:length(vec)] <- paste("Ax1:",2:length(vec),sep="")
+  print(format(vec, digits = 4, trim = TRUE, width = 7), quote = FALSE)
+  
+
+  if (l0 > 5) {
+    cat("\n")
+    cat(paste("(Only 5 dimensions (out of ",l0, ") are shown)\n", sep="",collapse=""))
+  }
+  cat("\n")
 }

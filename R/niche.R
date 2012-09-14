@@ -59,7 +59,7 @@
     s.label(x$li, xax, yax, clabel = 1.5, add.plot = TRUE)
     s.label(x$ls, xax, yax, clabel = 1.25, sub = "Samples", 
         csub = 2)
-    s.distri(x$ls, eval(as.list(x$call)[[3]], sys.frame(0)), 
+    s.distri(x$ls, eval.parent(as.list(x$call)[[3]]), 
         cstar = 0, axesell = FALSE, cellipse = 1, sub = "Niches", csub = 2)
 }
 
@@ -85,8 +85,8 @@
     sumry[1, ] <- c("$eig", length(x$eig), mode(x$eig), "eigen values")
     sumry[2, ] <- c("$lw", length(x$lw), mode(x$lw), "row weigths (crossed array)")
     sumry[3, ] <- c("$cw", length(x$cw), mode(x$cw), "col weigths (crossed array)")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("\n")
     sumry <- array("", c(7, 4), list(1:7, c("data.frame", "nrow", 
         "ncol", "content")))
@@ -97,8 +97,8 @@
     sumry[5, ] <- c("$c1", nrow(x$c1), ncol(x$c1), "variables normed scores")
     sumry[6, ] <- c("$ls", nrow(x$ls), ncol(x$ls), "sites coordinates")
     sumry[7, ] <- c("$as", nrow(x$as), ncol(x$as), "axis upon niche axis")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("\n")
 }
 
@@ -106,8 +106,8 @@
   if (!inherits(x, "niche"))
     stop("Object of class 'niche' expected")
   appel <- as.list(x$call)
-  X <- eval(appel[[2]], sys.frame(0))$tab
-  Y <- eval(appel[[3]], sys.frame(0))
+  X <- eval.parent(appel[[2]])$tab
+  Y <- eval.parent(appel[[3]])
   w1 <- apply(Y, 2, sum)
   if (any(w1 <= 0))
     stop(paste("Column sum <=0 in Y"))
@@ -139,8 +139,8 @@ rtest.niche <- function(xtest,nrepet=99,...){
   if (!inherits(xtest, "niche"))
     stop("Type 'niche' expected")
   appel <- as.list(xtest$call)
-  X <- eval(appel$dudiX, sys.frame(0))$tab
-  Y <- eval(appel$Y, sys.frame(0))
+  X <- eval.parent(appel$dudiX)$tab
+  Y <- eval.parent(appel$Y)
   w1 <- apply(Y, 2, sum)
   if (any(w1 <= 0))
     stop(paste("Column sum <=0 in Y"))

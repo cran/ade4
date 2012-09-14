@@ -118,7 +118,7 @@ plot.dpcoa <- function(x, xax = 1, yax = 2, option = 1:4, csize = 2, ...) {
 		}
 		if (j == 2) { #
 			X <- as.list(x$call)[[2]]
-			X <- eval(X, sys.frame(0))
+			X <- eval.parent(X)
 			s.label(x$l1[, c(xax, yax)], clabel = 0, cpoint = 2)
 			s.distri(x$l1[, c(xax, yax)], X, add.plot = TRUE, cellipse = 1, cstar = 0, 
 				axesell = 0, label = names(X), cpoint = 0, clabel = 1)
@@ -155,15 +155,15 @@ print.dpcoa <- function (x, ...)
     sumry[3, ] <- c("$eig", length(x$eig), mode(x$eig), "eigen values")
     sumry[4, ] <- c("$RaoDiv", length(x$RaoDiv), mode(x$RaoDiv),
         "diversity coefficients within communities")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("\n")
     sumry <- array("", c(1, 3), list(1:1, c("dist", "Size", 
         "content")))
     sumry[1, ] <- c("$RaoDis", attributes(x$RaoDis)$Size,
         "dissimilarities among communities")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
     cat("\n")
     sumry <- array("", c(4, 4), list(1:4, c("data.frame", "nrow", 
         "ncol", "content")))
@@ -172,6 +172,6 @@ print.dpcoa <- function (x, ...)
     sumry[3, ] <- c("$l2", nrow(x$l2), ncol(x$l2), "coordinates of the species")
     sumry[4, ] <- c("$c1", nrow(x$c1), ncol(x$c1),
         "scores of the principal axes of the species")
-    class(sumry) <- "table"
-    print(sumry)
+    
+    print(sumry, quote = FALSE)
 }

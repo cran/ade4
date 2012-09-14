@@ -5,9 +5,9 @@
     if (!is.factor(fac)) 
         stop("factor expected")
     appel <- as.list(x$call)    
-    dudiR <- eval(appel$dudiR, sys.frame(0))
-    dudiL <- eval(appel$dudiL, sys.frame(0))
-    dudiQ <- eval(appel$dudiQ, sys.frame(0))
+    dudiR <- eval.parent(appel$dudiR)
+    dudiL <- eval.parent(appel$dudiL)
+    dudiQ <- eval.parent(appel$dudiQ)
     ligR <- nrow(dudiR$tab)
     if (length(fac) != ligR) 
         stop("Non convenient dimension")
@@ -80,8 +80,7 @@
     sumry[1, ] <- c("$eig", length(x$eig), mode(x$eig), "eigen values")
     sumry[2, ] <- c("$lw", length(x$lw), mode(x$lw), "row weigths (crossed array)")
     sumry[3, ] <- c("$cw", length(x$cw), mode(x$cw), "col weigths (crossed array)")
-    class(sumry) <- "table"
-    print(sumry)
+    print(sumry, quote = FALSE)
     cat("\n")
     sumry <- array("", c(14, 4), list(1:14, c("data.frame", "nrow", 
         "ncol", "content")))
@@ -99,8 +98,7 @@
     sumry[12, ] <- c("$aQ", nrow(x$aQ), ncol(x$aQ), "axes onto between-RLQ axes (Q)")
     sumry[13, ] <- c("$acR", nrow(x$acR), ncol(x$acR), "RLQ axes onto between-RLQ axes (R)")
     sumry[14, ] <- c("$acQ", nrow(x$acQ), ncol(x$acQ), "RLQ axes onto between-RLQ axes (Q)")
-    class(sumry) <- "table"
-    print(sumry)
+    print(sumry, quote = FALSE)
     cat("\n")
 }
 
@@ -118,7 +116,7 @@
         stop("Non convenient xax")
     if (yax > x$nf) 
         stop("Non convenient yax")
-    fac <- eval(as.list(x$call)$fac, sys.frame(0))
+    fac <- eval.parent(as.list(x$call)$fac)
     def.par <- par(no.readonly = TRUE)
     on.exit(par(def.par))
     layout(matrix(c(1, 1, 3, 1, 1, 4, 2, 2, 5, 2, 2, 6, 8, 8, 
