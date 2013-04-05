@@ -1,6 +1,6 @@
 Package: ade4
-Version: 1.5-1
-Date: 2012/09/14
+Version: 1.5-2
+Date: 2013/04/05
 Title: Analysis of Ecological Data : Exploratory and Euclidean methods
         in Environmental sciences
 Author: Daniel Chessel, Anne-Beatrice Dufour
@@ -16,9 +16,7 @@ Description: Multivariate data analysis and graphical display.
 License: GPL (>= 2)
 URL: http://pbil.univ-lyon1.fr/ADE-4, Mailing list:
         http://listes.univ-lyon1.fr/wws/info/adelist
+Packaged: 2013-04-11 12:03:50 UTC; stephane
+NeedsCompilation: yes
 Repository: CRAN
-Repository/R-Forge/Project: ade4
-Repository/R-Forge/Revision: 575
-Repository/R-Forge/DateTimeStamp: 2012-09-14 11:23:45
-Date/Publication: 2012-09-14 16:47:07
-Packaged: 2012-09-14 14:19:35 UTC; rforge
+Date/Publication: 2013-04-11 14:36:17
