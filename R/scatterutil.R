@@ -245,7 +245,7 @@
     if (any(label == ""))
         return(invisible())
     # modif mercredi, juillet 2, 2003 at 17:26
-    # pour les cas où le centre n'est pas l'origine
+    # pour les cas oÃ¹ le centre n'est pas l'origine
     xref <- x - origin[1]
     yref <- y - origin[2]
     for (i in 1:(length(x))) {
@@ -293,7 +293,7 @@
   return(c(xh,yh))
 }
 
-"scatterutil.eti" <- function (x, y, label, clabel, boxes = TRUE, coul = rep(1, length(x)), horizontal = TRUE) 
+"scatterutil.eti" <- function (x, y, label, clabel, boxes = TRUE, coul = rep(1, length(x)), horizontal = TRUE, bg = "white") 
 {
     if (length(label) == 0) 
         return(invisible())
@@ -317,7 +317,7 @@
         }
         if (boxes) {
             rect(x1 - xh/2, y1 - yh/2, x1 + xh/2, y1 + yh/2, 
-                 col = "white", border = coul[i])
+                 col = bg, border = coul[i])
           }
         if(horizontal){
           text(x1, y1, cha, cex = cex0, col = coul[i])
