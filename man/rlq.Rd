@@ -14,7 +14,7 @@ rlq(dudiR, dudiL, dudiQ, scannf = TRUE, nf = 2)
 \method{print}{rlq}(x, ...)
 \method{plot}{rlq}(x, xax = 1, yax = 2, ...)
 \method{summary}{rlq}(object, ...)
-\method{randtest}{rlq}(xtest,nrepet = 999, ...)
+\method{randtest}{rlq}(xtest,nrepet = 999, modeltype = 6,...)
 }
 
 \arguments{
@@ -29,6 +29,9 @@ rlq(dudiR, dudiL, dudiQ, scannf = TRUE, nf = 2)
   \item{object}{ an rlq object }
   \item{xtest}{ an rlq object }
   \item{nrepet}{ the number of permutations }
+  \item{modeltype}{the model used to permute data(2: permute rows of R,
+    4: permute rows of Q, 5: permute both, 6: sequential approach, see
+    ter Braak et al. 2012)}
   \item{\dots}{further arguments passed to or from other methods}
 }
 \value{
@@ -59,6 +62,16 @@ Matching species traits to environmental variables: a new three-table ordination
 
 Dray, S., Pettorelli, N., Chessel, D. (2002) Matching data sets from two different spatial samplings. 
 \emph{Journal of Vegetation Science}, \bold{13}, 867--874.
+
+Dray, S. and Legendre, P. (2008) 
+Testing the species traits-environment relationships: the fourth-corner
+problem revisited. \emph{Ecology},
+\bold{89}, 3400--3412.
+
+ter Braak, C., Cormont, A., Dray, S. (2012) Improved testing of species
+traits-environment relationships in the fourth corner problem.
+\emph{Ecology}, \bold{93}, 1525--1526.
+
 }
 \author{ Stephane Dray \email{dray@biomserv.univ-lyon1.fr}}
 
@@ -72,16 +85,19 @@ IMPORTANT : row weights for \code{dudiR} and \code{dudiQ} must be taken from \co
   case of decentred PCA (PCA where centers are entered by the user) for
   R or Q is not yet implemented. If you want to use the testing
   procedure for this case, you must firstly center the table and then perform a non-centered PCA on the modified table.} 
-\seealso{ \code{\link{coinertia}} }
+\seealso{ \code{\link{coinertia}},   \code{\link{fourthcorner}}}
 \examples{
-data(aviurba)
+   data(aviurba)
    coa1 <- dudi.coa(aviurba$fau, scannf = FALSE, nf = 2)
    dudimil <- dudi.hillsmith(aviurba$mil, scannf = FALSE, nf = 2, row.w = coa1$lw)
    duditrait <- dudi.hillsmith(aviurba$traits, scannf = FALSE, nf = 2, row.w = coa1$cw)
    rlq1 <- rlq(dudimil, coa1, duditrait, scannf = FALSE, nf = 2)
    plot(rlq1)
    summary(rlq1)
-   randtest.rlq(rlq1)
+   randtest(rlq1)
+   fourthcorner.rlq(rlq1,type="Q.axes")
+   fourthcorner.rlq(rlq1,type="R.axes")
+
 }
 \keyword{ multivariate }
 \keyword{ spatial }

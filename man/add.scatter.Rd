@@ -7,8 +7,10 @@
   The function \code{add.scatter.eig} uses the following colors: black (represented axes), grey(axes retained in the analysis) and white (others).
 }
 \usage{
-add.scatter(func,posi=c("bottomleft","bottomright","topleft","topright"),ratio=.2,inset=.01,bg.col='white')
-add.scatter.eig(w,nf=NULL, xax, yax, posi = "bottomleft", ratio = .25, inset = .01, sub="Eigenvalues",csub=2*ratio)
+add.scatter(func,posi = c("bottomleft","bottomright","topleft","topright"),
+ratio = 0.2, inset = 0.01, bg.col = 'white')
+add.scatter.eig(w, nf = NULL, xax, yax, posi = "bottomleft", ratio =
+.25, inset = 0.01, sub = "Eigenvalues", csub = 2 * ratio)
 }
 \arguments{
   \item{func}{an - evaluated - function producing a graphic}
@@ -78,7 +80,7 @@ par(mfrow=c(1,1))
 data(microsatt)
 w <- dudi.coa(data.frame(t(microsatt$tab)), scann = FALSE,nf=3)
 s.label(w$co)
-add.scatter.eig(w$eig,w$nf,posi="bottomright",1,2)
+ade4:::add.scatter.eig(w$eig,w$nf,posi="bottomright",1,2)
 }
 \keyword{multivariate}
 \keyword{hplot}
