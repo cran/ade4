@@ -1,6 +1,6 @@
 Package: ade4
-Version: 1.6-1
-Date: 2013/11/15
+Version: 1.6-2
+Date: 2013/11/19
 Title: Analysis of Ecological Data : Exploratory and Euclidean methods
         in Environmental sciences
 Author: Stéphane Dray <stephane.dray@univ-lyon1.fr>, Anne-Béatrice Dufour <anne-beatrice.dufour@univ-lyon1.fr>, and Jean Thioulouse <jean.thioulouse@univ-lyon1.fr>, with contributions from Thibaut Jombart, Sandrine Pavoine, Jean R. Lobry, Sébastien Ollier, and Aurélie Siberchicot. Based on earlier work by Daniel Chessel.
@@ -15,8 +15,8 @@ URL: http://pbil.univ-lyon1.fr/ADE-4, Mailing list:
 Encoding: UTF-8
 Repository: CRAN
 Repository/R-Forge/Project: ade4
-Repository/R-Forge/Revision: 620
-Repository/R-Forge/DateTimeStamp: 2013-11-15 22:46:29
-Date/Publication: 2013-11-16 17:28:52
-Packaged: 2013-11-15 23:16:20 UTC; rforge
+Repository/R-Forge/Revision: 627
+Repository/R-Forge/DateTimeStamp: 2013-11-19 16:01:25
+Date/Publication: 2013-11-20 15:14:20
+Packaged: 2013-11-19 19:17:03 UTC; rforge
 NeedsCompilation: yes
