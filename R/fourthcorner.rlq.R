@@ -70,7 +70,7 @@ fourthcorner.rlq <- function(xtest, nrepet = 999, modeltype = 6, typetest = c("a
       }
     }
     Rinit <- res[,-1]
-    names(Rinit) <- provinames[-1] 
+    colnames(Rinit) <- provinames[-1] 
   } else stop ("Not yet available")
 
   
@@ -87,7 +87,7 @@ fourthcorner.rlq <- function(xtest, nrepet = 999, modeltype = 6, typetest = c("a
   indexQ <- rep(2, ncol(Qinit))
   assignQ <- rep(1:ncol(Qinit),apply(Qinit, 2, function(x) nlevels(as.factor(x))))
   Qinit <- acm.disjonctif(Qinit)
-} else if (typR == 8) {
+} else if (typQ == 8) {
   provinames <- "tmp"
   indexQ <- ifelse(dudiQ$index=="q",1,2)
   assignQ <- as.numeric(dudiQ$assign)
@@ -106,7 +106,7 @@ fourthcorner.rlq <- function(xtest, nrepet = 999, modeltype = 6, typetest = c("a
     }
   }
   Qinit <- res[,-1]
-  names(Qinit) <- provinames[-1] 
+  colnames(Qinit) <- provinames[-1] 
 } else stop ("Not yet available")
 
 
@@ -197,7 +197,7 @@ if(typetest == "axes"){
   res$indexR <- res$indexQ <- rep(1,naxes)
 } else if (typetest == "Q.axes"){
   res$varnames.Q <- names(tabQ)
-  res$colnames.Q <- names(Qinit)
+  res$colnames.Q <- colnames(Qinit)
   res$varnames.R <-  res$colnames.R <- names(xtest$lR)
   res$indexQ <- indexQ
   res$assignQ <- assignQ
@@ -206,7 +206,7 @@ if(typetest == "axes"){
 } else if(typetest == "R.axes"){
   res$varnames.Q <-  res$colnames.Q <- names(xtest$lQ)
   res$varnames.R <- names(tabR)
-  res$colnames.R <- names(Rinit)
+  res$colnames.R <- colnames(Rinit)
   res$indexR <- indexR
   res$assignR <- assignR
   res$assignQ <- 1:naxes
@@ -273,8 +273,8 @@ for (i in 1:nrowD){
 }
 
 provinames <- apply(expand.grid(res$colnames.R, res$colnames.Q), 1, paste, collapse=" / ")
-res$tabD <- as.krandtest(obs = res$tabD[1, ], sim = res$tabD[-1, ], names = provinames, alter = alter.D, call = match.call(), p.adjust.method = p.adjust.method.D)
-res$tabD2 <- as.krandtest(obs = res$tabD2[1, ], sim = res$tabD2[-1, ], names = provinames, alter = alter.D2, call = match.call(), p.adjust.method = p.adjust.method.D)
+res$tabD <- as.krandtest(obs = res$tabD[1, ], sim = res$tabD[-1, , drop = FALSE], names = provinames, alter = alter.D, call = match.call(), p.adjust.method = p.adjust.method.D)
+res$tabD2 <- as.krandtest(obs = res$tabD2[1, ], sim = res$tabD2[-1, , drop = FALSE], names = provinames, alter = alter.D2, call = match.call(), p.adjust.method = p.adjust.method.D)
 
 
 if(p.adjust.D == "levels"){
@@ -292,7 +292,7 @@ if(p.adjust.D == "levels"){
 }
 
 provinames <- apply(expand.grid(res$varnames.R, res$varnames.Q), 1, paste, collapse=" / ")
-res$tabG <- as.krandtest(obs = res$tabG[1, ], sim = res$tabG[-1, ], names = provinames, alter = alter.G, call = match.call(), p.adjust.method = p.adjust.method.G)
+res$tabG <- as.krandtest(obs = res$tabG[1, ], sim = res$tabG[-1, , drop = FALSE], names = provinames, alter = alter.G, call = match.call(), p.adjust.method = p.adjust.method.G)
 
 res$tabD$statnames <- names.stat.D
 res$tabD2$statnames <- names.stat.D2

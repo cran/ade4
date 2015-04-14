@@ -21,28 +21,35 @@ Returns a list containing the following items :
     \item{orthobasis}{: an object of class \code{'orthobasis'} corresponding to the analytical solution for the neighbouring graph}
 }
 \references{
-Méot, A., Chessel, D. and Sabatier, D. (1993) Opérateurs de voisinage et analyse des données spatio-temporelles.
-\emph{in} J.D. Lebreton and B. Asselain, editors. Biométrie et environnement. Masson, 45-72.
+M?ot, A., Chessel, D. and Sabatier, D. (1993) Op?rateurs de voisinage et analyse des donn?es spatio-temporelles.
+\emph{in} J.D. Lebreton and B. Asselain, editors. Biom?trie et environnement. Masson, 45-72.
 
-Cornillon, P.A. (1998) \emph{Prise en compte de proximités en analyse factorielle et comparative}. Thèse, Ecole Nationale Supérieure Agronomique, Montpellier.
+Cornillon, P.A. (1998) \emph{Prise en compte de proximit?s en analyse factorielle et comparative}. Th?se, Ecole Nationale Sup?rieure Agronomique, Montpellier.
 }
-\author{Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr} \cr
+\author{S?bastien Ollier \email{sebastien.ollier@u-psud.fr} \cr
 Daniel Chessel 
 }
 \seealso{\code{\link{orthobasis}}, \code{\link{orthogram}}, \code{\link{mld}}}
 \examples{
-w <- gridrowcol(8,5)
-par(mfrow = c(1,2))
-area.plot(w$area,center = w$xy, graph = w$neig, clab = 0.75)
-area.plot(w$area,center = w$xy, graph = w$neig, clab = 0.75,
- label = as.character(1:40))
-par(mfrow = c(1,1))
+w <- gridrowcol(8, 5)
+par(mfrow = c(1, 2))
+area.plot(w$area, center = w$xy, graph = w$neig, clab = 0.75)
+area.plot(w$area, center = w$xy, graph = w$neig, clab = 0.75, label = as.character(1:40))
+par(mfrow = c(1, 1))
 
-par(mfrow = c(5,8))
-for(k in 1:39)
-    s.value(w$xy, w$orthobasis[,k], csi = 3, cleg = 0, csub = 2,
-     sub = as.character(signif(attr(w$orthobasis, "values")[k],3)),
+if(adegraphicsLoaded()) {
+  fac1 <- w$orthobasis
+  names(fac1) <- as.character(signif(attr(w$orthobasis, "values"), 3))
+  s.value(w$xy, fac1, pori.in = F, plegend.drawKey = F, pgrid.text.cex = 0,
+    ylim = c(0, 10))
+
+} else {
+  par(mfrow = c(5,8))
+  for(k in 1:39)
+    s.value(w$xy, w$orthobasis[, k], csi = 3, cleg = 0, csub = 2,
+     sub = as.character(signif(attr(w$orthobasis, "values")[k], 3)),
       incl = FALSE, addax = FALSE, cgr = 0, ylim = c(0,10))
-par(mfrow = c(1,1))
+  par(mfrow = c(1,1))
+}
 }
 \keyword{spatial}

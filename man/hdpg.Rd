@@ -43,7 +43,7 @@ corresponding to the 52 populations described above, and 4992 microsatellite mar
 }
 \source{
 Extract of data prepared by the Human Diversity Panel Genotypes 
-\url{http://research.marshfieldclinic.org/genetics/Freq/FreqInfo.htm}
+(invalid http://research.marshfieldclinic.org/genetics/Freq/FreqInfo.htm)
 
 prepared by Hinda Haned, from data used in:
 Noah A. Rosenberg, Jonatahan K. Pritchard, James L. Weber, Howard M. Cabb, Kenneth K. Kidds, 
@@ -57,14 +57,18 @@ Features of Evolution and Expansion of Modern Humans, Inferred from Genomewide M
 }
 \examples{
 \dontrun{
-library(ade4)
-data(hdpg)
-freq <- char2genet(hdpg$tab, hdpg$ind$population)
-vec <- apply(freq$tab, 2, function(c) mean(c, na.rm = TRUE))
-for (j in 1:4492){
-    freq$tab[is.na(freq$tab[,j]),j] = vec[j]}
-pcatot <- dudi.pca(freq$tab, center = TRUE, scale = FALSE, scannf = FALSE, nf = 4)
-s.label(pcatot$li, xax = 1, yax = 2, sub = "1-2", lab = freq$pop.names)
-}
+  data(hdpg)
+  freq <- char2genet(hdpg$tab, hdpg$ind$population)
+  vec <- apply(freq$tab, 2, function(c) mean(c, na.rm = TRUE))
+  for (j in 1:4492){
+      freq$tab[is.na(freq$tab[,j]),j] = vec[j]}
+  pcatot <- dudi.pca(freq$tab, center = TRUE, scale = FALSE, scannf = FALSE, nf = 4)
+
+
+if(adegraphicsLoaded()) {
+  s.label(pcatot$li, xax = 1, yax = 2, psub.text = "1-2", lab = freq$pop.names)
+} else {
+  s.label(pcatot$li, xax = 1, yax = 2, sub = "1-2", lab = freq$pop.names)
+}}
 }
 \keyword{datasets}

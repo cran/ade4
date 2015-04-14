@@ -38,7 +38,7 @@ is replaced by the method \code{bca.coinertia} of the new generic \code{bca} fun
 }
 
 \author{
-Stephane Dray \email{dray@biomserv.univ-lyon1.fr} and Jean Thioulouse \email{jean.thioulouse@univ-lyon1.fr}
+Stephane Dray \email{stephane.dray@univ-lyon1.fr} and Jean Thioulouse \email{jean.thioulouse@univ-lyon1.fr}
 }
 
 \seealso{\code{\link{coinertia}}, \code{\link{between}}}
@@ -51,7 +51,7 @@ bet1 <- bca(pca1, meaudret$design$site, scan = FALSE, nf = 2)
 bet2 <- bca(pca2, meaudret$design$site, scan = FALSE, nf = 2)
 coib <- coinertia(bet1, bet2, scannf = FALSE)
 
-coi <- coinertia(pca1,pca2,scannf = FALSE,nf = 3)
+coi <- coinertia(pca1, pca2, scannf = FALSE, nf = 3)
 coi.b <- bca(coi,meaudret$design$site, scannf = FALSE)
 ## coib and coi.b are equivalent
 

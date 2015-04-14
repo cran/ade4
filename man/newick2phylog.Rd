@@ -31,7 +31,7 @@ newick2phylog.addtools(res, tol = 1e-07)
 Return object of class \code{phylog}.
 }
 \author{Daniel Chessel  \cr
-Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr}
+Sébastien Ollier \email{sebastien.ollier@u-psud.fr}
 }
 \seealso{\code{\link{phylog}}, \code{\link{plot.phylog}}, \code{\link{as.taxo}}}
 \examples{
@@ -84,7 +84,7 @@ hc <- hclust(dist(USArrests), "ave")
 par(mfrow = c(1,2))
 plot(hc, hang = -1)
 phy <- hclust2phylog(hc)
-plot.phylog(phy, clabel.l = 0.75, clabel.n = 0.6, f = 0.75)
+plot(phy, clabel.l = 0.75, clabel.n = 0.6, f = 0.75)
 
 par(mfrow = c(1,1))
 row.names(USArrests) 
@@ -103,12 +103,12 @@ data(taxo.eg)
 tax <- as.taxo(taxo.eg[[1]])
 tax.phy <- taxo2phylog(as.taxo(taxo.eg[[1]]))
 par(mfrow = c(1,2))
-plot.phylog(tax.phy, clabel.l = 1.25, clabel.n = 1.25, f = 0.75)
-plot.phylog(taxo2phylog(as.taxo(taxo.eg[[1]][sample(15),])),
+plot(tax.phy, clabel.l = 1.25, clabel.n = 1.25, f = 0.75)
+plot(taxo2phylog(as.taxo(taxo.eg[[1]][sample(15),])),
  clabel.l = 1.25, clabel.n = 1.25, f = 0.75)
 
 par(mfrow=c(1,1))
-plot.phylog(taxo2phylog(as.taxo(taxo.eg[[2]])), clabel.l = 1,
+plot(taxo2phylog(as.taxo(taxo.eg[[2]])), clabel.l = 1,
  clabel.n = 0.75, f = 0.65)
 }}
 \keyword{manip}

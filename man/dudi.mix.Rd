@@ -39,14 +39,22 @@ Kiers, H. A. L. 1994. Simple structure in component analysis techniques for mixt
 }
 \author{
 Daniel Chessel \cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+Anne B Dufour \email{anne-beatrice.dufour@univ-lyon1.fr}
 }
 \examples{
 data(dunedata)
 dd1 <- dudi.mix(dunedata$envir, scann = FALSE)
-scatter.dudi(dd1, clab.r = 1, clab.c = 1.5)
+if(adegraphicsLoaded()) {
+  g1 <- scatter(dd1, row.plab.cex = 1, col.plab.cex = 1.5)
+} else {
+  scatter(dd1, clab.r = 1, clab.c = 1.5)
+}
 
-dd2 <- dudi.mix(dunedata$envir, scann = FALSE, add = TRUE)
-scatter.dudi(dd2, clab.r = 1, clab.c = 1.5)
+dd2 <- dudi.mix(dunedata$envir, scann = FALSE, add.square = TRUE)
+if(adegraphicsLoaded()) {
+  g2 <- scatter(dd2, row.plab.cex = 1, col.plab.cex = 1.5)
+} else {
+  scatter(dd2, clab.r = 1, clab.c = 1.5)
+}  
 }
 \keyword{multivariate}

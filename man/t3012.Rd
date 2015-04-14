@@ -17,13 +17,19 @@
 \source{
 Besse, P. (1979)
 \emph{Etude descriptive d'un processus; approximation, interpolation}.
- Thèse de troisième cycle, Université Paul Sabatier, Toulouse.
+ Th?se de troisi?me cycle, Universit? Paul Sabatier, Toulouse.
 }
 \examples{
 data(t3012)
 data(elec88)
-area.plot(elec88$area)
-s.arrow(t3012$xy, ori = as.numeric(t3012$xy["Paris",]),
- add.p = TRUE)
-}
+
+if(adegraphicsLoaded()) {
+  if(requireNamespace("sp", quiet = TRUE)) {
+    s.arrow(t3012$xy, pori.ori = as.numeric(t3012$xy["Paris", ]), Sp = t3012$Spatial, 
+      pSp.col = "white", pgrid.draw = F)
+  }
+} else {
+  area.plot(elec88$area)
+  s.arrow(t3012$xy, ori = as.numeric(t3012$xy["Paris", ]), add.p = TRUE)
+}}
 \keyword{datasets}

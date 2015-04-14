@@ -2,30 +2,55 @@
 "is.ktab" <- function (x)
     inherits(x, "ktab")
 
-########### [.ktab" ########### 
-"[.ktab" <- function (x, selection) {
+########### [.ktab ########### 
+"[.ktab" <- function (x, i, j, k) {
+    ## i: index of blocks
+    ## j: index of rows
+    ## k: index of columns
+
+    ## select blocks
     blocks <- x$blo
     nblo <- length(blocks)
-    if (is.logical(selection)) 
-        selection <- which(selection)
-    if (any(selection > nblo)) 
+    if(missing(i))
+        i <- 1:nblo
+    if (is.logical(i)) 
+        i <- which(i)
+    if (any(i > nblo)) 
         stop("Non convenient selection")
     indica <- as.factor(rep(1:nblo, blocks))
-    res <- unclass(x)[selection]
+    res <- unclass(x)[i]
+   
+    tabw <- x$tabw[i]
     cw <- x$cw
     cw <- split(cw, indica)
-    cw <- unlist(cw[selection])
+    cw <- cw[i]
+   
+    ## select columns
+    if(!missing(k)){
+        res <- lapply(res, function(z) z[, k, drop = FALSE])
+        cw <- lapply(cw, function(z) z[k, drop = FALSE])
+    }
+    cw <- unlist(cw)
+    blocks <- unlist(lapply(res, function(z) ncol(z)))
+    
+    ## select rows
+    lw <-  x$lw
+    if(!missing(j)){
+        res <- lapply(res, function(z) z[j,, drop = FALSE])
+        lw <- lw[j, drop = FALSE]
+    }
+    res$lw <- lw / sum(lw)
     res$cw <- cw
-    res$lw <- x$lw
-    blocks <- unlist(lapply(res, function(x) ncol(x)))
+    res$tabw <- tabw
+   
     nblo <- length(blocks)
     res$blo <- blocks
-    ktab.util.addfactor(res) <- list(blocks, length(res$lw))
-    res$call <- match.call()
     class(res) <- "ktab"
+    res <- ktab.util.addfactor(res)
+    res$call <- match.call()
+    
     return(res)
 }
-
 
 ########### print.ktab ########### 
 "print.ktab" <- function (x, ...) {
@@ -108,9 +133,9 @@
     res$lw <- lw
     res$cw <- cw
     res$blo <- blocks
-    ktab.util.addfactor(res) <- list(blocks, length(lw))
-    res$call <- match.call()
     class(res) <- "ktab"
+    res <- ktab.util.addfactor(res)
+    res$call <- match.call()
     return(res)
 }
 
@@ -154,9 +179,9 @@
     res$lw <- col.w
     res$cw <- rep(x$lw, nblo)
     res$blo <- blocks
-    ktab.util.addfactor(res) <- list(blocks, length(res$lw))
-    res$call <- match.call()
     class(res) <- "ktab"
+    res <- ktab.util.addfactor(res)
+    res$call <- match.call()
     return(res)
 }
 
@@ -270,31 +295,35 @@
     w <- tab.names(x)
     l0 <- length(w)
     w3 <- paste(rep(w, rep(4, l0)), as.character(1:4), sep = ".")
-    return(list(row = w1, col = w2, tab = w3))
+    # Cas d'un ktab de type kcoinertie
+    if (!inherits (x,"kcoinertia")) return(list(row = w1, col = w2, tab = w3)) 
+    w4 <- paste(rep(tab.names(x), each=nrow(x$supX)/length(tab.names(x))), row.names(x$supX), sep=".")
+    return(list(row = w1, col = w2, tab = w3, Trow=w4))
 }
 
 ########### ktab.util.addfactor<- ########### 
-# utilitaire utilisé dans les ktab
-# ajoute les composantes TL TC et T4
-# x est un ktab presque achevé
-# value est une liste contenant le vecteur des blocs de colonnes
-# et le nombre de lignes
-# on récupère avec le nombre de tableaux, le nombre de variables par tableaux
-# et le nombre de lignes en commun
-"ktab.util.addfactor<-" <- function (x, value) {
-    blocks <- value[[1]]
-    nlig <- value[[2]]
-    nblo <- length(blocks)
-    w <- cbind.data.frame(gl(nblo, nlig), factor(rep(1:nlig, 
-        nblo)))
+## utility used for ktab objects
+## add the componenst TL TC and T4
+## x is an object of class ktab not yet finished (should contains tables, lw and blo)
+# we obtain the col number (unique for each table) and the number of row (common to all tables)
+"ktab.util.addfactor" <- function (x) {
+    blocks <- x$blo
+    nlig <- length(x$lw)
+    nblo <- length(x$blo)
+    rowname <- row.names(x)
+    colname <- col.names(x)
+    blocname <- tab.names(x)
+    
+    w <- cbind.data.frame(gl(nblo, nlig, labels = blocname), factor(rep(1:nlig, 
+        nblo), labels = rowname))
     names(w) <- c("T", "L")
     x$TL <- w
     w <- NULL
     for (i in 1:nblo) w <- c(w, 1:blocks[i])
-    w <- cbind.data.frame(factor(rep(1:nblo, blocks)), factor(w))
+    w <- cbind.data.frame(factor(rep(1:nblo, blocks), labels = blocname), factor(colname))
     names(w) <- c("T", "C")
     x$TC <- w
-    w <- cbind.data.frame(gl(nblo, 4), factor(rep(1:4, nblo)))
+    w <- cbind.data.frame(gl(nblo, 4, labels = blocname), factor(rep(1:4, nblo)))
     names(w) <- c("T", "4")
     x$T4 <- w
     x

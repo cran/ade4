@@ -1,4 +1,5 @@
 \name{scatterutil}
+\alias{scatterutil}
 \alias{scatterutil.base}
 \alias{scatterutil.sco}
 \alias{scatterutil.chull}
@@ -45,7 +46,7 @@ These are utilities used in graphical functions.
 \code{\link{s.corcircle}}, \code{\link{s.distri}}, \code{\link{s.label}}, 
 \code{\link{s.match}}, \code{\link{s.traject}}, \code{\link{s.value}}, \code{\link{add.scatter}}
 }
-\author{Daniel Chessel, Stephane Dray \email{dray@biomserv.univ-lyon1.fr}}
+\author{Daniel Chessel, Stephane Dray \email{stephane.dray@univ-lyon1.fr}}
 \examples{
 par(mfrow = c(3,3))
 plot.new()

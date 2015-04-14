@@ -37,14 +37,14 @@ returns a list of the sub-class \code{within} of class \code{dudi}. See \code{\l
 }
 \author{
 Daniel Chessel \cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+Anne B Dufour \email{anne-beatrice.dufour@univ-lyon1.fr}
 }
 \examples{
 data(meaudret)
-wit1 <- withinpca(meaudret$env, meaudret$design$season, 
-    scannf = FALSE, scaling = "partial")
-kta1 <- ktab.within(wit1, colnames = rep(c("S1","S2","S3","S4","S5"), 4))
+wit1 <- withinpca(meaudret$env, meaudret$design$season, scannf = FALSE, scaling = "partial")
+kta1 <- ktab.within(wit1, colnames = rep(c("S1", "S2", "S3", "S4", "S5"), 4))
 unclass(kta1)
+
 # See pta
 plot(wit1)
 }

@@ -30,12 +30,12 @@
     res$lw <- dudiwit$cw
     res$cw <- cw
     res$blo <- blocks
-    ktab.util.addfactor(res) <- list(blocks, length(res$lw))
-    res$call <- match.call()
-    res$tabw <- dudiwit$tabw
     class(res) <- "ktab"
     row.names(res) <- rownames
     col.names(res) <- colnames
     tab.names(res) <- tabnames
+    res <- ktab.util.addfactor(res)
+    res$call <- match.call()
+    res$tabw <- dudiwit$tabw
     return(res)
 }

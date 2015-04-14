@@ -33,21 +33,24 @@ an example using Oribatid mites (\emph{Acari Oribatei}). \emph{Environmental and
 Borcard, D., Legendre, P., and Drapeau, P. (1992) Partialling out the spatial component of ecological variation. 
 \emph{Ecology}, \bold{73}, 1045--1055.
 
-See a data description at \url{http://pbil.univ-lyon1.fr/R/pps/pps039.pdf} (in French).
+See a data description at \url{http://pbil.univ-lyon1.fr/R/pdf/pps039.pdf} (in French).
 }
 \examples{
 data(oribatid)
-ori.xy <- oribatid$xy[,c(2,1)]
+ori.xy <- oribatid$xy[, c(2, 1)]
 names(ori.xy) <- c("x","y")
 plot(ori.xy,pch = 20, cex = 2, asp = 1)
 
-if (require(deldir, quiet = TRUE)) {
-  if (require(spdep, quiet = TRUE)) {
+if(requireNamespace("deldir", quiet = TRUE)) {
+  if(requireNamespace("spdep", quiet = TRUE)) {
     plot(deldir(ori.xy), add = TRUE)
-    s.label(ori.xy, add.p = TRUE,
-     neig = nb2neig(knn2nb(knearneigh(as.matrix(ori.xy), 3))),
-     clab = 0)
+    if(adegraphicsLoaded()) {
+      s.label(ori.xy, nb = knn2nb(knearneigh(as.matrix(ori.xy), 3)), plab.cex = 0)
+    } else {
+      s.label(ori.xy, add.p = TRUE, neig = nb2neig(knn2nb(knearneigh(as.matrix(ori.xy), 3))),
+        clab = 0)
     }
   }
+}
 }
 \keyword{datasets}

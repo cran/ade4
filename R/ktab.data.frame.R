@@ -32,11 +32,12 @@
     res$lw <- w.row
     res$cw <- w.col
     res$blo <- blocks
-    ktab.util.addfactor(res) <- list(blocks, length(res$lw))
-    res$call <- match.call()
     class(res) <- "ktab"
     row.names(res) <- rownames
     col.names(res) <- colnames
     tab.names(res) <- tabnames
+    res <- ktab.util.addfactor(res)
+    res$call <- match.call()
+    
     return(res)
 }

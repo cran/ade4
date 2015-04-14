@@ -60,7 +60,7 @@ If (high.scores > 0), returns a list containg :
 \references{
 Ollier, S., Chessel, D. and Couteron, P. (2005) Orthonormal Transform to Decompose the Variance of a Life-History Trait across a Phylogenetic Tree. \emph{Biometrics}, \bold{62}, 471--477.
 }
-\author{Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr} \cr
+\author{Sébastien Ollier \email{sebastien.ollier@u-psud.fr} \cr
 Daniel Chessel 
 }
 \seealso{\code{\link{gridrowcol}}, \code{\link{orthobasis}}, \code{\link{mld}}}
@@ -78,7 +78,7 @@ dotchart.phylog(ung.phy,val = z, clabel.n = 1,
 table.phylog(ung.phy$Bscores, ung.phy,clabel.n = 1,
      labels.n = ung.phy$Blabels)
 orthogram(z, ung.phy$Bscores)
-orthogram(z, phyl=ung.phy) # the same thing
+orthogram(z, phylog=ung.phy) # the same thing
 
 # a spatial example
 data(irishdata)

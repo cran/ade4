@@ -16,7 +16,7 @@
 \alias{tab.names<-}
 \alias{tab.names<-.ktab}
 \alias{ktab.util.names}
-\alias{ktab.util.addfactor<-}
+\alias{ktab.util.addfactor}
 \title{the class of objects 'ktab' (K-tables)}
 \description{
 an object of class \code{ktab} is a list of data frames with the same row.names in common.\cr
@@ -32,7 +32,7 @@ a list of class 'ktab' contains moreover :
 }
 \usage{
 \method{c}{ktab}(...)
-\method{[}{ktab}(x,selection)
+\method{[}{ktab}(x,i,j,k)
 is.ktab(x)
 \method{t}{ktab}(x)
 \method{row.names}{ktab}(x)
@@ -44,7 +44,7 @@ ktab.util.names(x)
 \arguments{
   \item{x}{an object of the class \code{ktab}}
   \item{\dots}{a sequence of objects of the class \code{ktab}}
-  \item{selection}{an integer vector}
+  \item{i,j,k}{elements to extract (integer or empty): index of tables (i), rows (j) and columns (k)}
 }
 \details{
 A 'ktab' object can be created with :\cr
@@ -66,13 +66,14 @@ A 'ktab' object can be created with :\cr
 }
 \author{
 Daniel Chessel \cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+Anne B Dufour \email{anne-beatrice.dufour@univ-lyon1.fr}
+Stephane Dray \email{stephane.dray@univ-lyon1.fr}
 }
 \examples{
 data(friday87)
 wfri <- data.frame(scale(friday87$fau, scal = FALSE))
 wfri <- ktab.data.frame(wfri, friday87$fau.blo)
-wfri[2:4]
+wfri[2:4, 1:5, 1:3]
 c(wfri[2:4], wfri[5])
 
 data(meaudret)
@@ -80,6 +81,11 @@ wit1 <- withinpca(meaudret$env, meaudret$design$season, scan = FALSE,
     scal = "partial")
 kta1 <- ktab.within(wit1, colnames = rep(c("S1","S2","S3","S4","S5"), 4))
 kta2 <- t(kta1)
-kplot(sepan(kta2), clab.r = 1.5, clab.c = 0.75)
+
+if(adegraphicsLoaded()) {
+  kplot(sepan(kta2), row.plab.cex = 1.5, col.plab.cex = 0.75)
+} else {
+  kplot(sepan(kta2), clab.r = 1.5, clab.c = 0.75)
+}
 }
 \keyword{multivariate}

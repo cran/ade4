@@ -145,7 +145,9 @@ void initvec (double *v1, double r)
 double alea (void)
 {
   double w;
-  w = ((double) rand())/ (double)RAND_MAX;
+  GetRNGstate();
+  w = unif_rand();
+  PutRNGstate();
   return (w);
 }
 /*************************/
@@ -472,7 +474,7 @@ void getpermutation (int *numero, int repet)
  * que deux appels donnent deux resultats distincts (seed=clock+repet)
  ------------------------*/
 {
-  int i, n, seed;
+  int i, n;
   int *alea;
     
   n=numero[0];
@@ -488,13 +490,11 @@ void getpermutation (int *numero, int repet)
   /*-------------
    * affectation de nombres aleatoires dans alea
    ----------------*/
-  seed = clock();
-  seed = seed + repet;
-  srand(seed);
+  GetRNGstate();	
   for (i=1;i<=n;i++) {
-    alea[i]=rand();
+    alea[i]= (int) (unif_rand() * RAND_MAX);
   }
-    
+  PutRNGstate();   
   trirapideint (alea , numero, 1, n);
   freeintvec (alea);
 }

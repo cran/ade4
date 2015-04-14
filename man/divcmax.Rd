@@ -54,8 +54,8 @@ are any dissimilarities suitable? \emph{Theoretical Population Biology},
 
 }
 \author{
-Stéphane Champely \email{Stephane.Champely@univ-lyon1.fr} \cr
-Sandrine Pavoine \email{pavoine@biomserv.univ-lyon1.fr}
+Stephane Champely \email{Stephane.Champely@univ-lyon1.fr} \cr
+Sandrine Pavoine \email{pavoine@mnhn.fr}
 }
 \examples{
 par.safe <- par()$mar
@@ -74,14 +74,16 @@ w0 <- France.m$vectors$num
 v0 <- France.m$value
 (1:94) [w0 > 0]
 
-# Smallest circle including all the 94 departments.
-# The squared radius of that circle is the maximal value of the
-# spatial diversity.
-w1 = elec88$xy[c(6, 28, 66), ]
-w.c = apply(w1 * w0[c(6, 28, 66)], 2, sum)
-symbols(w.c[1], w.c[2], circles = sqrt(v0), inc = FALSE, add = TRUE)
-s.value(elec88$xy, w0, add.plot = TRUE)
-par(mar = par.safe)
+if(!adegraphicsLoaded()) {
+  # Smallest circle including all the 94 departments.
+  # The squared radius of that circle is the maximal value of the
+  # spatial diversity.
+  w1 <- elec88$xy[c(6, 28, 66), ]
+  w.c <- apply(w1 * w0[c(6, 28, 66)], 2, sum)
+  symbols(w.c[1], w.c[2], circles = sqrt(v0), inc = FALSE, add = TRUE)
+  s.value(elec88$xy, w0, add.plot = TRUE)
+  par(mar = par.safe)
+}
 
 \dontrun{
 # Maximisation of Rao's diversity coefficient
@@ -90,7 +92,7 @@ data(microsatt)
 mic.genet <- count2genet(microsatt$tab)
 mic.dist <- dist.genet(mic.genet, 1)
 mic.phylog <- hclust2phylog(hclust(mic.dist))
-plot.phylog(mic.phylog)
+plot(mic.phylog)
 mic.maxpond <- divcmax(mic.phylog$Wdist)$vectors$num
 dotchart.phylog(mic.phylog, mic.maxpond)
 }

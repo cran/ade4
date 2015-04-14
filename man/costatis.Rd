@@ -3,7 +3,7 @@
 \alias{costatis}
 \title{STATIS and Co-Inertia : Analysis of a series of paired ecological tables}
 \description{
-Does the analysis of a series of pairs of ecological tables. This function uses
+Analysis of a series of pairs of ecological tables. This function uses
 Partial Triadic Analysis (\link{pta}) and \link{coinertia}
 to do the computations.
 }
@@ -22,12 +22,9 @@ This function takes 2 ktabs. It does a PTA (partial triadic analysis: \link{pta}
 a list of class coinertia, subclass dudi. See \link{coinertia}
 }
 \references{
-Thioulouse J., Simier M. and Chessel D. (2004). Simultaneous analysis of a sequence of paired ecological tables.  \emph{Ecology} \bold{85}, 272-283.. 
-
-Simier, M., Blanc L., Pellegrin F., and Nandris D. (1999). Approche simultanée de K couples de tableaux : 
-Application a l'étude des relations pathologie végétale - environnement. \emph{Revue de Statistique Appliquée}, \bold{47}, 31-46.
+Thioulouse J. (2011). Simultaneous analysis of a sequence of paired ecological tables: a comparison of several methods. \emph{Annals of Applied Statistics}, \bold{5}, 2300-2325.
 }
-\author{Jean Thioulouse \email{jean.thioulouse@univ-lyon1.fr}}
+\author{Jean Thioulouse \email{Jean.Thioulouse@univ-lyon1.fr}}
 \section{WARNING }{
 IMPORTANT : KTX and KTY must have the same k-tables structure, the same number
 of columns, and the same column weights.

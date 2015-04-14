@@ -32,7 +32,7 @@ Cliff, A. D. and Ord, J. K. (1973) \emph{Spatial autocorrelation}, Pion, London.
 Thioulouse, J., Chessel, D. and Champely, S. (1995) Multivariate analysis of spatial patterns: a unified approach to local and global structures. 
 \emph{Environmental and Ecological Statistics}, \bold{2}, 1--14.
 }
-\author{Sébastien Ollier \email{ollier@biomserv.univ-lyon1.fr} \cr
+\author{Sébastien Ollier \email{sebastien.ollier@u-psud.fr} \cr
 Daniel Chessel 
 }
 \seealso{\code{\link[spdep]{moran.test}} and \code{\link[spdep]{geary.test}} for classical versions of Moran's test and Geary's one}
@@ -52,10 +52,19 @@ mjr.phy <- newick2phylog(mjrochet$tre)
 mjr.tab <- log(mjrochet$tab)
 gearymoran(mjr.phy$Amat, mjr.tab)
 gearymoran(mjr.phy$Wmat, mjr.tab)
-par(mfrow = c(1,2))
-table.value(mjr.phy$Wmat, csi = 0.25, clabel.r = 0)
-table.value(mjr.phy$Amat, csi = 0.35, clabel.r = 0)
-par(mfrow = c(1,1))
+if(adegraphicsLoaded()) {
+  g1 <- table.value(mjr.phy$Wmat, ppoints.cex = 0.35, nclass = 5,
+axis.text = list(cex = 0), plot = F)
+  g2 <- table.value(mjr.phy$Amat, ppoints.cex = 0.35, nclass = 5,
+axis.text = list(cex = 0), plot = F)
+  G <- cbindADEg(g1, g2, plot = TRUE)
+  
+} else {
+  par(mfrow = c(1,2))
+  table.value(mjr.phy$Wmat, csi = 0.25, clabel.r = 0)
+  table.value(mjr.phy$Amat, csi = 0.35, clabel.r = 0)
+  par(mfrow = c(1,1))
+}
 }}
 \keyword{spatial}
 \keyword{ts}

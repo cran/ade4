@@ -23,7 +23,7 @@ Each element of the initial list have to possess the same names and row numbers
 }
 \author{
 Daniel Chessel \cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+Anne B Dufour \email{anne-beatrice.dufour@univ-lyon1.fr}
 }
 \value{
 returns a list of class \code{ktab}. See \code{\link{ktab}}
@@ -33,6 +33,6 @@ data(jv73)
 l0 <- split(jv73$morpho, jv73$fac.riv)
 l0 <- lapply(l0, function(x) data.frame(t(scalewt(x))))
 kta <- ktab.list.df(l0)
-kplot(sepan(kta[c(2,5,7,10)]), perm = TRUE, clab.r = 1, clab.c = 1.5)
+kplot(sepan(kta[c(2, 5, 7, 10)]), perm = TRUE)
 }
 \keyword{multivariate}

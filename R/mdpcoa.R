@@ -37,9 +37,9 @@ mdpcoa <- function(msamples, mdistances = NULL, method = c("mcoa", "statis", "mf
         }
         else
             nf1 <- 2
-        dpcoasep <- dpcoa(msamples[[i]], mdistances[[i]], scannf = scansep, full = full, nf = nf1, tol = tol)
-        YesY[[i]] <- dpcoasep$l2
-        YesX[[i]] <- dpcoasep$l1
+        dpcoasep <- dpcoa(data.frame(t(msamples[[i]])), mdistances[[i]], scannf = scansep, full = full, nf = nf1, tol = tol)
+        YesY[[i]] <- dpcoasep$li
+        YesX[[i]] <- dpcoasep$dls
         
         if (option == "lambda1")
             valoption[i] <- 1/(dpcoasep$eig[1])
@@ -177,7 +177,7 @@ kplotX.mdpcoa <- function(object, xax = 1, yax = 2, mfrow = NULL,
         if (includepop)
         {
             if(inherits(object, "mcoa"))
-                s.label(object$Tl1[object$TL[, 1] == ianal, c(xax, yax)], clabel = clab, cpoint = 0, add.plot = TRUE)
+                s.label(object$Tl1[object$TL[, 1] == levels(object$TL[,1])[ianal], c(xax, yax)], clabel = clab, cpoint = 0, add.plot = TRUE)
             else if (inherits(object, "statis")){
                 npop <- nrow(object$C.li)
                 s.label(object$cosupY[(1:npop) + npop * (ianal - 1), c(xax, yax)], clabel = clab, cpoint = 0, add.plot = TRUE)
@@ -200,7 +200,7 @@ prep.mdpcoa <- function(dnaobj, pop, model, ...)
             sam1 <- model.matrix(~ -1 + pop)
             colnames(sam1) <- levels(pop)
             sam1 <- as.data.frame(sam1)        
-            dis1 <- dist.dna(dnaobj[[x]], model[x], ...)                      
+            dis1 <- ape::dist.dna(dnaobj[[x]], model[x], ...)                      
             prep <- lapply(dnaobj[[x]], paste, collapse=  "")
             prep <- unlist(prep)
             lprep <- length(prep)

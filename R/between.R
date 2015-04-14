@@ -48,10 +48,10 @@
     bet <- x
     if (!inherits(bet, "between")) 
         stop("Use only with 'between' objects")
+    appel <- as.list(bet$call)
+    fac <- eval.parent(appel$fac)
     if ((bet$nf == 1) || (xax == yax)) {
-        appel <- as.list(bet$call)
-        dudi <- eval.parent(appel$dudi)
-        fac <- eval.parent(appel$fac)
+        dudi <- eval.parent(appel$x)
         lig <- nrow(dudi$tab)
         if (length(fac) != lig) 
             stop("Non convenient dimension")
@@ -62,7 +62,7 @@
         stop("Non convenient xax")
     if (yax > bet$nf) 
         stop("Non convenient yax")
-    fac <- eval.parent(as.list(bet$call)$fac)
+    
     def.par <- par(no.readonly = TRUE)
     on.exit(par(def.par))
     layout(matrix(c(1, 2, 3, 4, 4, 5, 4, 4, 6), 3, 3), 
@@ -118,4 +118,22 @@
     
     print(sumry, quote = FALSE)
     cat("\n")
+}
+
+
+summary.between <- function(object, ...){
+    thetitle <- "Between-class analysis"
+    cat(thetitle)
+    cat("\n\n")
+    NextMethod()
+    appel <- as.list(object$call)
+    dudi <- eval.parent(appel$x)
+    cat(paste("Total unconstrained inertia (", deparse(appel$x), 
+              "): ", sep = ""))
+    cat(signif(sum(dudi$eig), 4))
+    cat("\n\n")
+    cat(paste("Inertia of", deparse(appel$x), "explained by", 
+              deparse(appel$fac), "(%): "))
+    cat(signif(object$ratio * 100, 4))
+    cat("\n\n")
 }

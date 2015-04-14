@@ -46,30 +46,44 @@ bdo - biological demand for oxygen (mg/l * 10).
 }
 \source{
  Verneaux, J. (1973) 
- \emph{Cours d'eau de Franche-Comté (Massif du Jura). 
- Recherches écologiques sur le réseau hydrographique du Doubs. Essai de biotypologie}. 
- Thèse d'état, Besançon. 1--257.
+ \emph{Cours d'eau de Franche-Comt? (Massif du Jura). 
+ Recherches ?cologiques sur le r?seau hydrographique du Doubs. Essai de biotypologie}. 
+ Th?se d'?tat, Besan?on. 1--257.
 }
 \references{
-See a French description of fish species at \url{http://pbil.univ-lyon1.fr/R/articles/arti049.pdf}.\cr
-Chesse, D., Lebreton, J.D. and Yoccoz, N.G. (1987) Propriétés de l'analyse canonique des correspondances. Une illustration
-en hydrobiologie. \emph{Revue de Statistique Appliquée}, \bold{35}, 4, 55--72.
+See a French description of fish species at \url{http://pbil.univ-lyon1.fr/R/pdf/pps047.pdf}.\cr
+Chesse, D., Lebreton, J.D. and Yoccoz, N.G. (1987) Propri?t?s de l'analyse canonique des correspondances. Une illustration
+en hydrobiologie. \emph{Revue de Statistique Appliqu?e}, \bold{35}, 4, 55--72.
 }
 \examples{
 data(doubs)
 pca1 <- dudi.pca(doubs$env, scan = FALSE)
 pca2 <- dudi.pca(doubs$fish, scale = FALSE, scan = FALSE)
 coiner1 <- coinertia(pca1, pca2, scan = FALSE)
-par(mfrow = c(3,3))
-s.corcircle(coiner1$aX)
-s.value(doubs$xy, coiner1$lX[,1])
-s.value(doubs$xy, coiner1$lX[,2])
-s.arrow(coiner1$c1)
-s.match(coiner1$mX, coiner1$mY)
-s.corcircle(coiner1$aY)
-s.arrow(coiner1$l1)
-s.value(doubs$xy, coiner1$lY[,1])
-s.value(doubs$xy, coiner1$lY[,2])
-par(mfrow = c(1,1))
-}
+  
+if(adegraphicsLoaded()) {
+  g1 <- s.corcircle(coiner1$aX, plot = F)
+  g2 <- s.value(doubs$xy, coiner1$lX[, 1], plot = F)
+  g3 <- s.value(doubs$xy, coiner1$lX[, 2], plot = F)
+  g4 <- s.arrow(coiner1$c1, plot = F)
+  g5 <- s.match(coiner1$mX, coiner1$mY, plot = F)
+  g6 <- s.corcircle(coiner1$aY, plot = F)
+  g7 <- s.arrow(coiner1$l1, plot = F)
+  g8 <- s.value(doubs$xy, coiner1$lY[, 1], plot = F)
+  g9 <- s.value(doubs$xy, coiner1$lY[, 2], plot = F)
+  G <- ADEgS(list(g1, g2, g3, g4, g5, g6, g7, g8, g9), layout = c(3, 3))
+  
+} else {  
+  par(mfrow = c(3, 3))
+  s.corcircle(coiner1$aX)
+  s.value(doubs$xy, coiner1$lX[, 1])
+  s.value(doubs$xy, coiner1$lX[, 2])
+  s.arrow(coiner1$c1)
+  s.match(coiner1$mX, coiner1$mY)
+  s.corcircle(coiner1$aY)
+  s.arrow(coiner1$l1)
+  s.value(doubs$xy, coiner1$lY[, 1])
+  s.value(doubs$xy, coiner1$lY[, 2])
+  par(mfrow = c(1, 1))
+}}
 \keyword{datasets}

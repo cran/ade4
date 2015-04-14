@@ -85,9 +85,9 @@
     for (k in 1:nblo) {
         i1 <- i2 + 1
         i2 <- i2 + 4
-        tab1 <- as.matrix(sepa$L1[X$TL[, 1] == k, ])
+        tab1 <- as.matrix(sepa$L1[X$TL[, 1] == levels(X$TL[,1])[k], ])
         tab1 <- t(tab1 * lw) %*% as.matrix(comp$l1)
-        tab2 <- as.matrix(sepa$C1[X$TC[, 1] == k, ])
+        tab2 <- as.matrix(sepa$C1[X$TC[, 1] == levels(X$TC[, 1])[k], ])
         tab2 <- (t(tab2) * cw) %*% as.matrix(comp$c1)
         for (i in 1:min(nf, 4)) {
             if (tab2[i, i] < 0) {
@@ -151,28 +151,31 @@
     # nblo nombre de tableau
     blocks <- X$supblo
     nblo <- length(blocks)
-    w <- NULL
-    for (i in 1:nblo) w <- c(w, 1:blocks[i])
-    w <- cbind.data.frame(factor(rep(1:nblo, blocks)), factor(w))
-    names(w) <- c("T", "I")
-    atp$supTI <- w
-    lw <- X$suplw
+#    w <- NULL
+#    for (i in 1:nblo) w <- c(w, 1:blocks[i])
+#    w <- cbind.data.frame(factor(rep(1:nblo, blocks)), factor(w))
+#    names(w) <- c("T", "I")
+#    atp$supTI <- w
+#    atp$supTI <- auxinames$Trow
+    atp$supTI <- as.data.frame(matrix(unlist(strsplit(auxinames$Trow, "[.]")), ncol=2, byrow=T))
+	names(atp$supTI) <- c("T", "I")
+	lw <- X$suplw
     lw <- split(lw, factor(rep(1:length(blocks),blocks)))
     lw <- lapply(lw, function(x) x/sum(x))
     lw <- unlist(lw)    
     # les lignes d'origine en supplémentaires X
     w <- X$supX%*%as.matrix(atp$l1*atp$lw)
+# Correction des row names - JT 7 - Jan 2014
+    w <- data.frame(w, row.names = auxinames$Trow)
     w <- scalewt(w, lw, center = FALSE, scale = TRUE)
-# Correction des row names - JT 24 Juil 2009
-    row.names(w) <- make.names(row.names(w), unique = TRUE)
     w <- as.data.frame(w)
     names(w) <- gsub("RS","sco",names(atp$l1))
     atp$supIX <- w
     # les lignes d'origine en supplémentaires Y
     w <- X$supY%*%as.matrix(atp$c1*atp$cw)
+# Correction des row names - JT - 7 Jan 2014
+    w <- data.frame(w, row.names = auxinames$Trow)
     w <- scalewt(w, lw, center = FALSE, scale = TRUE)
-# Correction des row names - JT 24 Juil 2009
-    row.names(w) <- make.names(row.names(w), unique = TRUE)
     w <- as.data.frame(w)
     names(w) <- gsub("RS","sco",names(atp$l1))
     atp$supIY <- w

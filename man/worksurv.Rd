@@ -63,7 +63,7 @@ The data frame \code{worksurv} has the attribute 'counts' giving the number of r
 }
 \source{
 Rouanet, H. and Le Roux, B. (1993) 
-\emph{Analyse des données multidimensionnelles}. Dunod, Paris.
+\emph{Analyse des donn?es multidimensionnelles}. Dunod, Paris.
 }
 \references{
 Le Roux, B. and Rouanet, H.  (1997) 
@@ -73,10 +73,14 @@ Pages 197-220 in B. J. and M. Greenacre, editors.
 }
 \examples{
 data(worksurv)
-acm1 <- dudi.acm(worksurv, row.w = attr(worksurv,"counts"), 
-    scan = FALSE)
-par(mfrow = c(2,2))
-apply(worksurv,2, function(x) s.class(acm1$li, factor(x),
-    attr(worksurv, 'counts')))
+acm1 <- dudi.acm(worksurv, row.w = attr(worksurv, "counts"), scan = FALSE)
+
+if(adegraphicsLoaded()) {
+  s.class(acm1$li, worksurv)
+} else {
+  par(mfrow = c(2, 2))
+  apply(worksurv, 2, function(x) s.class(acm1$li, factor(x), attr(worksurv, 'counts')))
+  par(mfrow = c(1, 1))
+}
 }
 \keyword{datasets}

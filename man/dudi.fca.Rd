@@ -42,7 +42,7 @@ The function \code{dudi.fpca} returns a list of class \code{pca} and \code{dudi}
 approach for the analysis of long-term ecological data. \emph{Freshwater Biology}, \bold{31}, 295--309. }
 \author{
 Daniel Chessel \cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+Anne B Dufour \email{anne-beatrice.dufour@univ-lyon1.fr}
 }
 \examples{
 w1 <- matrix(c(1,0,0,2,1,1,0,2,2,0,1,0,1,1,1,0,1,3,1,0), 4, 5)
@@ -54,8 +54,13 @@ attributes(w2)
 
 data(bsetal97)
 w <- prep.fuzzy.var(bsetal97$biol, bsetal97$biol.blo)
-scatter(dudi.fca(w, scann = FALSE, nf = 3), csub = 3, clab.moda = 1.5)
-scatter(dudi.fpca(w, scann = FALSE, nf = 3), csub = 3, clab.moda = 1.5)
+
+if(adegraphicsLoaded()) {
+  g1 <- plot(dudi.fca(w, scann = FALSE, nf = 3), pla.cex = 1.5)
+} else {
+  scatter(dudi.fca(w, scann = FALSE, nf = 3), csub = 3, clab.moda = 1.5)
+  scatter(dudi.fpca(w, scann = FALSE, nf = 3), csub = 3, clab.moda = 1.5)
+}
 
 \dontrun{
 w1 <- prep.fuzzy.var(bsetal97$biol, bsetal97$biol.blo)

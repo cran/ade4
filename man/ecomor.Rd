@@ -35,26 +35,38 @@ among mediterranean bird communities of Chile, California, and France. In \emph{
 (eds M.K. Hecht, B. Wallace and R.J. MacIntyre), 141--213, \bold{18}. Plenum Press, New York.
 }
 \references{
-See a data description at \url{http://pbil.univ-lyon1.fr/R/pps/pps023.pdf} (in French).
+See a data description at \url{http://pbil.univ-lyon1.fr/R/pdf/pps023.pdf} (in French).
 }
 \examples{
 data(ecomor)
 ric <- apply(ecomor$habitat, 2, sum)
 s.corcircle(dudi.pca(log(ecomor$morpho), scan = FALSE)$co)
 
-forsub <- data.frame(t(apply(ecomor$forsub, 1,
-     function (x) x/sum(x))))
+forsub <- data.frame(t(apply(ecomor$forsub, 1, function (x) x / sum(x))))
 pca1 <- dudi.pca(forsub, scan = FALSE, scale = FALSE)
-s.arrow(pca1$c1)
-w <- as.matrix(forsub)%*%as.matrix(pca1$c1)
-s.label(w, clab = 0, add.p = TRUE, cpoi = 2)
+w1 <- as.matrix(forsub)%*%as.matrix(pca1$c1)
+if(adegraphicsLoaded()) {
+  g1 <- s.arrow(pca1$c1, plot = FALSE)
+  g2 <- s.label(w1, plab.cex = 0, ppoi.cex = 2, plot = FALSE)
+  G1 <- superpose(g1, g2, plot = TRUE)
+} else {
+  s.arrow(pca1$c1)
+  s.label(w1, clab = 0, add.p = TRUE, cpoi = 2)
+}
 
-diet <- data.frame(t(apply(ecomor$diet, 1,
-     function (x) x/sum(x))))
+diet <- data.frame(t(apply(ecomor$diet, 1, function (x) x / sum(x))))
 pca2 <- dudi.pca(diet, scan = FALSE, scale = FALSE)
-s.arrow(pca2$c1)
-w <- as.matrix(diet)%*%as.matrix(pca2$c1)
-s.label(w, clab = 0, add.p = TRUE, cpoi = 2)
+w2 <- as.matrix(diet)%*%as.matrix(pca2$c1)
+if(adegraphicsLoaded()) {
+  g3 <- s.arrow(pca2$c1, plot = FALSE)
+  g4 <- s.label(w2, plab.cex = 0, ppoi.cex = 2, plot = FALSE)
+  G2 <- superpose(g3, g4, plot = TRUE)
+} else {
+  s.arrow(pca2$c1)
+  s.label(w2, clab = 0, add.p = TRUE, cpoi = 2)
+}
+
+
 \dontrun{
 dmorpho <- dist.quant(log(ecomor$morpho), 3)
 dhabitat <- dist.binary(ecomor$habitat, 1)
@@ -67,7 +79,7 @@ procuste.randtest(pcoscaled(dmorpho), pcoscaled(dhabitat))
 ecophy <- taxo2phylog(ecomor$taxo, add.tools=TRUE)
 table.phylog(ecomor$habitat, ecophy, clabel.n = 0.5, f = 0.6,
      clabel.c = 0.75, clabel.r = 0.5, csi = 0.75, cleg = 0)
-plot.phylog(ecophy, clabel.n = 0.75, clabel.l = 0.75,
+plot(ecophy, clabel.n = 0.75, clabel.l = 0.75,
      labels.l = ecomor$labels[,"latin"])
 mantel.randtest(dmorpho, dtaxo)
 mantel.randtest(dhabitat, dtaxo)

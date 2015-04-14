@@ -37,14 +37,15 @@ returns a list of class 'discrimin' containing :
 }
 \author{
 Daniel Chessel \cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+Anne B Dufour \email{anne-beatrice.dufour@univ-lyon1.fr}
 }
 \examples{
 data(chazeb)
 dis1 <- discrimin(dudi.pca(chazeb$tab, scan = FALSE), chazeb$cla, 
     scan = FALSE)
 dis1
-plot(dis1)
+if(!adegraphicsLoaded())
+  plot(dis1)
 
 data(skulls)
 plot(discrimin(dudi.pca(skulls, scan = FALSE), gl(5,30), 

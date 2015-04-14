@@ -16,7 +16,7 @@
     }
 }
 \source{
-Data prepared by J. Lobry \email{lobry@biomserv.univ-lyon1.fr}
+Data prepared by J. Lobry \email{Jean.Lobry@univ-lyon1.fr}
 starting from:\cr
 \url{http://www.tigr.org/tdb/mdb/mdbcomplete.html}
 }
@@ -26,7 +26,12 @@ names(bacteria$espcodon)
 names(bacteria$espaa)
 names(bacteria$espbase)
 sum(bacteria$espcodon) # 22,619,749 codons
-scatter.coa(dudi.coa(bacteria$espcodon, scann = FALSE), 
+
+if(adegraphicsLoaded()) {
+  g <- scatter(dudi.coa(bacteria$espcodon, scann = FALSE), 
+    posi = "bottomleft")
+} else {
+  scatter(dudi.coa(bacteria$espcodon, scann = FALSE), 
     posi = "bottom")
-}
+}}
 \keyword{datasets}

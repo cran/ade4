@@ -35,17 +35,19 @@ Returns a list of class \code{mix} and \code{dudi} (see \link{dudi}) containing 
 
 \references{ Hill, M. O., and A. J. E. Smith. 1976. Principal component analysis of taxonomic data with multi-state discrete characters. 
 \emph{Taxon}, \bold{25}, 249-255. }
-\author{ Stephane Dray \email{dray@biomserv.univ-lyon1.fr}\cr
-Anne B Dufour \email{dufour@biomserv.univ-lyon1.fr}
+\author{ Stephane Dray \email{stephane.dray@univ-lyon1.fr}\cr
+Anne B Dufour \email{anne-beatrice.dufour@univ-lyon1.fr}
 }
 
 \seealso{ \code{dudi.mix}}
 \examples{
-   data(dunedata)
-   attributes(dunedata$envir$use)$class <- "factor"   # use dudi.mix for ordered data
-   dd1 <- dudi.hillsmith(dunedata$envir, scann = FALSE)
-   scatter.dudi(dd1, clab.r = 1, clab.c = 1.5)
-  }
-
+data(dunedata)
+attributes(dunedata$envir$use)$class <- "factor"   # use dudi.mix for ordered data
+dd1 <- dudi.hillsmith(dunedata$envir, scann = FALSE)
+if(adegraphicsLoaded()) {
+  g <- scatter(dd1, row.plab.cex = 1, col.plab.cex = 1.5)
+} else {
+  scatter(dd1, clab.r = 1, clab.c = 1.5)
+}}
 
 \keyword{multivariate}
