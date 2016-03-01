@@ -1,6 +1,6 @@
-4e0f8e4e9628a6560a795776c63c84d8 *ChangeLog
-464c81d6d45958aac644e9ae726050d6 *DESCRIPTION
-e066a2fa72e739b0d8f1786a27aa9dbd *NAMESPACE
+455c24e4ad19aad13200054c194137cf *ChangeLog
+bed85651bc73e4822ae4e4a1d7dd759c *DESCRIPTION
+9605bb696cde511bc2c470834d1a124f *NAMESPACE
 634ee9a9f7891f2f7d6962980adfd111 *R/EH.R
 6b677d2c1862d14d17ab0760f9760dcc *R/PI2newick.R
 2f8dd88d27d09ed2ffdf059f25cef5d8 *R/RV.rtest.R
@@ -36,7 +36,7 @@ ed17c38210a61edefa8d99ce1660b4ce *R/dist.quant.R
 450778247278a7850aefbd03df04c018 *R/divcmax.R
 d1f0a2ec832232c3949b1d4068686239 *R/dotchart.phylog.R
 7a9423dfee35852fc3545c3339d02414 *R/dotcircle.R
-240a2bdfd2308964e8904d8b3ef38889 *R/dpcoa.R
+23b6e2f26e12f6e321bb4787760920f4 *R/dpcoa.R
 e2fbec3cc4771594315bff15c13dba33 *R/dudi.R
 5d0c689352e79593b6b6b5bbeb3af82a *R/dudi.acm.R
 0b90142b4febc9a98b702c5e7d3c3bcb *R/dudi.coa.R
@@ -83,7 +83,7 @@ e2475394debffc7d487142bdba8aa82b *R/mbpcaiv.R
 5219636213955b7639c1aeb71d0ceb0c *R/mbpls.R
 4c71398b79c1d8c752475eeccd957fb1 *R/mcoa.R
 7df34204586cf5a1d8851262ccf62b0b *R/mdpcoa.R
-6d6c9cc9cf15b35358eaf1f264d8945d *R/mfa.R
+7c3bc2cbb167182b3fcddbd2d882c628 *R/mfa.R
 bc8897b6d8e662fa44e5b162fed075cb *R/mld.R
 c1e78e310e6e2bc4466825be29723bec *R/mstree.R
 f48bd6483164c22a2949576ef78b83af *R/multiblock.R
@@ -104,7 +104,7 @@ e2b0c14300a21d1e4a931159c62b05a3 *R/orisaved.R
 430d40e502d64d32b46514eef65b1b77 *R/pcaivortho.R
 9c5939393dc9d930a76ed5198ca13dbb *R/pcoscaled.R
 7fb5aae46168406971e84d0ab89029fc *R/phylog.R
-89e8fe932cd0383e766b80fb1d4425da *R/plot.4thcorner.R
+4056d8a04ddbbadd752150a9faf8d3f7 *R/plot.4thcorner.R
 3096ec927cccc0f3884de2589da19a98 *R/plot.phylog.R
 348263fd55483db1486392c794f10f87 *R/print.4thcorner.R
 b80ad5af9f8c04d21b08e2aab73ceb1b *R/procuste.R
@@ -121,6 +121,7 @@ d29ea79acf7ccc6ee8d9087512194381 *R/randtest.amova.R
 0a2b24a73a354ad92d0b6a297924f7b1 *R/randtest.cca.R
 8e8b729d6f834f4b29dd50a34d77258f *R/randtest.coinertia.R
 26e68fd79a5e24dbd15ea833576c2e41 *R/randtest.discrimin.R
+bf2fccee72f8f101d983720cb56e268a *R/randtest.dpcoa.R
 f6b12664db164c0fea1966ead2cefe2b *R/randtest.pcaiv.R
 338c5ae938607808c6bebce8fbb050a2 *R/randtest.pcaivortho.R
 f58b0f7fe2063fde7dafbfc3759c731b *R/randtest.rlq.R
@@ -513,6 +514,7 @@ a54419c8b0099d79233861710a6bacdf *man/randtest.Rd
 1d37cb1c819aa6421c568e977eb13787 *man/randtest.between.Rd
 ca62a02a640c02e852a2c8d4c699f090 *man/randtest.coinertia.Rd
 10a0f0962fd8f6bd115b4a3112686ce4 *man/randtest.discrimin.Rd
+b2a46aef9825a8a962ca987ce017abdf *man/randtest.dpcoa.Rd
 d152eb04507d0aaaa2f29ab79b861b54 *man/randtest.pcaiv.Rd
 b4ed19d6ce9eef371d98c2217eabf120 *man/randxval.Rd
 f5ce90e1dae92961860a0309aea92340 *man/rankrock.Rd
@@ -579,7 +581,7 @@ c3b3418666f768284734aba678e4bfb7 *man/table.cont.Rd
 c66f9faac41f71051012371bbce689be *man/table.value.Rd
 2f17ed12a7047929f91bc539dd678c7e *man/tarentaise.Rd
 49707fd1338711908204bc755bff9b74 *man/taxo.eg.Rd
-c3a820294e659197c80cb3d2fc44ce71 *man/testdim.Rd
+4e2f53d5bbf0445902348ecaf926efa7 *man/testdim.Rd
 c46ad1ccef37221e81e3f7b3d9374a5c *man/testdim.multiblock.Rd
 c5d1caeb06e9f7d56be31a6cad530cfd *man/tintoodiel.Rd
 0873ff2c03cfa3379873314253f90b90 *man/tithonia.Rd
@@ -608,7 +610,7 @@ f009e46fcf131d28ea4ead122961b7bd *src/Makevars
 8e83ec3b39df34630603252541e3be32 *src/adesub.h
 70502ca4cdafe52d2ee60a011beecfaa *src/divsub.c
 bf3fa1832a9ebe1627b7bb8a57ea5b55 *src/divsub.h
-952bd2207f09f79e23ed7393f647435f *src/fourthcorner.c
+76b73e7de30910fd7666940f0282643f *src/fourthcorner.c
 e3fec5314fbc54452665e4f36f4c266f *src/phylog.c
 599529f6552210ac430a65607ffcec84 *src/testamova.c
 3e4345a9feeb0a988171bdd8428960bf *src/testdim.c

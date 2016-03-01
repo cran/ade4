@@ -19,7 +19,7 @@ dpcoa <- function (df, dis = NULL, scannf = TRUE, nf = 2, full = FALSE, tol = 1e
     }
     if (is.null(dis)) {
         dis <- (matrix(1, nesp, nesp) - diag(rep(1, nesp))) * sqrt(2)
-        rownames(dis) <- colnames(dis) <- rownames(df)
+        rownames(dis) <- colnames(dis) <- names(df)
         dis <- as.dist(dis)
     }
     if (is.null(attr(dis, "Labels"))) 
@@ -99,9 +99,11 @@ plot.dpcoa <- function(x, xax = 1, yax = 2, ...) {
     X <- eval.parent(X)
     s.distri(x$dls[, c(xax, yax)], t(X), cellipse = 1, cstar = 0,
              sub = "Categories & Collections", possub = "bottomleft", csub = 1.5)
-    s.label(x$li[, c(xax, yax)], sub = "Collections", possub = "bottomleft", csub = 1.5)
+    s.label(x$dls[, c(xax, yax)], sub = "Categories", possub = "bottomleft", csub = 1.5)
     if(!is.null(x$RaoDiv))
         s.value(x$li[, c(xax, yax)], x$RaoDiv, sub = "Rao Divcs")
+    else
+        s.label(x$li[, c(xax, yax)], sub = "Collections", possub = "bottomleft", csub = 1.5)
     
 }
 

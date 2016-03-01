@@ -1,6 +1,6 @@
 Package: ade4
-Version: 1.7-3
-Date: 2015-11-10
+Version: 1.7-4
+Date: 2016-03-01
 Title: Analysis of Ecological Data : Exploratory and Euclidean Methods
         in Environmental Sciences
 Author: Stéphane Dray <stephane.dray@univ-lyon1.fr>, Anne-Béatrice Dufour <anne-beatrice.dufour@univ-lyon1.fr>, and Jean Thioulouse <jean.thioulouse@univ-lyon1.fr>, with contributions from Thibaut Jombart, Sandrine Pavoine, Jean R. Lobry, Sébastien Ollier, and Aurélie Siberchicot. Based on earlier work by Daniel Chessel.
@@ -16,6 +16,6 @@ URL: http://pbil.univ-lyon1.fr/ADE-4, Mailing list:
 BugReports: https://github.com/sdray/ade4/issues
 Encoding: UTF-8
 NeedsCompilation: yes
-Packaged: 2015-11-10 12:25:46 UTC; aurelie
+Packaged: 2016-03-01 13:39:13 UTC; aurelie
 Repository: CRAN
-Date/Publication: 2015-11-22 13:01:37
+Date/Publication: 2016-03-01 17:07:34
