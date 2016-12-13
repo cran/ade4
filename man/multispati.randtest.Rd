@@ -1,4 +1,3 @@
-\encoding{latin1}
 \name{multispati.randtest}
 \alias{multispati.randtest}
 \title{Multivariate spatial autocorrelation test (in C)}
@@ -28,14 +27,14 @@ Smouse, P. E. and Peakall, R. (1999) Spatial autocorrelation analysis of individ
 \emph{Heredity}, \bold{82}, 561--573.
 }
 \author{Daniel Chessel  \cr
-S?bastien Ollier \email{sebastien.ollier@u-psud.fr}
+Sébastien Ollier \email{sebastien.ollier@u-psud.fr}
 }
 \seealso{\code{\link{dudi}},\code{\link[spdep]{mat2listw}}}
 \examples{
 if (requireNamespace("maptools", quiet = TRUE) & requireNamespace("spdep", quiet = TRUE)) {
     data(mafragh)
     maf.listw <- nb2listw(neig2nb(mafragh$neig))
-    maf.pca <- dudi.pca(mafragh$mil, scannf = FALSE)
+    maf.pca <- dudi.pca(mafragh$env, scannf = FALSE)
     multispati.randtest(maf.pca, maf.listw)
     maf.pca.ms <- multispati(maf.pca, maf.listw, scannf=FALSE)
     plot(maf.pca.ms)

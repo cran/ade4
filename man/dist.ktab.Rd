@@ -1,5 +1,4 @@
 \name{dist.ktab}
-\encoding{latin1}
 \alias{dist.ktab}
 \alias{prep.binary}
 \alias{prep.circular}
@@ -74,6 +73,10 @@ On the challenge of treating various types of variables:
 Application for improving the measurement of functional diversity. \emph{Oikos}, \bold{118}, 391--402.
 }
 \author{Sandrine Pavoine \email{pavoine@mnhn.fr}
+}
+
+\details{
+When preparing the object of class \code{ktab} (object x), variables of type "Q", "O", "D", "F", "B" and "C" should be of class \code{numeric} (the class \code{ordered} is not yet considered by \code{dist.ktab}); variables of type "N" should be of class \code{character} or \code{factor}
 }
 \seealso{
 \code{\link{daisy}} in the \code{cluster} package in the case of ratio-scale (quantitative) and nominal variables;
