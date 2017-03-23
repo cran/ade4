@@ -36,7 +36,7 @@ Rao, C.R. (1982) Diversity and dissimilarity coefficients:
 a unified approach. \emph{Theoretical Population Biology}, 
 \bold{21}, 24--43.
 
-Gini, C. (1912) Variabilit\'a e mutabilit\'a. 
+Gini, C. (1912) Variabilità e mutabilità. 
 \emph{Universite di Cagliari III}, Parte II.
 
 Simpson, E.H. (1949) Measurement of diversity. 
@@ -57,6 +57,7 @@ Stéphane Champely \email{Stephane.Champely@univ-lyon1.fr} \cr
 Sandrine Pavoine \email{pavoine@mnhn.fr}
 }
 \examples{
+\dontrun{
 par.safe <- par()$mar
 data(elec88)
 par(mar = c(0.1, 0.1, 0.1, 0.1))
@@ -84,7 +85,7 @@ if(!adegraphicsLoaded()) {
   par(mar = par.safe)
 }
 
-\dontrun{
+
 # Maximisation of Rao's diversity coefficient
 # with ultrametric dissimilarities.
 data(microsatt)

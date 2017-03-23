@@ -33,11 +33,11 @@ area.plot(avijons$area, center = avijons$xy, val = w1[, 1], clab = 0.75,
 \dontrun{
 data(avijons)
 if(!adegraphicsLoaded()) {
-  if(requireNamespace("pixmap", quiet = TRUE)) {
-    pnm.eau <- read.pnm(system.file("pictures/avijonseau.pnm", package = "ade4"))
-    pnm.rou <- read.pnm(system.file("pictures/avijonsrou.pnm", package = "ade4"))
-    pnm.veg <- read.pnm(system.file("pictures/avijonsveg.pnm", package = "ade4"))
-    pnm.vil <- read.pnm(system.file("pictures/avijonsvil.pnm", package = "ade4"))
+  if(requireNamespace("pixmap", quietly = TRUE)) {
+    pnm.eau <- pixmap::read.pnm(system.file("pictures/avijonseau.pnm", package = "ade4"))
+    pnm.rou <- pixmap::read.pnm(system.file("pictures/avijonsrou.pnm", package = "ade4"))
+    pnm.veg <- pixmap::read.pnm(system.file("pictures/avijonsveg.pnm", package = "ade4"))
+    pnm.vil <- pixmap::read.pnm(system.file("pictures/avijonsvil.pnm", package = "ade4"))
     jons.coa <- dudi.coa(avijons$fau, scan = FALSE, nf = 4)
     
     par(mfcol = c(3, 2))
@@ -56,14 +56,14 @@ if(!adegraphicsLoaded()) {
     par(mfrow = c(1, 1))
   }
 
-  if(requireNamespace("maptools", quiet = TRUE) & requireNamespace("spdep", quiet = TRUE) & 
-    requireNamespace("pixmap", quiet = TRUE)) {
+  if(requireNamespace("maptools", quietly = TRUE) & requireNamespace("spdep", quietly = TRUE) & 
+    requireNamespace("pixmap", quietly = TRUE)) {
     
     link1 <- area2link(avijons$area)
     lw1 <- apply(link1, 1, function(x) x[x > 0])
     neig1 <- neig(mat01 = 1*(link1 > 0))
     nb1 <- neig2nb(neig1)
-    listw1 <- nb2listw(nb1,lw1)
+    listw1 <- spdep::nb2listw(nb1,lw1)
     jons.ms <- multispati(jons.coa, listw1, scan = FALSE, nfp = 3, nfn = 2)
     summary(jons.ms)
     par(mfrow = c(2, 2))

@@ -13,9 +13,9 @@
 \usage{
 fourthcorner(tabR, tabL, tabQ, modeltype = 6, nrepet = 999, tr01 =
 FALSE, p.adjust.method.G = p.adjust.methods, p.adjust.method.D =
-p.adjust.methods, p.adjust.D = c("global", "levels"))
+p.adjust.methods, p.adjust.D = c("global", "levels"), ...)
 fourthcorner2(tabR, tabL, tabQ, modeltype = 6, nrepet = 999, tr01 =
-FALSE, p.adjust.method.G = p.adjust.methods)
+FALSE, p.adjust.method.G = p.adjust.methods, ...)
 \method{print}{4thcorner}(x, varQ = 1:length(x$varnames.Q), varR =
 1:length(x$varnames.R), stat = c("D", "D2"), ...)
 \method{summary}{4thcorner}(object,...)
@@ -133,10 +133,10 @@ Improved testing of species traits-environment relationships in the
 fourth corner problem. \emph{Ecology}, \bold{93}, 1525--1526.
 
 Dray, S., Choler, P., Doledec, S., Peres-Neto, P.R., Thuiller, W.,
-Pavoine, S. and ter Braak, C.J.F (2013)
+Pavoine, S. and ter Braak, C.J.F (2014)
 Combining the fourth-corner and the RLQ methods for assessing trait
-responses to environmental variation. \emph{Ecology}, in press.
- }
+responses to environmental variation. \emph{Ecology}, \bold{95}, 14--21. doi:10.1890/13-0196.1
+}
  
 \author{Stéphane Dray \email{stephane.dray@univ-lyon1.fr}}
 \seealso{ \code{\link{rlq}}, \code{\link{combine.4thcorner}}, \code{\link[stats]{p.adjust.methods}}}

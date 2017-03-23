@@ -29,13 +29,14 @@ Second edition. Chapman & Hall, London. 1--215.
 data(butterfly)
 
 if(adegraphicsLoaded()) {
-  if(requireNamespace("sp", quiet = TRUE)) {
+  if(requireNamespace("sp", quietly = TRUE)) {
     g1 <- s.label(butterfly$xy, Sp = butterfly$Spatial, pSp.col = "white", 
       porigin.include = FALSE, plot = FALSE)
     g2 <- table.value(dist(butterfly$xy), plot = FALSE)
     g3 <- s.value(butterfly$xy, dudi.pca(butterfly$envir, scan = FALSE)$li[, 1], 
-      Sp = butterfly$Spatial, pori.inc = FALSE, pSp.col = "transparent", ppoints.cex = 2, plot = F)
-##    mt <- mantel.randtest(dist(butterfly$xy), dist(butterfly$gen), 99)
+      Sp = butterfly$Spatial, pori.inc = FALSE, pSp.col = "transparent", ppoints.cex = 2, 
+        plot = FALSE)
+    ## mt <- mantel.randtest(dist(butterfly$xy), dist(butterfly$gen), 99)
     G <- ADEgS(list(g1, g2, g3), layout = c(2, 2), plot = TRUE)
   }
 } else {
