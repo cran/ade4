@@ -107,14 +107,7 @@ if(!adegraphicsLoaded()) {
     par(mfrow = c(1, 1))
   }
 
-  if(requireNamespace("maptools", quietly = TRUE) & requireNamespace("spdep", quietly = TRUE)) {
-    data(columbus, package = "spdep")
-    par(mfrow = c(2, 1))
-    par(mar = c(0.1, 0.1, 0.1, 0.1))
-    plot(col.gal.nb, coords)
-    s.label(data.frame(coords), neig = neig(list = col.gal.nb),
-      inc = FALSE, clab = 0.6, cneig = 1)
-    par(mfrow = c(1, 1))
+  if(requireNamespace("spdep", quietly = TRUE)) {
     
     data(mafragh)
     maf.rel <- spdep::relativeneigh(as.matrix(mafragh$xy))

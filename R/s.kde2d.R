@@ -27,6 +27,8 @@
     #   r <- quantile(x, c(0.25, 0.75)) 
     #   h <- (r[2] - r[1])/1.34 4 * 1.06 * min(sqrt(var(x)), h) * length(x)^(-1/5)
     # } 
+    opar <- par(no.readonly = TRUE)
+    on.exit(par(opar))
 
     par(mar=c(0.1,0.1,0.1,0.1))
     s.label(dfxy, xax = xax, yax = yax, clabel = 0,
@@ -38,7 +40,7 @@
     
     x <- as.numeric(dfxy[,xax])
     y <- as.numeric(dfxy[,yax])
-    xykde = MASS::kde2d(x, y, lims=par("usr"))
+    xykde = kde2d(x, y, lims=par("usr"))
     zlim = range(xykde$z, finite = TRUE)
     lev=seq(zlim[1],zlim[2],le=8)
     lev=lev[2:7]

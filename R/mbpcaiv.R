@@ -149,7 +149,7 @@ mbpcaiv <- function(dudiY, ktabX, scale = TRUE, option = c("uniform", "none"), s
           lX1[, h] <- res$lX[, h] / sqrt(sum(res$lX[, h]^2))
   
           ## use ginv to avoid NA in coefficients (collinear system)
-          W[, h]  <- tcrossprod(MASS::ginv(crossprod(X)), X) %*% res$lX[, h]
+          W[, h]  <- tcrossprod(ginv(crossprod(X)), X) %*% res$lX[, h]
           
           ## Deflation of the Xk datasets on the global components T
           Xk <- lapply(Xk, function(y) lm.wfit(x = as.matrix(res$lX[, h]), y = y, w = res$lw)$residuals)
@@ -222,10 +222,11 @@ mbpcaiv <- function(dudiY, ktabX, scale = TRUE, option = c("uniform", "none"), s
     ##			         Modify the outputs
     ##-----------------------------------------------------------------------
     
-    if (scannf == TRUE){
+    if (scannf) {
         barplot(res$eig[1:res$rank])
         cat("Select the number of global components: ")
         res$nf <- as.integer(readLines(n = 1))
+        messageScannf(match.call(), res$nf)
     }
 
     if(res$nf > res$rank)
