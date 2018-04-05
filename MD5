@@ -1,6 +1,6 @@
-4363a0ca15b7ea7b57a662a395dcc6aa *ChangeLog
-cb1e8e248555fae75fc9d4e6aa693439 *DESCRIPTION
-c6d8e72273b5510b4a1181d98543b377 *NAMESPACE
+28fff63a9c2031b37d066fdc53d60543 *ChangeLog
+8616b5c5e6f367a75b72967bfc06b943 *DESCRIPTION
+b50c9120e4902b1c35596ecfdd2ef950 *NAMESPACE
 27c4d6507dd47eb51eb6f0943fc084a9 *R/EH.R
 6b677d2c1862d14d17ab0760f9760dcc *R/PI2newick.R
 6997af57a25d43dc445092f3e845f2f1 *R/RV.rtest.R
@@ -17,7 +17,7 @@ d10254f930b2a6a1c3a507d970be7440 *R/as.taxo.R
 f860364cf5a51defe284ab21a88526f2 *R/betwitdpcoa.R
 4489dabaa47765166b862d92290a057d *R/bicenter.wt.R
 8dd0cd8dbf02182874ef72baeef006f1 *R/cailliez.R
-bf144f7030e336939b39d8f51b8f95e2 *R/coinertia.R
+fe5999c594d12797ca6cddb017ae8a42 *R/coinertia.R
 97425c6e480c2d00d7e601784350b55a *R/combine.4thcorner.R
 f0cc6df07e1c34e4d40080be726cd705 *R/corkdist.R
 c261b9d96653ab1d25f145db848a51e5 *R/costatis.R
@@ -39,11 +39,11 @@ d1f0a2ec832232c3949b1d4068686239 *R/dotchart.phylog.R
 23b6e2f26e12f6e321bb4787760920f4 *R/dpcoa.R
 43df3b834e8caea88dae1b5ef6e3e347 *R/dudi.R
 5d0c689352e79593b6b6b5bbeb3af82a *R/dudi.acm.R
-0b90142b4febc9a98b702c5e7d3c3bcb *R/dudi.coa.R
+bb4c6c9720d6faba1fbb08cf960ef654 *R/dudi.coa.R
 a4b3f615781a3b1c8e44ad4942cb9165 *R/dudi.dec.R
 50c539904d02771ba1bc2d8eb82dec29 *R/dudi.fca.R
 61fd028d5ac9f33fc708617fb9ffb64f *R/dudi.hillsmith.R
-3231e0b65f469855b69afb92b6dfd7d0 *R/dudi.mix.R
+ff12dab0c407cd15bc3397e27b59c25d *R/dudi.mix.R
 3eca194874645a2361ae28ac402478a7 *R/dudi.nsc.R
 80d3bfcd008d5b1d9711fe5818a10081 *R/dudi.pca.R
 aa5542ff757e1e30a36436ae1e4da323 *R/dudi.pco.R
@@ -120,7 +120,7 @@ b9ea3592cbc6bd086555067572cdf291 *R/pta.R
 b59ad08ad77ab61c9415d1d37f5899fc *R/randtest.coinertia.R
 9c990f7f1bb883b8bf50d47c13ff67ba *R/randtest.discrimin.R
 6fbbc2e6e94a170efa9864c9eb38f5e5 *R/randtest.dpcoa.R
-21bfc6b5eb7358408a6b64de4606881b *R/randtest.pcaiv.R
+5d9e9ff4cc2f01ec6973e7678bdab54f *R/randtest.pcaiv.R
 d494a580b2eb22f88afc106cde1a0ac0 *R/randtest.pcaivortho.R
 35e9b020452713720e3c6a51d937c152 *R/randtest.rlq.R
 2c43d2ad5a0a2c0508d5df3ad671707f *R/randxval.R
@@ -169,7 +169,7 @@ de0654a2aee115e8ae7fc40fb244886e *R/statico.R
 91c6e96e5a83ae05746a1de1288c145c *R/summary.4thcorner.R
 834b2cb4dffc468ba24caaeb0283c40c *R/supcol.R
 75906367d78ef6392d01d1768daf8f79 *R/supdist.R
-8c84c48245078c6c0b8a51b698edb1a5 *R/suprow.R
+c9a63e6c11929fa56e927d8537a410e2 *R/suprow.R
 19128aaadc6cb691920aaeb97679551c *R/symbols.phylog.R
 bc70ddf20e036e5273144e0628a20165 *R/table.cont.R
 471ba8b286985e644cf15d7ff3f2bdb7 *R/table.dist.R
@@ -569,7 +569,7 @@ bb6f2336d57376429a2e84ec462744d8 *man/sepan.Rd
 715910d3844db60390d7db3042ab4442 *man/steppe.Rd
 e7bb33c3766623f999c645948417efbe *man/supcol.Rd
 a3e6a34dd8837531d1d88578af895761 *man/supdist.Rd
-d6c53581db44f7db02c4d4cf2f41bc68 *man/suprow.Rd
+bbcc6af7809354956215e40b4df6fbf6 *man/suprow.Rd
 ebe8f79b0d7da4bd698db7a34a9f9637 *man/symbols.phylog.Rd
 7f17d062ca1a936f7d1bf014ee68211c *man/syndicats.Rd
 5e491778d14df4d6d7176b6ec7041577 *man/t3012.Rd
