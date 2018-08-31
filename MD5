@@ -1,6 +1,6 @@
-28fff63a9c2031b37d066fdc53d60543 *ChangeLog
-8616b5c5e6f367a75b72967bfc06b943 *DESCRIPTION
-b50c9120e4902b1c35596ecfdd2ef950 *NAMESPACE
+9ca1496d86c29d9ed99107c49c091191 *ChangeLog
+6d2ac182092008c3f59e5c8e08e2d58e *DESCRIPTION
+f152c2e8b41afe686c5072b0d7441d03 *NAMESPACE
 27c4d6507dd47eb51eb6f0943fc084a9 *R/EH.R
 6b677d2c1862d14d17ab0760f9760dcc *R/PI2newick.R
 6997af57a25d43dc445092f3e845f2f1 *R/RV.rtest.R
@@ -36,7 +36,7 @@ ed17c38210a61edefa8d99ce1660b4ce *R/dist.quant.R
 450778247278a7850aefbd03df04c018 *R/divcmax.R
 d1f0a2ec832232c3949b1d4068686239 *R/dotchart.phylog.R
 7a9423dfee35852fc3545c3339d02414 *R/dotcircle.R
-23b6e2f26e12f6e321bb4787760920f4 *R/dpcoa.R
+93829a3ce3aec8fe7c4d8a445830c23f *R/dpcoa.R
 43df3b834e8caea88dae1b5ef6e3e347 *R/dudi.R
 5d0c689352e79593b6b6b5bbeb3af82a *R/dudi.acm.R
 bb4c6c9720d6faba1fbb08cf960ef654 *R/dudi.coa.R
@@ -47,7 +47,7 @@ ff12dab0c407cd15bc3397e27b59c25d *R/dudi.mix.R
 3eca194874645a2361ae28ac402478a7 *R/dudi.nsc.R
 80d3bfcd008d5b1d9711fe5818a10081 *R/dudi.pca.R
 aa5542ff757e1e30a36436ae1e4da323 *R/dudi.pco.R
-2f0de677c0dbf6a52cd0d9e601e9925d *R/foucart.R
+031a44a634bb5f432693708c3768aef5 *R/foucart.R
 8088980976b1cd67f9759db87789062b *R/fourthcorner.R
 60336b42bd5ee95f3ae4145506d31979 *R/fourthcorner.rlq.R
 89a593d1a3097687949a2e59bbcfdd38 *R/fourthcorner2.R
@@ -55,7 +55,7 @@ aa5542ff757e1e30a36436ae1e4da323 *R/dudi.pco.R
 d2f63c500851905fe0398b3fa4dae7ab *R/gearymoran.R
 ca9eb1f03876e785d040836506ce3f50 *R/genet.R
 4b51d288b3c7c57a485f7728676e0c56 *R/gridrowcol.R
-4449446215358d5427ed3dd9c5d2f39f *R/inertia.dudi.R
+b54921287a7845457bc2f46761ef9c5a *R/inertia.dudi.R
 acf786e3e3c41f3820cae2ec95b94607 *R/is.euclid.R
 0ba557d20dd2b8a01c4e0c7f9cc1e334 *R/kdist.R
 167e53424152b046f2561f4cba06872f *R/kdist2ktab.R
@@ -97,7 +97,7 @@ a5939daada55ec456b59114d9f8ccbb1 *R/nipals.R
 cddace7000d26910f06569592051ebd0 *R/optimEH.R
 e66347d5ded70e8e4e7813992cc61db1 *R/originality.R
 11342c6f340945bef7a294199ae73565 *R/orisaved.R
-eaaf0a1ed8290aa79fec770472d9cda6 *R/orthobasis.R
+91b2d6977ee59f2c277f25cc8a8ed8b7 *R/orthobasis.R
 521653f773c0cd262df985b09fb16b48 *R/p.adjust.4thcorner.R
 c55d5f7719d4967dca129e6442923802 *R/pcaiv.R
 430d40e502d64d32b46514eef65b1b77 *R/pcaivortho.R
@@ -125,7 +125,7 @@ d494a580b2eb22f88afc106cde1a0ac0 *R/randtest.pcaivortho.R
 35e9b020452713720e3c6a51d937c152 *R/randtest.rlq.R
 2c43d2ad5a0a2c0508d5df3ad671707f *R/randxval.R
 7702275332a65be5ac06e6c9239d06fa *R/reconst.R
-fa9691864887eca71e7c0b26e3f8b3d1 *R/rlq.R
+4a52f92708a582c01c519edd230b501d *R/rlq.R
 0f0308ccb9f7888ad2f97d8f1b13de9a *R/rtest.R
 83e60a3ab815d5dddcdbf97d74bc2bfe *R/rtest.between.R
 1c3f5d3b4ce4db19cc4842035fc7c75f *R/rtest.discrimin.R
@@ -182,7 +182,7 @@ faf7e25c608e2b48cd4162840d6cd414 *R/triangle.plot.R
 86ade522f518bf2f86527fdd34fc488d *R/uniquewt.df.R
 2cfbbd8d156fbe40952cd517f7d80c8a *R/utilities.R
 a5e3adba52299bbc266614bfb129c5dc *R/variance.phylog.R
-d4f5741d0dfc866ca1965151a21e7cb7 *R/varipart.R
+4083a4882d7479a53e0335e349c8dcb3 *R/varipart.R
 25899983bb398dbc252ef20a1067cc4f *R/wca.R
 890181d1f162d8070b7a20705203aac4 *R/wca.coinertia.R
 fc7ad0d60c544e7fb0cda0fbb4f1c0a1 *R/wca.rlq.R
@@ -298,7 +298,7 @@ c9a9bbcebcfd8761e29065a97e6d0b6d *data/westafrica.rda
 53df52b0b8de963f7cd1ed72ff171da5 *data/worksurv.rda
 55cd9d01e39691f67acfd1ffdd607652 *data/yanomama.rda
 f19df1a99aa3d39631422b7b247f4511 *data/zealand.rda
-e53d1eac07e3fef177efccf1b28c2e6f *inst/CITATION
+2552cb1686c21b5b3b70c944e35aad7d *inst/CITATION
 a134ce28598a2867b151d0cf11e944b7 *inst/pictures/atyacarto.pnm
 6a427fa2a11dc07d5b2686fa50405d28 *inst/pictures/atyadigi.pnm
 d62a9968f404a5d984e336ebd95f68e9 *inst/pictures/avijonseau.pnm
@@ -322,7 +322,7 @@ ff29b060033e5dce219e38dc81825a7f *man/acacia.Rd
 c7e90a20b622ba479c37187eb255a7db *man/add.scatter.Rd
 b64a5ffac41034d00abf2b96eb3fc1c6 *man/ade4-deprecated.Rd
 b1507f756729f1164a1efd34a3b626b9 *man/ade4-internal.Rd
-f36894b1db378ea7ef4bbb95bfc8ab38 *man/ade4.package.Rd
+e61beaf727c5182a9324cd60844b599f *man/ade4.package.Rd
 e3b0339a997676fb728a424b20db4ebe *man/adegraphicsLoaded.Rd
 a8af05ea4d586e8c7b625a1f0339682f *man/aminoacyl.Rd
 249b4c19f78f6aa3474ecc5f7e177075 *man/amova.Rd
@@ -338,7 +338,7 @@ f0cba96fb22a52646c8b24985117704e *man/atya.Rd
 1bdea97edb5f00aa921d3d9a3002140f *man/avijons.Rd
 5b46f1b3eb76344f4bb52728b124c7be *man/avimedi.Rd
 dabc0712d7712db91faa37724853c41e *man/aviurba.Rd
-7c5d3194045544ba067d8ee5fd5c78a0 *man/bacteria.Rd
+fd704368c94caeeb530355dd68e36c24 *man/bacteria.Rd
 3bc4630371d25aa72f07bf1f7b866479 *man/banque.Rd
 820bd2c569ba9044f27a5159f8b3ce41 *man/baran95.Rd
 8feb1f2e871b5671c1754cb3e3ccff45 *man/bca.Rd
@@ -379,7 +379,7 @@ b707cfe0f6f33b2355c6653dadfbc815 *man/disc.Rd
 722ea45480bc97122a7a5e2285a9486f *man/dist.binary.Rd
 ef1758a31c80808665c088526667bcae *man/dist.dudi.Rd
 0730b36b2f69b95464e1a0cbbb8fb22d *man/dist.genet.Rd
-a708afe91c8b9bebc8bf46cf68df8f44 *man/dist.ktab.Rd
+977087338f8fce066c7db8b9868c8d36 *man/dist.ktab.Rd
 5ccf470ce27b4a31abf024f13cc08e2b *man/dist.neig.Rd
 74cc1ac08c5cae5d0695e07ed2e40487 *man/dist.prop.Rd
 0a8a26a56402c536e2e39aad6e8665aa *man/dist.quant.Rd
@@ -420,7 +420,7 @@ c617fccd9ed44d9de41ebceef9827589 *man/hdpg.Rd
 657fa22c3ec73f707d87bc3a1aa4dad4 *man/housetasks.Rd
 34ede9cd77aadc0483270ce83d94f3c8 *man/humDNAm.Rd
 329d66616200815109272f705f9c3721 *man/ichtyo.Rd
-9de216de377c2be16c405158eb077676 *man/inertia.dudi.Rd
+fef0c091668bf981097e16fabb7430bf *man/inertia.dudi.Rd
 98d0888f042416514b285c4f054c644f *man/irishdata.Rd
 d8932e7c9545fb802e44acaee5e715c2 *man/is.euclid.Rd
 faa31ce6d9bc268b91f6db62072891fa *man/julliot.Rd
@@ -452,10 +452,10 @@ ffb4c26da7697a5ed7b1e1edec99d13e *man/macaca.Rd
 c40f56186a3d99fe9595d6ca4c031e53 *man/mafragh.Rd
 1788956ebdf5d538cbf564ace0d3cbec *man/mantel.randtest.Rd
 8b4cdae21e7d8f90d7fcaa9a5250a054 *man/mantel.rtest.Rd
-e2f8e0146d8ac725ca6f3019db24b9f0 *man/maples.Rd
+fe18b1f6484a339f1641fc864446894e *man/maples.Rd
 e5bd6190c3964632a6eac8982a5244c9 *man/mariages.Rd
-5cc13ff1a843974f0b90d81be4f3ef69 *man/mbpcaiv.Rd
-197dafeaa7534875f29e387196cbc20a *man/mbpls.Rd
+2083f479afedf29247df0fdc61395abc *man/mbpcaiv.Rd
+d2d5dd3666ef4cadcb90ab0ac181a0d9 *man/mbpls.Rd
 4fff9cfa974199382a0386f57f28f21a *man/mcoa.Rd
 faf07f3c20cd21f6fac74cc9aeecac1d *man/mdpcoa.Rd
 701ca4c18001cbe33d42124c74595898 *man/meau.Rd
@@ -468,7 +468,7 @@ f31cd1638fb6c92a04344cc4f6f232da *man/mollusc.Rd
 5ae787bce8773ba944d9daffc2ac6640 *man/monde84.Rd
 aa0678333c8ba7621a3470615cd2a9f1 *man/morphosport.Rd
 e5c6a90a580066a1cb959074111a49bd *man/mstree.Rd
-19dfd88abdfd28a862706046624e2ef8 *man/multiblock.Rd
+0a66f03fa824c011f95cc83fffe697a6 *man/multiblock.Rd
 93921990147d7a102a55ebe3c0a1f2bd *man/multispati.Rd
 025c831146e303e447aaa9ff8bfd5823 *man/multispati.randtest.Rd
 30f6c9a3a1689cae14882fb9d301d778 *man/multispati.rtest.Rd
@@ -506,7 +506,7 @@ fa31dc1287612217fae3ac3d8589324e *man/procuste.rtest.Rd
 b497a56dd3ede8cd6c40d7316397a682 *man/quasieuclid.Rd
 1aa57de64ef7402419052e569ecbc277 *man/randEH.Rd
 dbabb33255dfdbc2a709b9f43b16c644 *man/randboot.Rd
-511b4cfb7563ad499700eb4b8e50d904 *man/randboot.multiblock.Rd
+b3312d143490ca1848f89e91c3bb7eb0 *man/randboot.multiblock.Rd
 ad10c7a872d3118ca2621064d1581459 *man/randtest.Rd
 2146def722f2489173b73281f8f7eb5b *man/randtest.amova.Rd
 1d37cb1c819aa6421c568e977eb13787 *man/randtest.between.Rd
@@ -581,7 +581,7 @@ c66f9faac41f71051012371bbce689be *man/table.value.Rd
 5dda2bd3b7a9baec7611872a472320d0 *man/tarentaise.Rd
 49707fd1338711908204bc755bff9b74 *man/taxo.eg.Rd
 a52e54243d7afbe5ede4597a081c7637 *man/testdim.Rd
-b3cd93153416e926605985da603946d0 *man/testdim.multiblock.Rd
+3183df2fe77649d04a60823bc095af96 *man/testdim.multiblock.Rd
 a7dd35af6744709d16b452fcfe204d1c *man/tintoodiel.Rd
 0873ff2c03cfa3379873314253f90b90 *man/tithonia.Rd
 1234e35f8fdc5cae3b06ff17652f6f78 *man/tortues.Rd
@@ -592,7 +592,7 @@ fc6642ac2232b0d4203eac93cea1ff4f *man/triangle.class.Rd
 e852befdc36a81e8785d75b7cf4c0f1e *man/ungulates.Rd
 77ba948fc7720a971e8c3724e0f0a023 *man/uniquewt.df.Rd
 990dce46e5096ae2710a21272b40cbfe *man/variance.phylog.Rd
-637be78a917a156553f111e95c285f0b *man/varipart.Rd
+444080d8d1ca325add04965c6a51c54c *man/varipart.Rd
 bb50bf8f6978c7cce94bb949afd3366a *man/vegtf.Rd
 ba7ac081a6b0ab9ad0dcd1fe5671a2d5 *man/veuvage.Rd
 7632fa15447224d022a1ce1ee19d2e94 *man/wca.Rd
