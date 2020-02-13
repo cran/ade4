@@ -38,9 +38,9 @@ dist.ktab <- function(x, type, option = c("scaledBYrange", "scaledBYsd", "noscal
             cat("1 = JACCARD index (1901) S3 coefficient of GOWER &
 LEGENDRE\n")
             cat("s1 = a/(a+b+c) --> d = sqrt(1 - s)\n")
-            cat("2 = SOCKAL & MICHENER index (1958) S4 coefficient of GOWER & LEGENDRE \n")
+            cat("2 = SOKAL & MICHENER index (1958) S4 coefficient of GOWER & LEGENDRE \n")
             cat("s2 = (a+d)/(a+b+c+d) --> d = sqrt(1 - s)\n")
-            cat("3 = SOCKAL & SNEATH(1963) S5 coefficient of GOWER &
+            cat("3 = SOKAL & SNEATH(1963) S5 coefficient of GOWER &
 LEGENDRE\n")
             cat("s3 = a/(a+2(b+c)) --> d = sqrt(1 - s)\n")
             cat("4 = ROGERS & TANIMOTO (1960) S6 coefficient of GOWER &
@@ -563,7 +563,7 @@ self-similarity\n")
             }
             
             verif <- function(u){
-                if(any(is.na(match(u, c(0, 1)))))
+                if(any(!u[!is.na(u)] %in% c(0, 1)))
                     stop("Dichotomous variables should have only 0, and 1")
             }
             
@@ -1170,9 +1170,9 @@ ldist.ktab <- function(x, type, option = c("scaledBYrange", "scaledBYsd", "nosca
             cat("1 = JACCARD index (1901) S3 coefficient of GOWER &
 LEGENDRE\n")
             cat("s1 = a/(a+b+c) --> d = sqrt(1 - s)\n")
-            cat("2 = SOCKAL & MICHENER index (1958) S4 coefficient of GOWER & LEGENDRE \n")
+            cat("2 = SOKAL & MICHENER index (1958) S4 coefficient of GOWER & LEGENDRE \n")
             cat("s2 = (a+d)/(a+b+c+d) --> d = sqrt(1 - s)\n")
-            cat("3 = SOCKAL & SNEATH(1963) S5 coefficient of GOWER &
+            cat("3 = SOKAL & SNEATH(1963) S5 coefficient of GOWER &
 LEGENDRE\n")
             cat("s3 = a/(a+2(b+c)) --> d = sqrt(1 - s)\n")
             cat("4 = ROGERS & TANIMOTO (1960) S6 coefficient of GOWER &
@@ -1481,7 +1481,7 @@ self-similarity\n")
             }
             
             verif <- function(u){
-                if(any(is.na(match(u, c(0, 1)))))
+                if(any(!u[!is.na(u)] %in% c(0, 1)))
                     stop("Dichotomous variables should have only 0, and 1")
             }
             
@@ -1812,9 +1812,9 @@ kdist.cor <- function(x, type, option = c("scaledBYrange", "scaledBYsd", "noscal
             cat("1 = JACCARD index (1901) S3 coefficient of GOWER &
 LEGENDRE\n")
             cat("s1 = a/(a+b+c) --> d = sqrt(1 - s)\n")
-            cat("2 = SOCKAL & MICHENER index (1958) S4 coefficient of GOWER & LEGENDRE \n")
+            cat("2 = SOKAL & MICHENER index (1958) S4 coefficient of GOWER & LEGENDRE \n")
             cat("s2 = (a+d)/(a+b+c+d) --> d = sqrt(1 - s)\n")
-            cat("3 = SOCKAL & SNEATH(1963) S5 coefficient of GOWER &
+            cat("3 = SOKAL & SNEATH(1963) S5 coefficient of GOWER &
 LEGENDRE\n")
             cat("s3 = a/(a+2(b+c)) --> d = sqrt(1 - s)\n")
             cat("4 = ROGERS & TANIMOTO (1960) S6 coefficient of GOWER &
@@ -2126,7 +2126,7 @@ self-similarity\n")
                 }
                 
                 verif <- function(u){
-                    if(any(is.na(match(u, c(0,1)))))
+                    if(any(!u[!is.na(u)] %in% c(0, 1)))
                         stop("Dichotomous variables should have only 0, and 1")
                 }
                 
@@ -2288,7 +2288,7 @@ self-similarity\n")
                         x[x < tol] <- 0
                         return(x)
                     }
-                    thedis <- lapply(res, funfor0)
+                    thedis <- lapply(listdis, funfor0)
                     names(thedis) <- attributes(x[[i]])$Labels
                 }
             }
@@ -2400,7 +2400,7 @@ self-similarity\n")
                         x[x < tol] <- 0
                         return(x)
                     }
-                    thedis <- lapply(res, funfor0)
+                    thedis <- lapply(listdis, funfor0)
                     names(thedis) <- names(x[[i]])
                 }
             }
@@ -2884,7 +2884,7 @@ self-similarity\n")
                     }
                     
                     verif <- function(u){
-                        if(any(is.na(match(u, c(0,1)))))
+                        if(any(!u[!is.na(u)] %in% c(0, 1)))
                             stop("Dichotomous variables should have only 0, and 1")
                     }
                     

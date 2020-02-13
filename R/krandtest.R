@@ -118,3 +118,50 @@
   
 }
 
+
+"[.krandtest" <- function(x, i) {
+  res <- list()
+  if (!inherits(x, "lightkrandtest"))
+    if(length(i) == 1)
+      res$sim <- x$sim[, i, drop = FALSE]
+    else
+      res$sim <- x$sim[, i]
+  res$obs <- x$obs[i]
+  res$alter <- x$alter[i]
+  res$rep <- x$rep[i]
+  res$ntest <- length(i)
+  res$expvar <- x$expvar[i, ]
+  res$names <- x$names[i]
+  res$pvalue <- x$pvalue[i]
+  res$plot <- x$plot[i]
+  res$adj.pvalue <- x$adj.pvalue[i]
+  res$adj.method <- x$adj.method
+  res$call <- match.call()
+  class(res) <- class(x)
+  return(res)
+}
+
+"[[.krandtest" <- function(x, i) {
+  if(length(i) != 1)
+    stop("Only one element can be selected: 'i' must be an index of length at 1.")
+  
+  obj <- x[i]
+
+  res <- list()
+  if (!inherits(x, "lightkrandtest"))
+    res$sim <- obj$sim
+  res$obs <- obj$obs
+  res$alter <- obj$alter
+  res$rep <- obj$rep
+  res$expvar <- obj$expvar
+  res$pvalue <- obj$pvalue
+  res$plot <- obj$plot
+  res$call <- match.call()
+  
+  class(res) <- "randtest"
+  if (inherits(x, "lightkrandtest")) 
+    class(res) <- c(class(res), "lightrandtest")
+  
+  return(res)
+}
+
