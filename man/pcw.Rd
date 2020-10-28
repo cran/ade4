@@ -5,7 +5,7 @@
 \description{
   Abundance of tropical trees, environmental variables and spatial
   coordinates for 50 sites. Data are available at
-  \url{http://www.sciencemag.org/content/295/5555/666/suppl/DC1}
+  \url{https://science.sciencemag.org/content/suppl/2002/01/24/295.5555.666.DC1}
   but plots from Barro Colorado Island were removed.
 }
 \usage{data(pcw)}
@@ -25,7 +25,7 @@
   Condit, R., N. Pitman, E. G. Leigh, J. Chave, J. Terborgh,
   R. B. Foster, P. Núnez, S. Aguilar, R. Valencia, G. Villa,
   H. C. Muller-Landau, E. Losos, and S. P. Hubbell. (2002) Beta-diversity
-  in tropical forest trees. \emph{Science}, \bold{295}, 666–669.
+  in tropical forest trees. \emph{Science}, \bold{295}, 666-669.
 
   
   Pyke, C. R., R. Condit, S. Aguilar, and S. Lao. (2001) Floristic
