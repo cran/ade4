@@ -1,6 +1,6 @@
-e41712f3cba15fb5b1864af1455f95df *ChangeLog
-7f70186f7b99904f5727964e09453186 *DESCRIPTION
-6a3247f02dfb32994d7c1bfdea2c45ad *NAMESPACE
+db3496b9fcb3ef98a2e8b15b587b0a18 *ChangeLog
+d2fb5ab3ad6eea8b21edab51c9cb51ca *DESCRIPTION
+42d989c86922f0679f7428c6d4dac0f1 *NAMESPACE
 6b677d2c1862d14d17ab0760f9760dcc *R/PI2newick.R
 6997af57a25d43dc445092f3e845f2f1 *R/RV.rtest.R
 8d43bff953af1f5d49b5e0fb16930a34 *R/RVdist.randtest.R
@@ -46,9 +46,9 @@ ff12dab0c407cd15bc3397e27b59c25d *R/dudi.mix.R
 80d3bfcd008d5b1d9711fe5818a10081 *R/dudi.pca.R
 aa5542ff757e1e30a36436ae1e4da323 *R/dudi.pco.R
 031a44a634bb5f432693708c3768aef5 *R/foucart.R
-8088980976b1cd67f9759db87789062b *R/fourthcorner.R
+78a697733c374787dda4df62f268c524 *R/fourthcorner.R
 60336b42bd5ee95f3ae4145506d31979 *R/fourthcorner.rlq.R
-89a593d1a3097687949a2e59bbcfdd38 *R/fourthcorner2.R
+751a0a5b726390abfa9d4443edc8b9e4 *R/fourthcorner2.R
 d2f63c500851905fe0398b3fa4dae7ab *R/gearymoran.R
 4b51d288b3c7c57a485f7728676e0c56 *R/gridrowcol.R
 b54921287a7845457bc2f46761ef9c5a *R/inertia.dudi.R
@@ -73,12 +73,12 @@ eb9fd47df55510b979820e3f3e528aab *R/ktab.list.dudi.R
 9d4a9f10a538cbf896a72535ea0961b3 *R/ktab.match2ktabs.R
 d7b3319992f78918e90fcd49bf16e23e *R/ktab.within.R
 6aa6c74464a2d1a55b2562561795cdc2 *R/lingoes.R
-77b75b0b5750c343c90a80a9c028ecda *R/loocv.R
+a94c405664fd26f953998c9a7562b0d9 *R/loocv.R
 865f71d4617be075737dd1d22e37297d *R/mantel.randtest.R
 282b41479955a96001a1b35768643bb0 *R/mantel.rtest.R
 61e6ea24eb1b11e1dfbca8a2edd0942c *R/mbpcaiv.R
 9adff3592123f838e1e77fff35db84eb *R/mbpls.R
-f2069eaaf0ff7a8c492ca744e26241db *R/mcoa.R
+4b40431b4ed734f4020bfe5bc9588319 *R/mcoa.R
 7df34204586cf5a1d8851262ccf62b0b *R/mdpcoa.R
 7c3bc2cbb167182b3fcddbd2d882c628 *R/mfa.R
 bc8897b6d8e662fa44e5b162fed075cb *R/mld.R
@@ -184,6 +184,7 @@ fc7ad0d60c544e7fb0cda0fbb4f1c0a1 *R/wca.rlq.R
 ae76386dca7368d10a0fe45f5359b695 *R/withinpca.R
 6dc08edd27a3613101e7d5cb8a8fd166 *R/witwit.R
 120a205bd4dd852cb90b6e3cadd2c5cd *R/witwitsepan.R
+0f0a5ab9b3e725775ed7aaffc97cc57b *build/partial.rdb
 c06998c47095079d17dd3cd12e08a21e *data/abouheif.eg.rda
 e0cd641217952ecfc5a848b94eba4c09 *data/acacia.rda
 2ca97a8b530f94fc412e0ba8d1967934 *data/aminoacyl.rda
@@ -344,7 +345,7 @@ d87c50343421d615eec0183992e282c5 *man/bf88.Rd
 658377f307a06c176d610177a928a71f *man/bsetal97.Rd
 54aeb9d389d5b11a58808ccf6c8a4465 *man/buech.Rd
 629fd7b535eb008a7c798080b4f2ee76 *man/butterfly.Rd
-c29141ff24a81ba211d3a1e2222ac9bc *man/bwca.dpcoa.Rd
+d48c1c5f3050464858ff14b531bf1a10 *man/bwca.dpcoa.Rd
 7cfada60ad3ecab55ceb38d595b1fa11 *man/cailliez.Rd
 10cbbd758037ebc5dc5897390c32ab97 *man/capitales.Rd
 d0ab9fd2335bbc6fc9ccf329c3e79b7b *man/carni19.Rd
@@ -372,7 +373,7 @@ b707cfe0f6f33b2355c6653dadfbc815 *man/disc.Rd
 30c9421e4bb3c2adcd0a4bbb568ab3f4 *man/discrimin.coa.Rd
 722ea45480bc97122a7a5e2285a9486f *man/dist.binary.Rd
 ef1758a31c80808665c088526667bcae *man/dist.dudi.Rd
-977087338f8fce066c7db8b9868c8d36 *man/dist.ktab.Rd
+11668dd7691cc53aee718a875f8bd88d *man/dist.ktab.Rd
 5ccf470ce27b4a31abf024f13cc08e2b *man/dist.neig.Rd
 74cc1ac08c5cae5d0695e07ed2e40487 *man/dist.prop.Rd
 0a8a26a56402c536e2e39aad6e8665aa *man/dist.quant.Rd
@@ -400,7 +401,7 @@ f68bf1a1d100b206d6a10f29e2543ebe *man/escopage.Rd
 02c85de52e3cb2703dc8d4e7537e2134 *man/euro123.Rd
 4a3db474ec918ed1eb517b9d65605982 *man/fission.Rd
 2d9e0e91e23b9c28a9eb80b4079a1692 *man/foucart.Rd
-2107a61245d9c09a5a3df1784778ad2f *man/fourthcorner.Rd
+8a859aa2f3466d771c448f745219f170 *man/fourthcorner.Rd
 3adeabc79ad58a8adf4fbb9353ce07f5 *man/friday87.Rd
 e2bea0a520462821a036f271409f33f8 *man/fruits.Rd
 c90c906094000915af6e610beb8fc0d8 *man/gearymoran.Rd
@@ -437,9 +438,9 @@ ab8a36023c98addf300753ed0d827d7c *man/ktab.match2ktabs.Rd
 8079d383b8fe439a05b5327598c2d8c0 *man/lascaux.Rd
 a60aec1e73f6e5e44469dc5cae1b6515 *man/lingoes.Rd
 d4c0558a22707b775e0ff79c7771adf3 *man/lizards.Rd
-43dad9f48768d1454f04560426d9634a *man/loocv.bca.Rd
-2460374c81a0976c3a713eab05179ef7 *man/loocv.discrimin.Rd
-e7031c3e7a6577642215a02b93a578d9 *man/loocv.dudi.Rd
+3648c19dd43fc23d62a54d79c6eed365 *man/loocv.bca.Rd
+d3d15c504719f2040da2daee7339601c *man/loocv.discrimin.Rd
+5cf146997be39bf057accb22b9c5e9e4 *man/loocv.dudi.Rd
 ffb4c26da7697a5ed7b1e1edec99d13e *man/macaca.Rd
 2e0a5f29e020638da962402a07c41c94 *man/macon.Rd
 738d6ad074c9750d7f583d3580886a35 *man/macroloire.Rd
@@ -448,8 +449,8 @@ c40f56186a3d99fe9595d6ca4c031e53 *man/mafragh.Rd
 8b4cdae21e7d8f90d7fcaa9a5250a054 *man/mantel.rtest.Rd
 fe18b1f6484a339f1641fc864446894e *man/maples.Rd
 e5bd6190c3964632a6eac8982a5244c9 *man/mariages.Rd
-9ba6c227e04469429168582e9a9a3b0d *man/mbpcaiv.Rd
-378f539fc0aac14deca2a3bb9cd04171 *man/mbpls.Rd
+1acc23f6142ac122e14bdac3ea08d074 *man/mbpcaiv.Rd
+9c5fb3e1a98478679f522384ac9a1597 *man/mbpls.Rd
 4fff9cfa974199382a0386f57f28f21a *man/mcoa.Rd
 faf07f3c20cd21f6fac74cc9aeecac1d *man/mdpcoa.Rd
 701ca4c18001cbe33d42124c74595898 *man/meau.Rd
@@ -462,7 +463,7 @@ f31cd1638fb6c92a04344cc4f6f232da *man/mollusc.Rd
 5ae787bce8773ba944d9daffc2ac6640 *man/monde84.Rd
 aa0678333c8ba7621a3470615cd2a9f1 *man/morphosport.Rd
 e5c6a90a580066a1cb959074111a49bd *man/mstree.Rd
-d8b686219e71014db4761a0f583073c9 *man/multiblock.Rd
+ef2e9ac5eda8d28197a2203a4f10e38f *man/multiblock.Rd
 cecb185ac49a0adafc53cbd8471efb90 *man/multispati.Rd
 025c831146e303e447aaa9ff8bfd5823 *man/multispati.randtest.Rd
 30f6c9a3a1689cae14882fb9d301d778 *man/multispati.rtest.Rd
@@ -497,7 +498,7 @@ fa31dc1287612217fae3ac3d8589324e *man/procuste.rtest.Rd
 92f7f004083ccb02f0a6c54342127372 *man/pta.Rd
 b497a56dd3ede8cd6c40d7316397a682 *man/quasieuclid.Rd
 dbabb33255dfdbc2a709b9f43b16c644 *man/randboot.Rd
-ebc9228ddb7078707b753945e065bee5 *man/randboot.multiblock.Rd
+77af1f6dce1367d69b34d9879147e46e *man/randboot.multiblock.Rd
 66af2805133b21892d1a27c25998c46a *man/randtest.Rd
 2146def722f2489173b73281f8f7eb5b *man/randtest.amova.Rd
 1d37cb1c819aa6421c568e977eb13787 *man/randtest.between.Rd
@@ -559,7 +560,7 @@ bb6f2336d57376429a2e84ec462744d8 *man/sepan.Rd
 17a8cc9d63d55909ecfe70bdd7468d0c *man/statis.Rd
 715910d3844db60390d7db3042ab4442 *man/steppe.Rd
 e7bb33c3766623f999c645948417efbe *man/supcol.Rd
-a3e6a34dd8837531d1d88578af895761 *man/supdist.Rd
+5fdd448f7de74fe086a21e58e366e5f8 *man/supdist.Rd
 bbcc6af7809354956215e40b4df6fbf6 *man/suprow.Rd
 e169a8e85a52bd18ba2b72d95453cdd8 *man/suprow.pta.Rd
 ebe8f79b0d7da4bd698db7a34a9f9637 *man/symbols.phylog.Rd
@@ -573,7 +574,7 @@ c66f9faac41f71051012371bbce689be *man/table.value.Rd
 5dda2bd3b7a9baec7611872a472320d0 *man/tarentaise.Rd
 49707fd1338711908204bc755bff9b74 *man/taxo.eg.Rd
 a52e54243d7afbe5ede4597a081c7637 *man/testdim.Rd
-354b20ef5260c11f76dce7e0cb21cf16 *man/testdim.multiblock.Rd
+3652ca50e126534930de3c0837531420 *man/testdim.multiblock.Rd
 a7dd35af6744709d16b452fcfe204d1c *man/tintoodiel.Rd
 0873ff2c03cfa3379873314253f90b90 *man/tithonia.Rd
 1234e35f8fdc5cae3b06ff17652f6f78 *man/tortues.Rd
