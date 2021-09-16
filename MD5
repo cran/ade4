@@ -1,6 +1,6 @@
-db3496b9fcb3ef98a2e8b15b587b0a18 *ChangeLog
-d2fb5ab3ad6eea8b21edab51c9cb51ca *DESCRIPTION
-42d989c86922f0679f7428c6d4dac0f1 *NAMESPACE
+c8c1f2540e79143d1aba778e13a93fb9 *ChangeLog
+5c4e1a4001c4dc02d533b96142179741 *DESCRIPTION
+2cbe922c917825d712da24f8e5971d39 *NAMESPACE
 6b677d2c1862d14d17ab0760f9760dcc *R/PI2newick.R
 6997af57a25d43dc445092f3e845f2f1 *R/RV.rtest.R
 8d43bff953af1f5d49b5e0fb16930a34 *R/RVdist.randtest.R
@@ -73,7 +73,7 @@ eb9fd47df55510b979820e3f3e528aab *R/ktab.list.dudi.R
 9d4a9f10a538cbf896a72535ea0961b3 *R/ktab.match2ktabs.R
 d7b3319992f78918e90fcd49bf16e23e *R/ktab.within.R
 6aa6c74464a2d1a55b2562561795cdc2 *R/lingoes.R
-a94c405664fd26f953998c9a7562b0d9 *R/loocv.R
+c40fe751cf74739ecc3c3882fc3b0ea3 *R/loocv.R
 865f71d4617be075737dd1d22e37297d *R/mantel.randtest.R
 282b41479955a96001a1b35768643bb0 *R/mantel.rtest.R
 61e6ea24eb1b11e1dfbca8a2edd0942c *R/mbpcaiv.R
@@ -184,7 +184,7 @@ fc7ad0d60c544e7fb0cda0fbb4f1c0a1 *R/wca.rlq.R
 ae76386dca7368d10a0fe45f5359b695 *R/withinpca.R
 6dc08edd27a3613101e7d5cb8a8fd166 *R/witwit.R
 120a205bd4dd852cb90b6e3cadd2c5cd *R/witwitsepan.R
-0f0a5ab9b3e725775ed7aaffc97cc57b *build/partial.rdb
+be2cfd4093fa8b8e3f25247e510550c9 *build/partial.rdb
 c06998c47095079d17dd3cd12e08a21e *data/abouheif.eg.rda
 e0cd641217952ecfc5a848b94eba4c09 *data/acacia.rda
 2ca97a8b530f94fc412e0ba8d1967934 *data/aminoacyl.rda
@@ -438,8 +438,8 @@ ab8a36023c98addf300753ed0d827d7c *man/ktab.match2ktabs.Rd
 8079d383b8fe439a05b5327598c2d8c0 *man/lascaux.Rd
 a60aec1e73f6e5e44469dc5cae1b6515 *man/lingoes.Rd
 d4c0558a22707b775e0ff79c7771adf3 *man/lizards.Rd
-3648c19dd43fc23d62a54d79c6eed365 *man/loocv.bca.Rd
-d3d15c504719f2040da2daee7339601c *man/loocv.discrimin.Rd
+f85bc0c01d7746cd1934b1fcdfc3d9b4 *man/loocv.bca.Rd
+b4d677fe878fa6fb07dadffda2a43143 *man/loocv.discrimin.Rd
 5cf146997be39bf057accb22b9c5e9e4 *man/loocv.dudi.Rd
 ffb4c26da7697a5ed7b1e1edec99d13e *man/macaca.Rd
 2e0a5f29e020638da962402a07c41c94 *man/macon.Rd
@@ -483,7 +483,7 @@ f9b9b774c9a3c9e21f9f29744a8df996 *man/palm.Rd
 b33e7fc3381597afc498baead8ca5047 *man/pcaiv.Rd
 0fd2c833f564dc8b178b8328c0573d70 *man/pcaivortho.Rd
 e5af7e7dca04d7a7914bdae08c680c55 *man/pcoscaled.Rd
-4b32aba5f366309250ee7a5795daa58a *man/pcw.Rd
+bec5106d6579cae2d5622e74374bfa98 *man/pcw.Rd
 0608d931a3b59ae1577b1b39560db4d1 *man/perthi02.Rd
 568f545e65ad7feb3b70f9b725af2690 *man/phylog.Rd
 2696ba19f5ba9f562ba5f3ba2ad0833d *man/piosphere.Rd

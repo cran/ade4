@@ -1,5 +1,7 @@
 \name{loocv.between}
 \alias{loocv.between}
+\alias{plot.bcaloocv}
+\alias{print.bcaloocv}
 \title{
 Leave-one-out cross-validation for a \code{bca}
 }
@@ -8,6 +10,8 @@ Leave-one-out cross-validation for \code{bca}.
 }
 \usage{
 \method{loocv}{between}(x, nax = 0, progress = FALSE, parallel = FALSE, \dots)
+\method{print}{bcaloocv}(x, ...)
+\method{plot}{bcaloocv}(x, xax = 1, yax = 2, ...)
 }
 \arguments{
   \item{x}{
@@ -21,6 +25,9 @@ logical, TRUE = display a progress bar during computations
 }
 \item{parallel}{
 logical, TRUE = process cross-validation in parallel computing 
+}
+\item{xax, yax}{
+the numbers of the x-axis and the y-axis
 }
 \item{\dots}{further arguments passed to or from other methods}
 }
@@ -52,11 +59,13 @@ the spuriousness index
 }
 }
 \references{
-Cardini A, O'Higgins P, Rohlf J. Seeing Distinct Groups Where There are None: Spurious Patterns from Between-Group PCA. Evolutionary Biology (2019) 46:303-316
+Thioulouse J, Renaud S, Dufour AB, Dray S. Overcoming the Spurious Groups Problem in Between-Group PCA. Evolutionary Biology (2021). (Accepted).
 
-Cardini A, Polly D. Cross-validated Between Group PCA Scatterplots: A Solution to Spurious Group Separation? Evolutionary Biology (2020) https://doi.org/10.1007/s11692-020-09494-x
+Cardini A, Polly D. Cross-validated Between Group PCA Scatterplots: A Solution to Spurious Group Separation ? Evolutionary Biology (2020) 47:85–95. \doi{10.1007/s11692-020-09494-x}
 
-Bookstein F. Pathologies of Between-Groups Principal Components Analysis in Geometric Morphometrics. Evolutionary Biology (2019) 46:271-302
+Cardini A, O'Higgins P, Rohlf J. Seeing Distinct Groups Where There are None: Spurious Patterns from Between-Group PCA. Evolutionary Biology (2019) 46:303-316. \doi{10.1007/s11692-019-09487-5}
+
+Bookstein F. Pathologies of Between-Groups Principal Components Analysis in Geometric Morphometrics. Evolutionary Biology (2019) 46:271-302. \doi{10.1007/s11692-019-09484-8}
 }
 \author{
 Jean Thioulouse
