@@ -16,7 +16,6 @@
     \item{tab}{a data frame with 15 environmental variables (columns) on 33 ponds (rows)}
     \item{area}{an object of class \code{area}}
     \item{xy}{a data frame with the coordinates of ponds}
-    \item{neig}{an object of class \code{neig}}
     \item{nb}{the neighbourhood graph of the 33 sites (an object of class \code{nb})}
     \item{Spatial}{an object of the class \code{SpatialPolygons} of \code{sp}, containing the map}
 }}
@@ -31,8 +30,7 @@ divMI (diversity macroinvertebrates)
 
 \source{
   Cottenie, K. (2002) Local and regional processes in a zooplankton metacommunity. 
-  PhD, Katholieke Universiteit Leuven, Leuven, Belgium. \cr
-  \url{https://bio.kuleuven.be/eco/phdkarlcottenie.pdf}
+  PhD, Katholieke Universiteit Leuven, Leuven, Belgium.
 }
 
 \examples{
@@ -51,11 +49,10 @@ if(adegraphicsLoaded()) {
   }
 
 } else {
-  par(mfrow=c(3, 1))
+  par(mfrow = c(3, 1))
   area.plot(kcponds$area)
   s.label(kcponds$xy, add.p = TRUE, cpoi = 2, clab = 0)
   s.label(kcponds$xy, add.p = TRUE, cpoi = 3, clab = 0)
-  s.label(kcponds$xy, add.p = TRUE, cpoi = 0, clab = 0, neig = kcponds$neig, cneig = 1)
   area.plot(kcponds$area)
   s.label(kcponds$xy, add.p = TRUE, clab = 1.5)
   s.value(kcponds$xy, w, cleg = 2, sub = "Nitrogen concentration", csub = 4, 
@@ -66,9 +63,10 @@ if(adegraphicsLoaded()) {
 \dontrun{
   par(mfrow = c(3, 1))
   pca1 <- dudi.pca(kcponds$tab, scan = FALSE, nf = 4)
-  if(requireNamespace("spdep", quietly = TRUE)) {
-    multi1 <- multispati(pca1, spdep::nb2listw(neig2nb(kcponds$neig)), scannf = FALSE, nfposi = 2, 
-      nfnega = 1)
+  if(requireNamespace("spdep", quietly = TRUE) &
+    requireNamespace("adespatial", quietly = TRUE)) {
+    multi1 <- adespatial::multispati(pca1, spdep::nb2listw(kcponds$nb),
+        scannf = FALSE, nfposi = 2, nfnega = 1)
     summary(multi1)
   }
   par(mfrow = c(1, 1))

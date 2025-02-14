@@ -14,7 +14,7 @@ dudi.type <- function(x){
   x <- match.call(eval(x[[1]]),call = x) ## fill arguments names
   call.list <- as.list(x)
   dudi.name <- deparse(call.list[[1]])
-  call.list <- modifyList(formals(dudi.name), call.list[-1]) ## fill with default for unused arguments
+  call.list <- utils::modifyList(formals(dudi.name), call.list[-1]) ## fill with default for unused arguments
   
   if (dudi.name == "dudi.pca") {
     call.list$scale <- eval(call.list$scale)
@@ -42,8 +42,13 @@ dudi.type <- function(x){
 
 
 adegraphicsLoaded <- function() {
+    res <- FALSE
     ## check if adegraphics is loaded
-    "package:adegraphics"%in%search()
+    if("package:adegraphics"%in%search())
+        ## check if adegraphics is loaded after ade4
+        if(which("package:adegraphics" == search()) < which("package:ade4" == search()))
+           res <- TRUE
+    return(res)
 }
     
 messageScannf <- function(oldCall, myNf) {

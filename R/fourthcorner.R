@@ -1,4 +1,6 @@
-"fourthcorner" <- function(tabR, tabL, tabQ, modeltype = 6,nrepet = 999, tr01 = FALSE, p.adjust.method.G = p.adjust.methods, p.adjust.method.D = p.adjust.methods, p.adjust.D = c("global","levels"), ...) {  
+"fourthcorner" <- function(tabR, tabL, tabQ, modeltype = 6,nrepet = 999, tr01 = FALSE, 
+                           p.adjust.method.G = p.adjust.methods, p.adjust.method.D = p.adjust.methods, 
+                           p.adjust.D = c("global","levels"), ...) {  
   
   ## tabR ,tabL, tabQ are 3 data frames containing the data    
   ## permut.model is the permutational model and can take 6 values (1:6)   6 corresponds to the combination of 2 and 4    
@@ -265,8 +267,8 @@
         idx.varR <- which(res$assignR == j)
         idx.varQ <- which(res$assignQ == i)
         idx.vars <- nvarR * (idx.varQ - 1) + idx.varR
-        res$tabD$adj.pvalue[idx.vars] <- p.adjust(res$tabD$pvalue[idx.vars], method = p.adjust.method.D)
-        res$tabD2$adj.pvalue[idx.vars] <- p.adjust(res$tabD2$pvalue[idx.vars], method = p.adjust.method.D)
+        res$tabD$adj.pvalue[idx.vars] <- stats::p.adjust(res$tabD$pvalue[idx.vars], method = p.adjust.method.D)
+        res$tabD2$adj.pvalue[idx.vars] <- stats::p.adjust(res$tabD2$pvalue[idx.vars], method = p.adjust.method.D)
       }
     }
     res$tabD$adj.method <- res$tabD2$adj.method <- paste(p.adjust.method.D, "by levels")

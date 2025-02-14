@@ -15,7 +15,7 @@ covwt <- function(x, wt, na.rm = FALSE) {
   ## compute weighted biased (divided by n) covariance matrix
   x <- as.matrix(x)
   if (na.rm) {
-    x <- na.omit(x)
+    x <- stats::na.omit(x)
     wt <- wt[- attr(x,"na.action")]
   }
   wt <- wt / sum(wt)
@@ -29,7 +29,7 @@ scalewt <- function (df, wt = rep(1/nrow(df), nrow(df)), center = TRUE, scale = 
     df <- as.matrix(df)
     mean.df <- FALSE
     if(center){
-        mean.df <- apply(df, 2, weighted.mean, w = wt)
+        mean.df <- apply(df, 2, stats::weighted.mean, w = wt)
         df <- sweep(df, 2, mean.df, "-") 
     }
     
@@ -66,21 +66,18 @@ meanfacwt <- function(df, fac = NULL, wt = rep(1/nrow(df), nrow(df)), drop = FAL
       fac <- as.factor(fac)
       if(drop)
         fac <- factor(fac)
-      res <- t(sapply(split(df,fac),colMeans))
+      res <- do.call("rbind", lapply(split(df,fac),colMeans))
     }
   } else {
     if(is.null(fac)) { ## no factor
-      res <- apply(df, 2, weighted.mean, w = wt)
+      res <- apply(df, 2, stats::weighted.mean, w = wt)
     } else {
       fac <- as.factor(fac)
       if(drop)
          fac <- factor(fac)
       df.list <- split(df, fac)
       wt.list <- split(wt, fac)
-      if(ncol(df) > 1)
-        res <- t(sapply(1:nlevels(fac), function(x) apply(df.list[[x]], 2, weighted.mean, w = wt.list[[x]])))
-      else
-        res <- as.matrix(sapply(1:nlevels(fac), function(x) apply(df.list[[x]], 2, weighted.mean, w = wt.list[[x]])))
+      res <- do.call("rbind", lapply(1:nlevels(fac), function(x) apply(df.list[[x]], 2, stats::weighted.mean, w = wt.list[[x]])))
       rownames(res) <- names(df.list)
     }
   }
@@ -92,19 +89,9 @@ meanfacwt <- function(df, fac = NULL, wt = rep(1/nrow(df), nrow(df)), drop = FAL
 covfacwt <- function(df, fac = NULL, wt = rep(1/nrow(df), nrow(df)), drop = FALSE) {
   df <- data.frame(df)
   nr <- nrow(df)
-  if(identical(all.equal(wt, rep(1/nrow(df), nrow(df))), TRUE)) { ## uniform weights
-    if(is.null(fac)) { ## no factor
-      res <- cov(df) * (nr - 1) / nr
-    } else {
-      fac <- as.factor(fac)
-       if(drop)
-         fac <- factor(fac) ## to drop unused levels
-      res <- lapply(split(df,fac), function(x) cov(x) * (nrow(x) - 1) / nrow(x))
-    }
-  } else {
-    if(is.null(fac)) {## no factor
+  if(is.null(fac)) {## no factor
       res <- covwt(df, wt = wt)
-    } else {
+  } else {
       fac <- as.factor(fac)
       if(drop)
         fac <- factor(fac)
@@ -113,7 +100,6 @@ covfacwt <- function(df, fac = NULL, wt = rep(1/nrow(df), nrow(df)), drop = FALS
       res <- lapply(1:nlevels(fac), function(x) covwt(df.list[[x]], wt = wt.list[[x]]))
       names(res) <- names(df.list)
     }
-  }
   return(res)
   ## liste, matrix var/covar, 1 element=1 group (order according to levels(fac))
 }
@@ -121,33 +107,21 @@ covfacwt <- function(df, fac = NULL, wt = rep(1/nrow(df), nrow(df)), drop = FALS
 
 
 
-## attention works only with data.frame or matrix
 varfacwt <- function(df, fac = NULL, wt = rep(1 / nrow(df), nrow(df)), drop = FALSE) {
   df <- data.frame(df)
   nr <- nrow(df)
-  if(identical(all.equal(wt, rep(1 / nrow(df), nrow(df))), TRUE)) { ## uniform weights
-    if(is.null(fac)) { ## no factor
-      res <- apply(df, 2, var) * (nr - 1) / nr
-    } else {
-      fac <- as.factor(fac)
-      if(drop)
-        fac <- factor(fac)
-      df.list <- split(df, fac)
-      res <- t(sapply(1:nlevels(fac), FUN = function(x) {apply(df.list[[x]], 2, function(y) var(y) * (NROW(y) - 1) / NROW(y))}))      
-    }
-  } else {
-    if(is.null(fac)) { ## no factor
+
+  if(is.null(fac)) { ## no factor
       res <- apply(df, 2, varwt, wt = wt)
-    } else {
+  } else {
       fac <- as.factor(fac)
       if(drop)
         fac <- factor(fac)
       df.list <- split(df, fac)
       wt.list <- split(wt, fac)
-      res <- t(sapply(1:nlevels(fac), FUN = function(x) {apply(df.list[[x]], 2, varwt, wt = wt.list[[x]])}))
+      res <- do.call("rbind", lapply(1:nlevels(fac), function(x) apply(df.list[[x]], 2, varwt, w = wt.list[[x]])))
       rownames(res) <- names(df.list)
-    }
-  }
+      }
   return(res)
 }
 
